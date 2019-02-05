@@ -1,0 +1,48 @@
+Arguments: 
+  /Users/pro/.nvm/versions/node/v9.4.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/pro/.nvm/versions/node/v9.4.0/bin:/usr/local/mongodb/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pro/hj/android/android-sdk-macosx/platform-tools:/Users/pro/hj/android/android-sdk-macosx/tools:/usr/local/bin
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  9.4.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "wc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "webpack-dev-server",
+      "build": "webpack",
+      "server": "live-server"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "css-loader": "^2.1.0",
+      "material-components-web": "^0.43.0",
+      "node-sass": "^4.11.0",
+      "sass-loader": "^7.1.0",
+      "style-loader": "^0.23.1",
+      "webpack": "^4.28.1",
+      "webpack-cli": "^3.2.1",
+      "webpack-dev-server": "^3.1.14"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/pro/Library/Caches/Yarn/v1/npm-supports-color-2.0.0-535d045ce6b6363fa40117084629995e9df324c7/readme.md' -> '/Users/pro/daima/WC/node_modules/node-sass/node_modules/supports-color/readme.md'

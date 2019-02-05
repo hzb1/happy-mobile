@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabBar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../../mdc-web-component.css">
+</head>
+<body>
+
+
+<h3>标签栏 TabBar</h3>
+<m-tab-bar id="tab-bar1" m-data='["T0","T1","T2","TAB3","TAB4","TAB5"]'></m-tab-bar>
+
+<script src="../../../mdc-web-component.js"></script>
+<script>
+  var TabBar = window.mwc.MTabBar
+  // 定义组件 注册
+  TabBar.define()
+  var tabBar1 = document.querySelector('#tab-bar1')
+  // setData 赋值
+  // tabBar1.mData = ['TAB0','TAB1', 'abc2']
+  // or
+  // tabBar1.setAttribute('m-data', JSON.stringify(['TAB0','TAB1', 'abc1']))
+  // setTimeout(() => {
+  //   tabBar1.mData = ['TAB0','TAB1', 'abc2']
+  // }, 2000)
+  tabBar1.addEventListener('activated', sonEv);
+  function sonEv (value) {
+    console.log('来自儿子的事件', value)
+  }
+
+</script>
+</body>
+</html>

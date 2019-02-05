@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../../dist/happy-mobile.css">
+</head>
+<body>
+    <!--<h-tab></h-tab>-->
+    <div id="app">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+            <div>
+                type:
+                <select name="cars" v-model="select1">
+                    <option value="default">default</option>
+                    <option value="primary">primary</option>
+                    <option value="warn">warn</option>
+                    <option value="error">error</option>
+                    <option value="text">text</option>
+                </select>
+            </div>
+
+            <div>
+                loading:
+                <select name="cars" v-model="loading1">
+                    <option :value="true">true</option>
+                    <option :value="false">false</option>
+                </select>
+            </div>
+
+        </div>
+        <h-button ref="btn1" @click="clicks()" class="my-class" :type="select1" :loading="loading1" v-html="message"></h-button>
+    </div>
+    <!--<script src="../../../dist/happy-mobile.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.config.ignoredElements = [
+        /^h-/
+      ]
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!',
+          select1: 'primary',
+          loading1: false,
+        },
+        created() {
+        },
+        methods: {
+          clicks(){
+            var t = this.$refs.btn1.showLoading()
+            setTimeout(t, 2000)
+          }
+        }
+      })
+    </script>
+    <script src="../../../dist/c/button.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+:root {
+  --h-theme-primary: #1f78ff;
+  --h-theme-secondary: #018786;
+  --h-theme-background: #fff;
+  --h-theme-surface: #fff;
+  --h-theme-error: #b00020;
+  --h-theme-on-primary: #fff;
+  --h-theme-on-secondary: #fff;
+  --h-theme-on-surface: #000;
+  --h-theme-on-error: #fff;
+  --h-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+  --h-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+  --h-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+  --h-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+  --h-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+  --h-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
+  --h-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+  --h-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+  --h-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
+  --h-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
+  --h-theme-text-primary-on-dark: white;
+  --h-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
+  --h-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
+  --h-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
+  --h-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
+
+@charset "UTF-8";
+.h-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: 0;
+  background-color: white;
+  text-align: center;
+  text-transform: none;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none; }
+  .h-button::before, .h-button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1; }
+  .h-button:focus {
+    outline: 0; }
+  .h-button-icon {
+    transition: all 1000ms ease-in-out;
+    margin: 0 4px;
+    display: inline-block;
+    animation: loading 1s linear 0ms infinite; }
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/**
+  hType 类型
+ */
+.h-button--default {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
+  padding: 0 16px;
+  border-radius: 4px; }
+  .h-button--default::before {
+    background-color: var(--h-theme-primary, #1f78ff);
+    transition: opacity 15ms linear, background-color 15ms linear; }
+  .h-button--default::after {
+    background-color: var(--h-theme-primary, #1f78ff);
+    transition: opacity 150ms linear; }
+  .h-button--default:hover:before {
+    opacity: 0.04; }
+
+.h-button--primary {
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-primary, #1f78ff);
+  padding: 0 16px;
+  border-radius: 4px; }
+  .h-button--primary:before {
+    background-color: var(--h-theme-on-primary, white);
+    transition: opacity 15ms linear, background-color 15ms linear; }
+  .h-button--primary::after {
+    background-color: var(--h-theme-on-primary, white);
+    transition: opacity 150ms linear; }
+  .h-button--primary:hover:before {
+    opacity: 0.08; }
+  .h-button--primary:active:after {
+    transition-duration: 75ms;
+    opacity: 0.32; }
+  .h-button--primary:focus:before {
+    transition-duration: 75ms;
+    opacity: 0.24; }
+
+/*
+  大小: small、medium、large
+ */
+.h-button--small {
+  height: 36px;
+  line-height: 36px; }
+
+.h-button--medium {
+  height: 44px;
+  line-height: 44px; }
+
+.h-button--large {
+  height: 50px;
+  line-height: 50px; }
+
+/**
+  禁用
+ */
+.h-button[disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.37);
+  cursor: default;
+  pointer-events: none; }
+
+/**
+  阴影
+ */
+.h-button[shadow] {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+

@@ -1,0 +1,22 @@
+.h-button {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    border: inherit;
+    text-align: inherit;
+    text-transform: inherit;
+    background-color: initial;
+    background-image: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: inherit;
+}
+
+.h-button:focus{
+    outline: 0;
+}
