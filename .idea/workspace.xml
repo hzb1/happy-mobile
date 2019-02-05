@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d830817a-2454-42d2-8602-71ba5a4f23a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -189,8 +190,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="15">
+              <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -508,7 +509,7 @@
       <workItem from="1549239509770" duration="1276000" />
       <workItem from="1549241791567" duration="20487000" />
       <workItem from="1549335489584" duration="54000" />
-      <workItem from="1549335559966" duration="3158000" />
+      <workItem from="1549335559966" duration="3202000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1549363459271</created>
@@ -524,17 +525,24 @@
       <option name="project" value="LOCAL" />
       <updated>1549363770699</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2">
+      <created>1549363952300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1549363952300</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216541000" />
+    <option name="totallyTimeSpent" value="216585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="17" y="23" width="1423" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60042286" visible="true" weight="0.20827389" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.60042286" visible="true" weight="0.20827389" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.39712918" side_tool="true" weight="0.20827389" />
       <window_info id="npm" order="3" sideWeight="0.39957717" side_tool="true" visible="true" weight="0.20827389" />
@@ -547,7 +555,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32880434" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.5941512" visible="true" weight="0.35733697" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.5941512" visible="true" weight="0.35733697" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3388017" side_tool="true" weight="0.2462585" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -845,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="15">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
