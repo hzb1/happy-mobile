@@ -2,7 +2,17 @@
   "name": "happy-mobile",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "vue-happy-ui",
+    "happy-ui"
+  ],
+  "main": "dist/happy-mobile.js",
+  "module": "dist/happy-mobile.js",
+  "unpkg": "dist/happy-mobile.js",
+  "style": "dist/happy-mobile.css",
+  "homepage": "https://hzb1.github.io/vue-happy-ui/#/home",
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server",
     "build": "webpack --mode production && webpack --config build/webpack.components.js",
@@ -10,7 +20,6 @@
     "hmr": "webpack-dev-server --inline --hotOnly"
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
