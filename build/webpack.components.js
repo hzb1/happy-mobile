@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成一个html文件
 const CleanWebpackPlugin = require('clean-webpack-plugin') // 清理dist文件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 打包css
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const config = require('./config')
 const Components = require('../components.json')

@@ -1,5 +1,6 @@
 import './button.scss'
-import Button from './button.js'
+import Button from './Button.js'
+import Icon from '../icon'
 //
 
 // window.hzb = Button

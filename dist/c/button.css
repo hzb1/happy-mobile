@@ -1,29 +1,3 @@
-:root {
-  --h-theme-primary: #1f78ff;
-  --h-theme-secondary: #018786;
-  --h-theme-background: #fff;
-  --h-theme-surface: #fff;
-  --h-theme-error: #b00020;
-  --h-theme-on-primary: #fff;
-  --h-theme-on-secondary: #fff;
-  --h-theme-on-surface: #000;
-  --h-theme-on-error: #fff;
-  --h-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
-  --h-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
-  --h-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
-  --h-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
-  --h-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-primary-on-dark: white;
-  --h-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
-  --h-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
-  --h-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
-  --h-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
-
 @charset "UTF-8";
 .h-button {
   display: inline-block;

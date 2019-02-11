@@ -4,34 +4,32 @@ const Component = ({
   tag,
   prop = [],
   template = () => '',
-  style = '',
   styleUrl = () => '',
 }) => (Target) => {
   Target.prototype.$tag = tag
   Target.prototype.$prop = prop
   Target.prototype.$template = template
-  Target.prototype.$style = style || styleUrl()
-  // Target.prototype.click = HTMLButtonElement.prototype.click
+  Target.prototype.$style = styleUrl
 
   // 把props绑定到属性上 单向绑定
-  prop.forEach(({ name, type = String, defaults }) => {
-    const hName = toHump(name)
-    Object.defineProperty(Target.prototype, hName, {
-      // value: defaults,
+  prop.forEach(({ name, type = String, has = false }) => {
+    Object.defineProperty(Target.prototype, name, {
       get() {
         const val = this.getAttribute(name)
-        if (type !== String) {
+        // console.log(val, ':val', name, ':name')
+        if (has) {
+          const hasAttr = this.hasAttribute(name)
+          if (!hasAttr || !val) return false
+        }
+        if (type === Boolean) {
           return JSON.parse(val)
         }
-        return val
+        return type(val)
       },
       set(val) {
         this.setAttribute(name, val)
       },
     })
-    // Target.prototype.setAttribute(name, defaults)
-    // console.log(Target[name])
-    // Target[name] = defaults
   })
 }
 

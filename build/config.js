@@ -6,5 +6,5 @@ exports.externals = {
 }
 
 exports.alias = {
-
+  c: path.resolve(__dirname, '../components'),
 }

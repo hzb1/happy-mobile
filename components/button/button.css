@@ -1,13 +1,18 @@
+
+:host{
+    margin: 4px;
+}
+
 .h-button {
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     line-height: inherit;
     margin: 0;
     padding: 0;
-    border: inherit;
+    border: none;
     text-align: inherit;
     text-transform: inherit;
     background-color: initial;

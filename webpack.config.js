@@ -97,11 +97,17 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000,
+    ignored: /node_modules/,
+  },
   devServer: {
     contentBase: path.join(__dirname, ''),
     compress: true,
     host: '0.0.0.0',
     port: 9005,
+    hot: true,
   },
   // target: 'node',
 }

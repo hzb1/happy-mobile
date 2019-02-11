@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && webpack --config build/webpack.components.js",
     "build:c": "webpack --config build/webpack.components.js",
-    "hmr": "webpack-dev-server --hotOnly"
+    "hmr": "webpack-dev-server --inline --hotOnly"
   },
   "author": "",
   "license": "ISC",

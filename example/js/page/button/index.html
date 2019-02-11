@@ -33,27 +33,31 @@
 <body>
 
 <h4>最简单的Button</h4>
-<!--<button h-button id="h-btn1" >指令 Button</button>-->
-<!--<h-button id="h-btn1" onclick="onClick1()">组件 Button</h-button>-->
+<!--<button disabled id="h-btn1" >Button</button>-->
+<h-button id="h-btn1" onclick="onClick1()">组件 Button</h-button>
 
-<h4>类型 h-type</h4>
+<h4>颜色 Color</h4>
 <!--<button h-button>指令 default</button>-->
-<!--<button h-button hType="primary">指令 primary</button>-->
+<h-button color="primary">primary</h-button>
 <!--<h-button hType="primary" >组件 primary</h-button>-->
 
+<h4>阴影 shadow</h4>
+<h-button id="btn2" shadow >shadow</h-button>
+
 <h4>禁用 Disabled</h4>
-<!--<button h-button disabled="true">禁用</button>-->
-<!--<h-button id="btn3" onclick="onClick3()">禁用</h-button>-->
+<h-button id="btn3" disabled="false" onclick="onClick3()">禁用</h-button>
 
 <h4>加载 Loading</h4>
 <!--<button h-button loading="true" onclick="showLoading1()" id="loading1">指令 Loading</button>-->
-<h-button id="btn4" onclick="onClick4()" class="my-class" loading="true" >组件Loading</h-button>
+<h-button id="btn4" onclick="onClick4()" class="my-class" >组件Loading</h-button>
 <!--&lt;!&ndash;<m-button m-type="text">&ndash;&gt;-->
     <!--&lt;!&ndash;<i class="material-icons">favorite</i>  😀&ndash;&gt;-->
 <!--&lt;!&ndash;</m-button>&ndash;&gt;-->
 <!--<h-button type="raised" mat-size="small">小号</h-button>-->
 
 <!--<script type="text/javascript" src="../../../../happy-ui.js"></script>-->
+
+<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>
 <script type="text/javascript" src="../../../../dist/c/button.js"></script>
 <script src="index.js"></script>
 <script>
@@ -76,6 +80,7 @@
 
   var onClick4 = function () {
     var btn4 = document.querySelector('#btn4')
+    console.log(btn4.loading)
     btn4.loading = !btn4.loading
   }
 

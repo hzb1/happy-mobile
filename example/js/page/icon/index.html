@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon</title>
+    <link rel="stylesheet" href="../../../../dist/c/icon.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 18px;
+            box-sizing: border-box;
+            padding-bottom: 140px;
+        }
+    </style>
+</head>
+<body>
+
+<h4>最简单的Icon</h4>
+
+<h-icon id="h-icon1" type="" onclick="onClick1()">Icon</h-icon>
+
+
+<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>
+<script type="text/javascript" src="../../../../dist/c/icon.js"></script>
+<script>
+
+  var onClick1 = function () {
+    var btn1 = document.querySelector('#h-icon1')
+    btn1.type = btn1.type === '#icon-like'? '#icon-likefill': '#icon-like'
+  }
+
+</script>
+</body>
+</html>
