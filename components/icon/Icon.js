@@ -49,11 +49,10 @@ export default class MButton extends BaseComponent {
   init() {
     if (!this.firstLoad){
       this.initMethod()
-      this.initAttribute()
       this.initClass()
       this.firstLoad = true
     }
-
+    this.initAttribute()
   }
 
   connectedCallback() {
@@ -75,7 +74,7 @@ export default class MButton extends BaseComponent {
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return;
-    console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
+    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
       case 'type':
         this.root.classList.remove(oldVal)
