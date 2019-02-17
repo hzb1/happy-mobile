@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../../../../dist/c/button.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+    <link rel="stylesheet" href="../../../../dist/button/button.css">
     <style>
         *{
             margin: 0;
@@ -18,9 +18,10 @@
         }
         h4{
             margin-top: 12px;
+            font-size: 12px;
         }
         h-button, button[h-button]{
-            margin: 12px 0;
+            margin: 6px 0;
         }
         .mdc-button{
             color: red;
@@ -32,33 +33,51 @@
 </head>
 <body>
 
-<h4>最简单的Button</h4>
-<!--<button disabled id="h-btn1" >Button</button>-->
+<h4>最简单 Button</h4>
 <h-button id="h-btn1" onclick="onClick1()">组件 Button</h-button>
 
 <h4>颜色 Color</h4>
-<!--<button h-button>指令 default</button>-->
 <h-button color="primary">primary</h-button>
+<h-button color="info">info</h-button>
+<h-button color="warn">warn</h-button>
+<h-button color="error">error</h-button>
 <!--<h-button hType="primary" >组件 primary</h-button>-->
 
+<h4>内联 Inline</h4>
+<h-button inline="true" >inline</h-button>
+
 <h4>阴影 shadow</h4>
-<h-button id="btn2" shadow >shadow</h-button>
+<h-button id="btn2" shadow="true" >shadow</h-button>
+
+<h4>边框 outline</h4>
+<h-button outline="true" >outline</h-button>
+<h-button color="info" outline="true" >outline</h-button>
+<h-button color="warn" outline="true" >outline</h-button>
+<h-button color="error" outline="true" >outline</h-button>
+
+<h4>大小 Size</h4>
+<h-button size="small" inline="true" >small</h-button>
+<h-button size="medium" inline="true" >medium</h-button>
+<h-button size="large" inline="true" >large</h-button>
 
 <h4>禁用 Disabled</h4>
-<h-button id="btn3" disabled="false" onclick="onClick3()">禁用</h-button>
+<h-button id="btn3" disabled="true" onclick="onClick3()">禁用</h-button>
 
 <h4>加载 Loading</h4>
 <!--<button h-button loading="true" onclick="showLoading1()" id="loading1">指令 Loading</button>-->
-<h-button id="btn4" onclick="onClick4()" class="my-class" >组件Loading</h-button>
+<h-button id="btn4" onclick="onClick4()" class="my-class" >Loading</h-button>
+
+<h4>图标按钮</h4>
+<h-button>
+    <h-icon type="h-like"></h-icon>Icon
+</h-button>
 <!--&lt;!&ndash;<m-button m-type="text">&ndash;&gt;-->
     <!--&lt;!&ndash;<i class="material-icons">favorite</i>  😀&ndash;&gt;-->
 <!--&lt;!&ndash;</m-button>&ndash;&gt;-->
 <!--<h-button type="raised" mat-size="small">小号</h-button>-->
 
 <!--<script type="text/javascript" src="../../../../happy-ui.js"></script>-->
-
-<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>
-<script type="text/javascript" src="../../../../dist/c/button.js"></script>
+<script type="text/javascript" src="../../../../dist/button/button.js"></script>
 <script src="index.js"></script>
 <script>
 

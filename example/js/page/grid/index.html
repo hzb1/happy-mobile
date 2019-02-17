@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link rel="stylesheet" href="../../../../dist/grid/grid.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 18px;
+            box-sizing: border-box;
+            padding-bottom: 140px;
+        }
+    </style>
+</head>
+<body>
+
+<h4>最简单的grid</h4>
+
+<h-grid column="3" onclick="onClick1()">
+    <style>
+        .grid-item{
+            height: 100px;
+            /*border: 1px solid #eee;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div class="h-grid-item">
+        <p>grid1</p>
+    </div>
+    <div class="h-grid-item">
+        <p>grid2</p>
+    </div>
+    <div class="h-grid-item">
+        <p>grid3</p>
+    </div>
+    <div class="h-grid-item">
+        <p>grid4</p>
+    </div>
+    <div class="h-grid-item">
+        <p>grid5</p>
+    </div>
+    <div class="h-grid-item">
+        <p>grid6</p>
+    </div>
+</h-grid>
+
+<script type="text/javascript" src="../../../../dist/grid/grid.js"></script>
+<script>
+
+  var onClick1 = function () {
+  }
+
+</script>
+</body>
+</html>

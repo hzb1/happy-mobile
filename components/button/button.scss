@@ -5,9 +5,11 @@
   //align-items: center;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
   width: 100%;
   border: 0;
+  padding: 0 16px;
+  border-radius: 4px;
   background-color: white;
   text-align: center;
   text-transform: none;
@@ -16,18 +18,45 @@
   user-select: none;
   transition: width 1s linear;
 
-  &::before,
+  // 边框
+  &[outline]{
+    background-color: transparent;
+    &::before{
+      content: '';
+      background-color: transparent;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform-origin: 0 0;
+      transform: scale(.5);
+      box-sizing: border-box;
+      border-radius: inherit;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+  }
+
+  // 动画
   &::after{
     content: '';
     display: block;
     position: absolute;
-    top: -50%;
-    left: -50%;
+    top: 0;
+    left: 0;
     width: 200%;
     height: 200%;
+    transform-origin: 0 0;
+    transform: scale(.5);
     opacity: 0;
+    border-radius: inherit;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
+    transition: opacity 150ms linear;
+    background-color: white;
   }
 
   &:hover{
@@ -37,9 +66,13 @@
     outline: 0;
   }
 
-  &-icon{
-    transition: all 1000ms ease-in-out;
+  h-icon{
+    margin-left: 4px;
     margin-right: 4px;
+  }
+
+  .h-icon--loading{
+    transition: all 1000ms ease-in-out;
     display: inline-block;
     @keyframes loading
     {
@@ -53,22 +86,27 @@
 /**
   hType 类型
  */
-.h-button--default{
+.h-button--info{
   color: rgba(0, 0, 0, .87);
-  background-color: #f4f5f8;
-  padding: 0 16px;
-  border-radius: 4px;
-  &::before{
-    background-color: var(--h-theme-primary, #1f78ff);
-    transition: opacity 15ms linear, background-color 15ms linear;
+  background-color: #eee;
+  &[outline]{
+    color: rgba(0, 0, 0, .87);
+    &::before{
+      border: 1px solid rgba(0, 0, 0, .6);
+    }
   }
   &::after{
     background-color: var(--h-theme-primary, #1f78ff);
-    transition: opacity 150ms linear;
   }
   &:hover{
-    &:before {
+    &:after {
       opacity: 0.04;
+    }
+  }
+  &:active{
+    &:after{
+      transition-duration: 75ms;
+      opacity: 0.12;
     }
   }
 }
@@ -76,32 +114,77 @@
 .h-button--primary{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-primary, #1f78ff);
-  padding: 0 16px;
-  border-radius: 4px;
 
-  &:before{
-    background-color: var(--h-theme-on-primary, white);
-    transition: opacity 15ms linear, background-color 15ms linear;
-  }
-  &::after{
-    background-color: var(--h-theme-on-primary, white);
-    transition: opacity 150ms linear;
+  &[outline]{
+    color: var(--h-theme-primary, #1f78ff);
+    &:before{
+      border: 1px solid var(--h-theme-primary, #1f78ff);
+    }
+    &:after{
+      background-color: var(--h-theme-primary, #1f78ff);
+    }
   }
   &:hover{
-    &:before {
-      opacity: 0.08;
+    &:after{
+      opacity: 0.1;
     }
   }
   &:active{
     &:after{
       transition-duration: 75ms;
-      opacity: 0.32;
+      opacity: 0.2;
     }
   }
-  &:focus{
+}
+
+.h-button--warn{
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-warn, #fbc02d);
+
+  &[outline]{
+    color: var(--h-theme-warn, #fbc02d);
     &:before{
+      border: 1px solid var(--h-theme-warn, #fbc02d);
+    }
+    &:after{
+      background-color: var(--h-theme-warn, #fbc02d);
+    }
+  }
+  &:hover{
+    &:after{
+      opacity: 0.1;
+    }
+  }
+  &:active{
+    &:after{
       transition-duration: 75ms;
-      opacity: 0.24;
+      opacity: 0.2;
+    }
+  }
+}
+
+.h-button--error{
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-error, #e53935);
+
+  &[outline]{
+    color: var(--h-theme-error, #e53935);
+    &:before{
+      border: 1px solid var(--h-theme-error, #e53935);
+    }
+    &:after{
+      background-color: var(--h-theme-error, #e53935);
+    }
+  }
+  &:hover{
+    &:after{
+      opacity: 0.1;
+    }
+  }
+  &:active{
+    &:after{
+      transition-duration: 75ms;
+      opacity: 0.2;
     }
   }
 }

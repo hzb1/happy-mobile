@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icon</title>
-    <link rel="stylesheet" href="../../../../dist/c/icon.css">
+    <link rel="stylesheet" href="../../../../dist/icon/icon.css">
     <style>
         *{
             margin: 0;
@@ -21,16 +21,21 @@
 
 <h4>最简单的Icon</h4>
 
-<h-icon id="h-icon1" type="" onclick="onClick1()">Icon</h-icon>
+<h-icon id="h-icon1" type="h-like" onclick="onClick1()">Icon</h-icon>
+<h-icon type="h-loading" onclick="onClick1()">icon-loading</h-icon>
+<h-icon type="h-loading" onclick="onClick1()">icon-loading</h-icon>
+<h-icon type="h-loading" onclick="onClick1()">icon-loading</h-icon>
 
 
-<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>
-<script type="text/javascript" src="../../../../dist/c/icon.js"></script>
+<!--<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>-->
+<!--<script type="text/javascript" src="https://unpkg.com/happy-mobile/dist/c/iconfont.js"></script>-->
+<script type="text/javascript" src="../../../../dist/icon/icon.js"></script>
 <script>
 
   var onClick1 = function () {
     var btn1 = document.querySelector('#h-icon1')
-    btn1.type = btn1.type === '#icon-like'? '#icon-likefill': '#icon-like'
+    btn1.color = btn1.color === 'red'? '#000': 'red'
+    btn1.type = btn1.type === 'h-like'? 'h-likefill': 'h-like'
   }
 
 </script>

@@ -1,37 +1,30 @@
 import {BaseComponent, Component} from '../core'
 
 @Component({
-  tag: 'h-icon',
+  tag: 'h-grid',
   prop: [
     {
-      name: 'type',
-      type: String,
+      name: 'data',
+      type: Array,
     },
     {
-      name: 'color',
-      type: String,
-    },
-    {
-      name: 'size',
-      type: String,
-    },
-    {
-      name: 'loading',
-      type: Boolean,
-      has: true,
+      name: 'column',
+      type: Number,
     },
   ],
   template(data) {
     return `
-        <span class="h-iconfont ${data.type}"></span>
+       <div class="h-grid-root">
+            <slot></slot>
+       </div>
     `
   },
-  styleUrl: require('./icon.inline.css'),
+  styleUrl: require('./grid.inline.css'),
 })
-export default class MButton extends BaseComponent {
+export default class Grid extends BaseComponent {
 
   static get observedAttributes() {
-    return [ 'type', 'color', 'size']
+    return ['data', 'column']
   }
 
   constructor() {
@@ -43,11 +36,15 @@ export default class MButton extends BaseComponent {
       ${this.$template(this)}
     `
     this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-iconfont')
+    this.root = this.shadow.querySelector('.h-grid-root')
+    // console.log(this.slot)
+    // console.log(this.shadow.slot)
+    console.log(this.root.slot)
+    console.log(this.root.children)
   }
 
   init() {
-    if (!this.firstLoad){
+    if (!this.firstLoad) {
       this.initMethod()
       this.initAttribute()
       this.initClass()
@@ -60,22 +57,22 @@ export default class MButton extends BaseComponent {
     this.init()
   }
 
-  initClass(){
-    ['h-icon'].forEach((cla) => {
+  initClass() {
+    ['h-grid'].forEach((cla) => {
       this.classList.add(cla)
     })
   }
 
-  initAttribute(){
-    this.setAttribute('type', this.type)
+  initAttribute() {
+    // this.setAttribute('type', this.type)
   }
 
-  initMethod(){
+  initMethod() {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return;
-    console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
+    console.log(attrName, 'oldVal:', oldVal, 'newVal:', newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
       case 'type':
         this.root.classList.remove(oldVal)

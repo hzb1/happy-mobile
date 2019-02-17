@@ -9,7 +9,8 @@ import './theme.scss'
 // import '@material/tab/dist/mdc.tab.min.css'
 // import '@material/tab-bar/dist/mdc.tab-bar.css'
 
-import Button from './button/index.js'
+import Button from './button'
+import Icon from './icon'
 // import TabBar from './tab-bar/index.js'
 // import Ripple from './ripple/index.js'
 
@@ -24,6 +25,7 @@ import Button from './button/index.js'
 export default {
   version: '0.0.1',
   Button,
+  Icon,
   // TabBar,
   // Tab,
   // Ripple,

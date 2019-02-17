@@ -1,5 +1,5 @@
 {
   "button": "./components/button/index.js",
   "icon": "./components/icon/index.js",
-  "iconfont": "./components/icon/iconfont.js"
+  "grid": "./components/grid/index.js"
 }

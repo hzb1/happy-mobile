@@ -7,15 +7,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 打包css
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const config = require('./config')
-const Components = require('../components.json')
+const Components = require('./components.json')
 
 const webpackConfig = {
   mode: 'production',
   entry: Components,
   output: {
-    path: path.resolve(__dirname, '../dist/c/'),
+    path: path.resolve(__dirname, '../dist/'),
     publicPath: '/dist/',
-    filename: '[name].js',
+    filename: '[name]/[name].js',
     chunkFilename: '[id].js',
     library: 'happyMobile',
     // libraryTarget: 'commonjs2',
@@ -38,6 +38,14 @@ const webpackConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -76,34 +84,27 @@ const webpackConfig = {
         ],
       },
       {
-        test: /\.css$/,
+        test: /\.css$/, // ^\.inline
         use: [
-          // 'style-loader', // 将 JS 字符串生成为 style 节点
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     // you can specify a publicPath here
-          //     // by default it use publicPath in webpackOptions.output
-          //     publicPath: '../',
-          //   },
-          // },
-          // 'to-string-loader',
           'handlebars-loader', // handlebars loader expects raw resource string
           'extract-loader',
-          {
-            loader: 'css-loader',
-            options: {
-            },
-          },
+          'css-loader',
         ],
       },
-      { test: /\.handlebars$/, loader: 'handlebars-loader' },
+      {
+        // test: /\.css$/,
+        test: /^(?!inline)\.css$/,
+        use: [
+          'style-loader', // 将 JS 字符串生成为 style 节点
+          'css-loader',
+        ],
+      },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // 清理dist文件
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name]/[name].css',
       chunkFilename: '[id].css',
     }),
     new webpack.NamedModulesPlugin(),

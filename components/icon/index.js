@@ -1,4 +1,4 @@
-import './iconfont'
+// import './iconfont'
 import './icon.scss'
 import Icon from './Icon.js'
 

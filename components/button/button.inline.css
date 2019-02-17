@@ -22,6 +22,17 @@
     cursor: inherit;
 }
 
+.h-button .h-icon--loading{
+    transition: all 1000ms ease-in-out;
+    display: inline-block;
+    animation: loading 1s linear 0ms infinite;
+}
+
+@keyframes loading {
+    0%   {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}
+
 .h-button:focus{
     outline: 0;
 }

@@ -1,6 +1,6 @@
-import {BaseComponent, Component, Prop} from '../core'
+import {BaseComponent, Component} from '../core'
+// import { styleType, styleSize, shadow } from './styleMap'
 import styleMap from './styleMap'
-// import { styleType, styleSize, shadow } from './styleMap.js'
 const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = styleMap
 
 @Component({
@@ -17,6 +17,11 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
     {
       name: 'size',
       type: String,
+    },
+    {
+      name: 'outline', // 外边框
+      type: Boolean,
+      has: true,
     },
     {
       name: 'disabled',
@@ -43,7 +48,7 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
         </button>
     `
   },
-  styleUrl: require('./button.css'),
+  styleUrl: require('./button.inline.css'),
 })
 export default class MButton extends BaseComponent {
 
@@ -75,9 +80,7 @@ export default class MButton extends BaseComponent {
       this.initAttribute()
       this.initClass()
       this.firstLoad = true
-      // console.log('第一次加载')
     }
-    // console.log('插入到DOM', this)
   }
 
   initClass(){
@@ -93,7 +96,7 @@ export default class MButton extends BaseComponent {
   }
 
   initAttribute(){
-    // this.setAttribute('color', this.color + '')
+    this.setAttribute('shadow', this.shadow)
     // if (this.loading) this.showLoading()
     // this.setAttribute('loading', this.loading)
   }
@@ -101,7 +104,7 @@ export default class MButton extends BaseComponent {
   initMethod(){
     this.hideLoading = () => {
       const button = this.shadowDom.querySelector('button')
-      const buttonIcon = button.querySelector('.h-button-icon')
+      const buttonIcon = button.querySelector('h-icon')
       if (buttonIcon) {
         button.removeChild(buttonIcon)
         this.isLoading = false
@@ -115,11 +118,12 @@ export default class MButton extends BaseComponent {
       const i = new Icon()
       const button = this.shadowDom.querySelector('button')
       button.insertBefore(i, button.childNodes[0])
-      i.setAttribute('type', '#icon-loading')
+      i.type = 'h-loading'
+      i.classList.add('h-icon--loading')
       this.isLoading = true
       return () => {
         const button = this.shadowDom.querySelector('button')
-        const buttonIcon = button.querySelector('.h-button-icon')
+        const buttonIcon = button.querySelector('h-icon')
         if (buttonIcon) {
           button.removeChild(buttonIcon)
           this.isLoading = false
@@ -147,7 +151,6 @@ export default class MButton extends BaseComponent {
         })
         break;
       case 'size':
-        console.log('size')
         styleSize.get(oldVal).forEach((item) => {
           this.classList.remove(item)
         })
