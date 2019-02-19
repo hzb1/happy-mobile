@@ -1,16 +1,12 @@
-
-
-:root{
-  --h-theme-primary: #1f78ff;                                         // 主要色
-  --h-theme-secondary: #ffffff;                                       // 次要色
-  --h-theme-warn: #fbc02d;                                            // 警告色
-  --h-theme-error: #e53935;                                           // 错误色
+:root {
+  --h-theme-primary: #1f78ff;
+  --h-theme-secondary: #ffffff;
+  --h-theme-warn: #fbc02d;
+  --h-theme-error: #e53935;
   --h-theme-default: #eeeeee;
-
-  --h-theme-background: #fff;                                         // 背景色
-  --h-theme-border: #ccc;                                             // 描边色
-  --h-theme-surface: #fff;                                            // 外观色
-
+  --h-theme-background: #fff;
+  --h-theme-border: #ccc;
+  --h-theme-surface: #fff;
   --h-theme-on-primary: #fff;
   --h-theme-on-secondary: #fff;
   --h-theme-on-surface: #000;
@@ -29,5 +25,5 @@
   --h-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
   --h-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
   --h-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
-  --h-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
-}
+  --h-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
+

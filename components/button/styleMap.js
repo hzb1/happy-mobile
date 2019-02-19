@@ -1,8 +1,9 @@
 
 const styleColor = new Map([
   ['null', ['h-button--primary']],
-  ['info', ['h-button--info']],
   ['primary', ['h-button--primary']],
+  ['secondary', ['h-button--secondary']],
+  ['info', ['h-button--info']],
   ['warn', ['h-button--warn']],
   ['error', ['h-button--error']],
 ])

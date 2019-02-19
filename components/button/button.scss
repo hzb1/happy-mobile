@@ -8,36 +8,38 @@
   //overflow: hidden;
   width: 100%;
   border: 0;
-  padding: 0 16px;
-  border-radius: 4px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 5px;
   background-color: white;
   text-align: center;
   text-transform: none;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   user-select: none;
   transition: width 1s linear;
 
   // 边框
   &[outline]{
+    background-color: white;
+  }
+
+  &::before{
+    content: '';
     background-color: transparent;
-    &::before{
-      content: '';
-      background-color: transparent;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      transform-origin: 0 0;
-      transform: scale(.5);
-      box-sizing: border-box;
-      border-radius: inherit;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
   }
 
   // 动画
@@ -60,6 +62,16 @@
   }
 
   &:hover{
+    &:after{
+      opacity: 0.12;
+    }
+  }
+
+  &:active{
+    &:after{
+      transition-duration: 75ms;
+      opacity: 0.24;
+    }
   }
 
   &:focus{
@@ -86,31 +98,6 @@
 /**
   hType 类型
  */
-.h-button--info{
-  color: rgba(0, 0, 0, .87);
-  background-color: #eee;
-  &[outline]{
-    color: rgba(0, 0, 0, .87);
-    &::before{
-      border: 1px solid rgba(0, 0, 0, .6);
-    }
-  }
-  &::after{
-    background-color: var(--h-theme-primary, #1f78ff);
-  }
-  &:hover{
-    &:after {
-      opacity: 0.04;
-    }
-  }
-  &:active{
-    &:after{
-      transition-duration: 75ms;
-      opacity: 0.12;
-    }
-  }
-}
-
 .h-button--primary{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-primary, #1f78ff);
@@ -124,16 +111,16 @@
       background-color: var(--h-theme-primary, #1f78ff);
     }
   }
-  &:hover{
-    &:after{
-      opacity: 0.1;
-    }
+}
+
+.h-button--secondary{
+  color: rgba(0, 0, 0, .87);
+  background-color: var(--h-theme-background, #ffffff);
+  &::before {
+    border: 1px solid var(--h-theme-border, #ccc);
   }
-  &:active{
-    &:after{
-      transition-duration: 75ms;
-      opacity: 0.2;
-    }
+  &::after{
+    background-color: var(--h-theme-primary, rgba(0, 0, 0, .43));
   }
 }
 
@@ -148,17 +135,6 @@
     }
     &:after{
       background-color: var(--h-theme-warn, #fbc02d);
-    }
-  }
-  &:hover{
-    &:after{
-      opacity: 0.1;
-    }
-  }
-  &:active{
-    &:after{
-      transition-duration: 75ms;
-      opacity: 0.2;
     }
   }
 }
@@ -176,17 +152,6 @@
       background-color: var(--h-theme-error, #e53935);
     }
   }
-  &:hover{
-    &:after{
-      opacity: 0.1;
-    }
-  }
-  &:active{
-    &:after{
-      transition-duration: 75ms;
-      opacity: 0.2;
-    }
-  }
 }
 
 
@@ -194,26 +159,38 @@
   大小: small、medium、large
  */
 .h-button--small {
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .h-button--medium {
   height: 44px;
   line-height: 44px;
+  font-size: 16px;
 }
 .h-button--large {
-  height: 50px;
-  line-height: 50px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 22px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /**
   禁用
  */
 .h-button--disabled{
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.37);
+  //background-color: rgba(0, 0, 0, 0.12);
+  //color: rgba(0, 0, 0, 0.37);
+  //opacity: .4;
   cursor: default;
   pointer-events: none;
+  &:after{
+    opacity: .5;
+    background-color: #eee;
+  }
 }
 
 /**

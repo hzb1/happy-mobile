@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button</title>
-    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
     <link rel="stylesheet" href="../../../../dist/button/button.css">
+    <link rel="stylesheet" href="../../../../dist/theme/theme.css">
     <style>
         *{
             margin: 0;
@@ -23,12 +23,6 @@
         h-button, button[h-button]{
             margin: 6px 0;
         }
-        .mdc-button{
-            color: red;
-        }
-        .my-button:not(:disabled){
-            color: red;
-        }
     </style>
 </head>
 <body>
@@ -38,38 +32,65 @@
 
 <h4>颜色 Color</h4>
 <h-button color="primary">primary</h-button>
-<h-button color="info">info</h-button>
+<h-button color="secondary">secondary</h-button>
 <h-button color="warn">warn</h-button>
 <h-button color="error">error</h-button>
-<!--<h-button hType="primary" >组件 primary</h-button>-->
 
 <h4>内联 Inline</h4>
 <h-button inline="true" >inline</h-button>
 
-<h4>阴影 shadow</h4>
-<h-button id="btn2" shadow="true" >shadow</h-button>
+<h4>阴影 Shadow</h4>
+<h-button shadow="true" id="btn2" inline="true" >shadow</h-button>
+<h-button shadow="true" color="secondary"  inline="true">shadow</h-button>
+<h-button shadow="true" color="warn" inline="true" >shadow</h-button>
+<h-button shadow="true" color="error" inline="true" >shadow</h-button>
 
-<h4>边框 outline</h4>
-<h-button outline="true" >outline</h-button>
-<h-button color="info" outline="true" >outline</h-button>
-<h-button color="warn" outline="true" >outline</h-button>
-<h-button color="error" outline="true" >outline</h-button>
+<h4>边框 Outline</h4>
+<h-button outline="true" inline="true" >outline</h-button>
+<h-button outline="true" color="secondary" inline="true" >outline</h-button>
+<h-button outline="true" color="warn" inline="true" >outline</h-button>
+<h-button outline="true" color="error" inline="true" >outline</h-button>
 
 <h4>大小 Size</h4>
-<h-button size="small" inline="true" >small</h-button>
-<h-button size="medium" inline="true" >medium</h-button>
-<h-button size="large" inline="true" >large</h-button>
+<h-button size="small" inline="true" >小 small</h-button>
+<h-button size="medium" inline="true" >中 medium</h-button>
+<h-button size="large" inline="true" >大 large</h-button>
 
 <h4>禁用 Disabled</h4>
-<h-button id="btn3" disabled="true" onclick="onClick3()">禁用</h-button>
+<h-button disabled="true" inline="true" id="btn3" onclick="onClick3()">禁用</h-button>
+<h-button disabled="true" color="secondary" inline="true">secondary</h-button>
+<h-button disabled="true" color="warn" inline="true">warn</h-button>
+<h-button disabled="true" color="error" inline="true">error</h-button>
 
 <h4>加载 Loading</h4>
 <!--<button h-button loading="true" onclick="showLoading1()" id="loading1">指令 Loading</button>-->
 <h-button id="btn4" onclick="onClick4()" class="my-class" >Loading</h-button>
 
 <h4>图标按钮</h4>
-<h-button>
+<h-button size="small" color="secondary" inline="true" >
     <h-icon type="h-like"></h-icon>Icon
+</h-button>
+<h-button size="medium" color="warn" inline="true" >
+    <h-icon type="h-like"></h-icon>Icon
+</h-button>
+<h-button size="large" color="error" inline="true" >
+    <h-icon type="h-like"></h-icon>Icon
+</h-button>
+
+<h4>自定义style</h4>
+<style>
+    .my-icon{
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        background-color: #6853d8;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%
+    }
+</style>
+<h-button inline="true" class="my-icon" >
+    <h-icon type="h-top"></h-icon>
 </h-button>
 <!--&lt;!&ndash;<m-button m-type="text">&ndash;&gt;-->
     <!--&lt;!&ndash;<i class="material-icons">favorite</i>  😀&ndash;&gt;-->
