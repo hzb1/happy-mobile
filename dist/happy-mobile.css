@@ -1,11 +1,12 @@
 :root {
   --h-theme-primary: #1f78ff;
-  --h-theme-default: #eeeeee;
-  --h-theme-secondary: #018786;
-  --h-theme-background: #fff;
-  --h-theme-surface: #fff;
+  --h-theme-secondary: #ffffff;
   --h-theme-warn: #fbc02d;
   --h-theme-error: #e53935;
+  --h-theme-default: #eeeeee;
+  --h-theme-background: #fff;
+  --h-theme-border: #ccc;
+  --h-theme-surface: #fff;
   --h-theme-on-primary: #fff;
   --h-theme-on-secondary: #fff;
   --h-theme-on-surface: #000;
@@ -33,33 +34,34 @@
   position: relative;
   width: 100%;
   border: 0;
-  padding: 0 16px;
-  border-radius: 4px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 5px;
   background-color: white;
   text-align: center;
   text-transform: none;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   user-select: none;
   transition: width 1s linear; }
   .h-button[outline] {
-    background-color: transparent; }
-    .h-button[outline]::before {
-      content: '';
-      background-color: transparent;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      transform-origin: 0 0;
-      transform: scale(0.5);
-      box-sizing: border-box;
-      border-radius: inherit;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1; }
+    background-color: white; }
+  .h-button::before {
+    content: '';
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; }
   .h-button::after {
     content: '';
     display: block;
@@ -76,6 +78,11 @@
     z-index: 2;
     transition: opacity 150ms linear;
     background-color: white; }
+  .h-button:hover:after {
+    opacity: 0.12; }
+  .h-button:active:after {
+    transition-duration: 75ms;
+    opacity: 0.24; }
   .h-button:focus {
     outline: 0; }
   .h-button h-icon {
@@ -95,21 +102,6 @@
 /**
   hType 类型
  */
-.h-button--info {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #eee; }
-  .h-button--info[outline] {
-    color: rgba(0, 0, 0, 0.87); }
-    .h-button--info[outline]::before {
-      border: 1px solid rgba(0, 0, 0, 0.6); }
-  .h-button--info::after {
-    background-color: var(--h-theme-primary, #1f78ff); }
-  .h-button--info:hover:after {
-    opacity: 0.04; }
-  .h-button--info:active:after {
-    transition-duration: 75ms;
-    opacity: 0.12; }
-
 .h-button--primary {
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-primary, #1f78ff); }
@@ -119,11 +111,14 @@
       border: 1px solid var(--h-theme-primary, #1f78ff); }
     .h-button--primary[outline]:after {
       background-color: var(--h-theme-primary, #1f78ff); }
-  .h-button--primary:hover:after {
-    opacity: 0.1; }
-  .h-button--primary:active:after {
-    transition-duration: 75ms;
-    opacity: 0.2; }
+
+.h-button--secondary {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: var(--h-theme-background, #ffffff); }
+  .h-button--secondary::before {
+    border: 1px solid var(--h-theme-border, #ccc); }
+  .h-button--secondary::after {
+    background-color: var(--h-theme-primary, rgba(0, 0, 0, 0.43)); }
 
 .h-button--warn {
   color: var(--h-theme-on-primary, white);
@@ -134,11 +129,6 @@
       border: 1px solid var(--h-theme-warn, #fbc02d); }
     .h-button--warn[outline]:after {
       background-color: var(--h-theme-warn, #fbc02d); }
-  .h-button--warn:hover:after {
-    opacity: 0.1; }
-  .h-button--warn:active:after {
-    transition-duration: 75ms;
-    opacity: 0.2; }
 
 .h-button--error {
   color: var(--h-theme-on-primary, white);
@@ -149,35 +139,38 @@
       border: 1px solid var(--h-theme-error, #e53935); }
     .h-button--error[outline]:after {
       background-color: var(--h-theme-error, #e53935); }
-  .h-button--error:hover:after {
-    opacity: 0.1; }
-  .h-button--error:active:after {
-    transition-duration: 75ms;
-    opacity: 0.2; }
 
 /*
   大小: small、medium、large
  */
 .h-button--small {
-  height: 36px;
-  line-height: 36px; }
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .h-button--medium {
   height: 44px;
-  line-height: 44px; }
+  line-height: 44px;
+  font-size: 16px; }
 
 .h-button--large {
-  height: 50px;
-  line-height: 50px; }
+  height: 52px;
+  line-height: 52px;
+  font-size: 22px;
+  padding-left: 16px;
+  padding-right: 16px; }
 
 /**
   禁用
  */
 .h-button--disabled {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.37);
   cursor: default;
   pointer-events: none; }
+  .h-button--disabled::after {
+    opacity: .5 !important;
+    background-color: #eee !important; }
 
 /**
   阴影

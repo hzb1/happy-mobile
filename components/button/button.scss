@@ -187,9 +187,9 @@
   //opacity: .4;
   cursor: default;
   pointer-events: none;
-  &:after{
-    opacity: .5;
-    background-color: #eee;
+  &::after{
+    opacity: .5 !important;
+    background-color: #eee !important;
   }
 }
 

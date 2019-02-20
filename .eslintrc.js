@@ -11,5 +11,7 @@ module.exports = {
     'no-shadow': 1, // 禁止在外部作用域中声明的阴影变量的变量声明
     'import/extensions': 1, // import/extensions
     'import/no-extraneous-dependencies': 0, // import/no-extraneous-dependencies
+    'import/no-named-as-default': 0, // import/no-named-as-default
+    'import/no-named-as-default-member': 0, //import/no-named-as-default-member
   },
 };

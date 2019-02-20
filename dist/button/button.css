@@ -139,9 +139,9 @@
 .h-button--disabled {
   cursor: default;
   pointer-events: none; }
-  .h-button--disabled:after {
-    opacity: .5;
-    background-color: #eee; }
+  .h-button--disabled::after {
+    opacity: .5 !important;
+    background-color: #eee !important; }
 
 /**
   阴影

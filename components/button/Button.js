@@ -38,10 +38,14 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
       type: Boolean,
       has: true,
     },
+    {
+      name: 'type',
+      type: String,
+    },
   ],
   template(data) {
     return `
-        <button class="${data.$tag}">
+        <button class="${data.$tag}" type=${data.type} >
             <span>
                 <slot></slot>
             </span>
@@ -77,10 +81,10 @@ export default class MButton extends BaseComponent {
   connectedCallback() {
     if (!this.firstLoad){
       this.initMethod()
-      this.initAttribute()
       this.initClass()
       this.firstLoad = true
     }
+    this.initAttribute()
   }
 
   initClass(){
@@ -97,6 +101,7 @@ export default class MButton extends BaseComponent {
 
   initAttribute(){
     this.setAttribute('shadow', this.shadow)
+    this.setAttribute('type', this.type)
     // if (this.loading) this.showLoading()
     // this.setAttribute('loading', this.loading)
   }
@@ -130,17 +135,27 @@ export default class MButton extends BaseComponent {
         }
       }
     }
+
+    if (this.type === 'submit' || this.type === 'reset') {
+      this.addEventListener('click', function (ev) {
+        const form = this.closest('form');
+        if (form) {
+          ev.preventDefault();
+          const fakeButton = document.createElement('button');
+          fakeButton.type = this.type;
+          fakeButton.style.display = 'none';
+          form.appendChild(fakeButton);
+          fakeButton.click();
+          fakeButton.remove();
+        }
+      }, false)
+
+    }
   }
 
-  /**
-   * 属性改变时调用(添加、移除、更新或替换)
-   * @param attrName
-   * @param oldVal
-   * @param newVal
-   */
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return;
-    console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
+    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
       case 'color':
         styleColor.get(oldVal).forEach((item) => {
@@ -149,7 +164,7 @@ export default class MButton extends BaseComponent {
         styleColor.get(this.color).forEach((item) => {
           this.classList.add(item)
         })
-        break;
+        return;
       case 'size':
         styleSize.get(oldVal).forEach((item) => {
           this.classList.remove(item)
@@ -157,23 +172,31 @@ export default class MButton extends BaseComponent {
         styleSize.get(newVal).forEach((item) => {
           this.classList.add(item)
         })
-        break;
+        return;
       case 'loading':
         if (this.loading) {
           this.showLoading()
         } else {
           this.hideLoading()
         }
-        break;
+        return;
       case 'disabled':
-        this.classList.toggle(styleDisabled.get(true))
-        break;
+        if (this.disabled) {
+          this.classList.add(styleDisabled.get(true))
+        } else {
+          this.classList.remove(styleDisabled.get(true))
+        }
+        return;
       case 'shadow':
-        this.classList.toggle(styleShadow.get(true))
-        break;
+        if (this.shadow) {
+          this.classList.add(styleShadow.get(true))
+        } else {
+          this.classList.remove(styleShadow.get(true))
+        }
+        return;
       case 'inline':
         this.classList.toggle(styleInline.get(true))
-        break;
+        return;
     }
     // this.classList = [
     //   ...this.classList,

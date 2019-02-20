@@ -19,7 +19,9 @@ const Component = ({
         // console.log(val, ':val', name, ':name')
         if (has) {
           const hasAttr = this.hasAttribute(name)
-          if (!hasAttr || !val) return false
+          if (!hasAttr) return false
+          if (val === '') return true
+          if (!val) return false
         }
         if (type === Boolean) {
           return JSON.parse(val)
