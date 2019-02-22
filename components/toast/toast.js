@@ -1,53 +1,74 @@
-import {BaseComponent, Component} from '../core'
+
+import { BaseComponent, Component } from '../core'
 
 @Component({
   tag: 'h-toast',
   prop: [
     {
+      name: 'content',
+      type: String,
+    },
+    {
       name: 'type',
       type: String,
+      default: 'text',
     },
     {
-      name: 'color',
-      type: String,
-    },
-    {
-      name: 'size',
-      type: String,
-    },
-    {
-      name: 'loading',
+      name: 'mask',
       type: Boolean,
-      has: true,
     },
   ],
   template(data) {
     return `
-        <span class="h-iconfont ${data.type}"></span>
+      <div class="h-toast-root">
+          <span class="h-toast-content">${data.content}</span>
+      </div>
+      <h-mask class="h-toast-mask"></h-mask>
     `
   },
   styleUrl: require('./toast.inline.css'),
 })
 export default class Toast extends BaseComponent {
-
   static get observedAttributes() {
-    return [ 'type', 'color', 'size']
+    return ['content', 'mask']
   }
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({mode: 'open'})
+    this.shadow = this.attachShadow({ mode: 'open' })
     const template = document.createElement('template')
     template.innerHTML = `
       <style>${this.$style()}</style>
       ${this.$template(this)}
     `
     this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-iconfont')
+    this.root = this.shadow.querySelector('.h-toast-root')
+  }
+
+  // 显示
+  static show(content, time = 1500) {
+    const Toast = customElements.get('h-toast')
+    const i = new Toast()
+    i.content = content
+    document.body.appendChild(i)
+    if (time) {
+      setTimeout(this.hide, time)
+      return null
+    }
+    return this.hide
+  }
+
+  // 隐藏
+  static hide() {
+    const toast = document.querySelector('h-toast')
+    if (toast) {
+      toast.animationOut()
+    }
   }
 
   init() {
-    if (!this.firstLoad){
+    this.animationIn()
+    if (!this.firstLoad) {
       this.initMethod()
       this.initClass()
       this.firstLoad = true
@@ -59,33 +80,25 @@ export default class Toast extends BaseComponent {
     this.init()
   }
 
-  initClass(){
-    ['h-icon'].forEach((cla) => {
+  initClass() {
+    ['h-toast'].forEach((cla) => {
       this.classList.add(cla)
     })
   }
 
-  initAttribute(){
-    this.setAttribute('type', this.type)
+  initAttribute() {
+    this.setAttribute('content', this.content)
   }
 
-  initMethod(){
+  initMethod() {
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return;
+    if (!this.firstLoad) return
     // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
-      case 'type':
-        this.root.classList.remove(oldVal)
-        this.root.classList.add(newVal)
-        break;
-      case 'color':
-        this.style.color = newVal
-        break;
-      case 'size':
-        this.style.size = size
-        break;
+      case 'content':
+        this.root.querySelector('.h-toast-content').innerHTML = newVal
     }
   }
 
@@ -94,4 +107,36 @@ export default class Toast extends BaseComponent {
     // console.log('插入到DOM', this)
   }
 
+  animationIn() {
+    const toastContent = this.root.querySelector('.h-toast-content')
+    const player = toastContent.animate([
+      { transform: 'scale(.75)', opacity: 0 },
+      { transform: 'scale(1)', opacity: 1 },
+    ], {
+      duration: 100,
+      easing: 'ease-in',
+    })
+    player.addEventListener('finish', () => {
+      toastContent.style.transform = 'translateY(0)'
+      toastContent.style.opacity = 1
+    })
+  }
+
+  animationOut() {
+    const toastContent = this.root.querySelector('.h-toast-content')
+    const toastMask = this.shadow.querySelector('.h-toast-mask')
+    toastMask || toastMask.animationOut()
+    const player = toastContent.animate([
+      { transform: 'scale(1)', opacity: 1 },
+      { transform: 'scale(.75)', opacity: 0 },
+    ], {
+      duration: 100,
+      easing: 'ease-out',
+    })
+    player.addEventListener('finish', () => {
+      toastContent.style.transform = 'translateY(100)'
+      toastContent.style.opacity = 0
+      if (this.parentNode) this.parentNode.removeChild(this)
+    })
+  }
 }

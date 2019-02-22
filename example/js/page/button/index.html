@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button</title>
-    <link rel="stylesheet" href="../../../../dist/button/button.css">
-    <link rel="stylesheet" href="../../../../dist/theme/theme.css">
+    <link rel="stylesheet" href="../../../../dist/happy-mobile.css">
     <style>
         *{
             margin: 0;
@@ -33,6 +32,7 @@
 <h4>颜色 Color</h4>
 <h-button color="primary">primary</h-button>
 <h-button color="secondary">secondary</h-button>
+<h-button color="success">success</h-button>
 <h-button color="warn">warn</h-button>
 <h-button color="error">error</h-button>
 
@@ -42,6 +42,7 @@
 <h4>阴影 Shadow</h4>
 <h-button shadow id="btn2" inline >shadow</h-button>
 <h-button shadow color="secondary" inline >shadow</h-button>
+<h-button shadow color="success" inline >shadow</h-button>
 <h-button shadow color="warn" inline >shadow</h-button>
 <h-button shadow color="error" inline >shadow</h-button>
 
@@ -68,13 +69,13 @@
 
 <h4>图标按钮</h4>
 <h-button size="small" color="secondary" inline >
-    <h-icon type="h-like"></h-icon>Icon
+    <h-icon type="h-like"></h-icon> Icon
 </h-button>
 <h-button size="medium" color="warn" inline >
-    <h-icon type="h-like"></h-icon>Icon
+    <h-icon type="h-likefill"></h-icon> Icon
 </h-button>
 <h-button size="large" color="error" inline >
-    <h-icon type="h-like"></h-icon>Icon
+    <h-icon type="h-like"></h-icon> Icon
 </h-button>
 
 <h4>自定义style</h4>
@@ -89,12 +90,12 @@
         border-radius: 50%
     }
 </style>
-<h-button inline class="my-icon" >
+<h-button inline shadow class="my-icon" >
     <h-icon type="h-top"></h-icon>
 </h-button>
 
 <!--<script type="text/javascript" src="../../../../happy-ui.js"></script>-->
-<script type="text/javascript" src="../../../../dist/button/button.js"></script>
+<script type="text/javascript" src="../../../../dist/happy-mobile.js"></script>
 <script>
 
   var onClick1 = function () {

@@ -1,6 +1,7 @@
 :root {
   --h-theme-primary: #1f78ff;
   --h-theme-secondary: #ffffff;
+  --h-theme-success: #4caf50;
   --h-theme-warn: #fbc02d;
   --h-theme-error: #e53935;
   --h-theme-default: #eeeeee;

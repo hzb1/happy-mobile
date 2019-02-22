@@ -1,15 +1,15 @@
 
 const styleColor = new Map([
-  ['null', ['h-button--primary']],
+  // ['null', ['h-button--primary']],
   ['primary', ['h-button--primary']],
   ['secondary', ['h-button--secondary']],
-  ['info', ['h-button--info']],
+  ['success', ['h-button--success']],
   ['warn', ['h-button--warn']],
   ['error', ['h-button--error']],
 ])
 
 const styleSize = new Map([
-  ['null', ['h-button--medium']],
+  // ['null', ['h-button--medium']],
   ['small', ['h-button--small']],
   ['medium', ['h-button--medium']],
   ['large', ['h-button--large']],

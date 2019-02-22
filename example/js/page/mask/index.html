@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask</title>
+    <link rel="stylesheet" href="../../../../dist/happy-mobile.css">
+    <style>
+    </style>
+</head>
+<body>
+
+<main>
+    <h4>最简单的mask</h4>
+    <h-mask id="mask1" style="display: none">
+        <style>
+            .my-mask-slot{
+                background-color: white;
+            }
+        </style>
+        <div class="my-mask-slot">
+            content
+            <h-button inline onclick="hide1()">hide</h-button>
+        </div>
+    </h-mask>
+    <h-button inline onclick="show1()">show</h-button>
+</main>
+
+<script type="text/javascript" src="../../../../dist/happy-mobile.js"></script>
+<script>
+    var mask1 = document.querySelector('#mask1')
+    var show1 = function () {
+      var hide = mask1.show()
+    }
+    var hide1 = function () {
+      mask1.hide()
+    }
+</script>
+</body>
+</html>

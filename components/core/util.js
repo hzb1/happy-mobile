@@ -20,7 +20,20 @@ const toHump = (str) => {
   return arr.join('')
 }
 
+/**
+ * prop转成对象
+ * @param prop
+ */
+const propToObj = (prop) => {
+  const obj = {}
+  prop.forEach((item) => {
+    obj[item.name] = item
+  })
+  return obj
+}
+
 export {
   mIf,
   toHump,
+  propToObj,
 }

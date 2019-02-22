@@ -23,6 +23,7 @@
 }
 
 .h-button .h-icon--loading{
+    margin-right: 2px;
     transition: all 1000ms ease-in-out;
     display: inline-block;
     animation: loading 1s linear 0ms infinite;

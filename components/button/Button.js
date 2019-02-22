@@ -1,4 +1,4 @@
-import {BaseComponent, Component} from '../core'
+import { BaseComponent, Component} from '../core'
 // import { styleType, styleSize, shadow } from './styleMap'
 import styleMap from './styleMap'
 const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = styleMap
@@ -7,16 +7,18 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
   tag: 'h-button',
   prop: [
     {
+      name: 'color',
+      type: String,
+      default: 'primary',
+    },
+    {
       name: 'loading',
       type: Boolean,
     },
     {
-      name: 'color',
-      type: String,
-    },
-    {
       name: 'size',
       type: String,
+      default: 'medium',
     },
     {
       name: 'outline', // 外边框
@@ -41,6 +43,7 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
     {
       name: 'type',
       type: String,
+      default: 'button',
     },
   ],
   template(data) {
@@ -54,14 +57,14 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
   },
   styleUrl: require('./button.inline.css'),
 })
-export default class MButton extends BaseComponent {
+export default class Button extends BaseComponent {
 
   static get observedAttributes() {
     return [ 'color', 'size', 'raised', 'icon', 'loading', 'shadow', 'disabled', 'inline']
   }
 
   constructor() {
-    super()
+    super();
     this.shadowDom = this.attachShadow({mode: 'open'})
     this.shadowDom.innerHTML = `
         <style>${this.$style()}</style>
@@ -113,6 +116,7 @@ export default class MButton extends BaseComponent {
       if (buttonIcon) {
         button.removeChild(buttonIcon)
         this.isLoading = false
+        this.disabled = false
       }
     }
     this.showLoading = () => {
@@ -126,12 +130,14 @@ export default class MButton extends BaseComponent {
       i.type = 'h-loading'
       i.classList.add('h-icon--loading')
       this.isLoading = true
+      this.disabled = true
       return () => {
         const button = this.shadowDom.querySelector('button')
         const buttonIcon = button.querySelector('h-icon')
         if (buttonIcon) {
           button.removeChild(buttonIcon)
           this.isLoading = false
+          this.disabled = false
         }
       }
     }

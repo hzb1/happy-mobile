@@ -1,6 +1,6 @@
 {
   "name": "happy-mobile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "private": false,
   "license": "MIT",
@@ -13,24 +13,34 @@
   "unpkg": "dist/happy-mobile.js",
   "style": "dist/happy-mobile.css",
   "homepage": "https://hzb1.github.io/happy-mobile",
+  "typings": "index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server",
     "build": "webpack --mode production && webpack --config build/webpack.components.js",
     "build:c": "webpack --config build/webpack.components.js",
+    "d": "node dev.js",
     "hmr": "webpack-dev-server --inline --hotOnly"
   },
   "author": "",
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.0-beta.0",
-    "eslint-config-airbnb": "^17.1.0",
     "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-stage-2": "^7.0.0",
+    "babel-loader": "^8.0.0-beta.0",
     "clean-webpack-plugin": "^1.0.0",
+    "core-js": "^2.6.5",
     "css-loader": "^2.1.0",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "express": "^4.16.4",
     "extract-loader": "^3.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^3.0.1",
@@ -50,8 +60,10 @@
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
+    "webpack-dev-middleware": "^3.6.0",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "happy-mobile": "^0.0.2"
   }
 }

@@ -23,6 +23,7 @@ module.exports = {
     // libraryTarget: 'window',
     // libraryTarget: 'commonjs2',
     libraryTarget: 'umd',
+    publicPath: '/',
   },
   module: {
     rules: [

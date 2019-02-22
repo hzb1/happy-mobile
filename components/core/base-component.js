@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-constructor */
 
 class BaseComponent extends HTMLElement {
   // 注册
@@ -8,10 +7,6 @@ class BaseComponent extends HTMLElement {
     } catch (e) {
       throw e
     }
-  }
-
-  constructor() {
-    super()
   }
 
   /**

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vue</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--<link rel="stylesheet" href="../../../dist/happy-mobile.css">-->
-    <link rel="stylesheet" href="../../../dist/c/button.css">
+    <title>vue happy-mobile</title>
+    <link rel="stylesheet" href="https://unpkg.com/happy-mobile/dist/happy-mobile.css">
 </head>
 <body>
     <!--<h-tab></h-tab>-->
@@ -79,12 +77,10 @@
 
         <h-button inline="false">{{message}}</h-button>
     </div>
-    <!--<script src="../../../dist/happy-mobile.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--<script src="./dist/index.js"></script>-->
     <script>
-      Vue.config.ignoredElements = [
-        /^h-/
-      ]
+      Vue.config.ignoredElements = [/^h-/];
       var app = new Vue({
         el: '#app',
         data: {
@@ -106,6 +102,6 @@
         }
       })
     </script>
-    <script src="../../../dist/c/button.js"></script>
+    <script src="https://unpkg.com/happy-mobile/dist/happy-mobile.js"></script>
 </body>
 </html>

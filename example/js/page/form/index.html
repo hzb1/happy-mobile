@@ -62,6 +62,7 @@
             font-size: 16px;
             color: #333;
             padding-left: 12px;
+            border: none;
         }
 
         .form-btn {
@@ -93,6 +94,59 @@
     </form>
 </div>
 
+<div class="form" style="padding-bottom: 70px">
+    <p>input type</p>
+    <div class="form-ls">
+        text <input type="text"/>
+    </div>
+    <div class="form-ls">
+        url <input type="url"/>
+    </div>
+    <div class="form-ls">
+        tel <input type="tel"/>
+    </div>
+    <div class="form-ls">
+        email <input type="email"/>
+    </div>
+    <div class="form-ls">
+        search <input type="search"/>
+    </div>
+    <div class="form-ls">
+        number <input type="number"/>
+    </div>
+    <div class="form-ls">
+        range <input type="range"/>
+    </div>
+    <div class="form-ls">
+        datetime-local <input type="datetime-local"/>用于输入日期和时间值，提供的时区为本地时区。
+    </div>
+    <div class="form-ls">
+        date <input type="date"/>用于输入日期和时间值，不提供时区。
+    </div>
+    <div class="form-ls">
+        time <input type="time"/>用于只输入时间，不提供时区。
+    </div>
+    <div class="form-ls">
+        week <input type="week"/>用于只输入星期，不提供时区。
+    </div>
+    <div class="form-ls">
+        month <input type="month"/>用于只输入月份，不提供时区。
+    </div>
+    <div class="form-ls">
+        color <input type="color"/>用于选取颜色。
+    </div>
+
+    <p>datalist</p>
+    <label for="frmFavChocolate">datalist</label>
+    <input type="text" name="fav-choc" id="frmFavChocolate" list="chocType">
+    <datalist id="chocType">
+        <option value="white">
+        <option value="milk">
+        <option value="dark">
+    </datalist>
+
+</div>
+
 <!--<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>-->
 <!--<script type="text/javascript" src="https://unpkg.com/happy-mobile/dist/c/iconfont.js"></script>-->
 <script type="text/javascript" src="../../../../dist/happy-mobile.js"></script>
@@ -109,7 +163,6 @@
   function login(ev) {
     try {
       submit.loading = true;
-      submit.disabled = true;
       var body = new FormData();
       body.append('name', testform.name.value)
       body.append('password', testform.password.value)
@@ -121,12 +174,10 @@
         return response.json()
       }).then(function (res) {
         if (res.code === 0) {
-          alert(res.msg)    // 登录成功
+          happy.toast.show(res.msg)    // 登录成功
         }
       }).finally(function () {
-        console.log('finally')
         submit.loading = false;
-        submit.disabled = false;
       })
     } catch (e) {
       // submit.loading = false;

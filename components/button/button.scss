@@ -1,6 +1,6 @@
 
 .h-button{
-  display: inline-block;
+  display: block;
   //justify-content: center;
   //align-items: center;
   box-sizing: border-box;
@@ -17,11 +17,22 @@
   font-size: 16px;
   cursor: pointer;
   user-select: none;
-  transition: width 1s linear;
+  transition: width 1s linear, background-color 150ms linear;
 
   // 边框
   &[outline]{
     background-color: white;
+    &:hover{
+      &:after{
+        opacity: 0.1;
+      }
+    }
+    &:active{
+      &:after{
+        transition-duration: 75ms;
+        opacity: 0.2;
+      }
+    }
   }
 
   &::before{
@@ -57,30 +68,27 @@
     border-radius: inherit;
     pointer-events: none;
     z-index: 2;
-    transition: opacity 150ms linear;
+    transition: opacity 150ms linear, background-color 150ms ease-in-out;
     background-color: white;
   }
 
   &:hover{
     &:after{
-      opacity: 0.12;
+      background-color: rgba(255,255,255, .8);
+      opacity: 0.2;
     }
   }
 
   &:active{
     &:after{
       transition-duration: 75ms;
-      opacity: 0.24;
+      background-color: rgba(0,0,0, 1);
+      opacity: 0.2;
     }
   }
 
   &:focus{
     outline: 0;
-  }
-
-  h-icon{
-    margin-left: 4px;
-    margin-right: 4px;
   }
 
   .h-icon--loading{
@@ -119,8 +127,33 @@
   &::before {
     border: 1px solid var(--h-theme-border, #ccc);
   }
-  &::after{
-    background-color: var(--h-theme-primary, rgba(0, 0, 0, .43));
+  &:hover{
+    &:after{
+      opacity: 0.06;
+      background-color: var(--h-theme-primary, #1f78ff);
+    }
+  }
+  &:active{
+    &:after{
+      transition-duration: 75ms;
+      opacity: 0.12;
+      background-color: var(--h-theme-primary, #1f78ff);
+    }
+  }
+}
+
+.h-button--success{
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-success, #4caf50);
+
+  &[outline]{
+    color: var(--h-theme-success, #4caf50);
+    &:before{
+      border: 1px solid var(--h-theme-success, #4caf50);
+    }
+    &:after{
+      background-color: var(--h-theme-success, #4caf50);
+    }
   }
 }
 
@@ -164,11 +197,19 @@
   font-size: 12px;
   padding-left: 10px;
   padding-right: 10px;
+
+  h-icon{
+    //margin-right: 4px;
+  }
 }
 .h-button--medium {
   height: 44px;
   line-height: 44px;
   font-size: 16px;
+
+  h-icon{
+    //margin-right: 6px;
+  }
 }
 .h-button--large {
   height: 52px;
@@ -176,6 +217,10 @@
   font-size: 22px;
   padding-left: 16px;
   padding-right: 16px;
+
+  h-icon{
+    //margin-right: 8px;
+  }
 }
 
 /**
@@ -214,6 +259,6 @@
   inline
  */
 .h-button--inline{
-  display: inline-flex;
+  display: inline-table;
   width: auto;
 }

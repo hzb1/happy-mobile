@@ -1,4 +1,4 @@
-import { toHump } from './util'
+import { propToObj } from './util'
 
 const Component = ({
   tag,
@@ -7,7 +7,7 @@ const Component = ({
   styleUrl = () => '',
 }) => (Target) => {
   Target.prototype.$tag = tag
-  Target.prototype.$prop = prop
+  Target.prototype.$prop = propToObj(prop)
   Target.prototype.$template = template
   Target.prototype.$style = styleUrl
 
@@ -24,7 +24,14 @@ const Component = ({
           if (!val) return false
         }
         if (type === Boolean) {
+          if (val === null) {
+            return this.$prop[name].default
+          }
           return JSON.parse(val)
+        }
+        if (type === String) {
+          const tv = String(val)
+          return tv === 'null' ? this.$prop[name].default : tv
         }
         return type(val)
       },

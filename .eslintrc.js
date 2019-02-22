@@ -1,5 +1,6 @@
+
 module.exports = {
-  "extends": "airbnb-base",
+  "extends": "airbnb-base", //
   "rules": {
     'generator-star-spacing': 'off',
     'no-undef': 'off',

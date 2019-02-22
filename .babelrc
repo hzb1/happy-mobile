@@ -1,11 +1,19 @@
 {
-  "presets": ["@babel/preset-env"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": false // entry usage false
+      }
+    ]
+  ],
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",
       {
         "legacy": true
       }
-    ]
+    ],
+    ["@babel/plugin-transform-async-to-generator"]
   ]
 }
