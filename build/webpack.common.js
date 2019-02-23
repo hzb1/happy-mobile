@@ -1,36 +1,49 @@
-/* eslint-disable global-require */
-const webpack = require('webpack')
 const path = require('path')
+const webpack = require('webpack')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成一个html文件
 const CleanWebpackPlugin = require('clean-webpack-plugin') // 清理dist文件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 打包css
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const config = require('./config')
 
-const env = process.env.NODE_ENV
-
-module.exports = {
-  mode: 'development',
-  // mode: 'production',
+const webpackConfig = {
+  mode: 'production',
   entry: './components/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'happy-mobile.js',
+    path: path.resolve(__dirname, '../dist/'),
+    publicPath: '/dist/',
+    filename: 'happy.common.js',
+    chunkFilename: '[id].js',
     library: 'happy',
-    // libraryTarget: "this"
-    // libraryTarget: "amd"
-    // libraryTarget: 'window',
-    // libraryTarget: 'commonjs2',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine: true,
-    globalObject: 'typeof self !== \'undefined\' ? self : this',
+    libraryTarget: 'commonjs2',
+    // libraryTarget: 'this',
+    // libraryTarget: 'umd',
   },
   resolve: {
+    extensions: ['.js', '.json'],
+    alias: config.alias,
+    // modules: ['node_modules'],
+  },
+  // externals: config.externals,
+  performance: {
+    hints: false,
+  },
+  // stats: 'none',
+  optimization: {
+    // minimize: true,
+    minimizer: [new UglifyJsPlugin()],
   },
   module: {
     rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -69,54 +82,32 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
+        test: /\.css$/, // ^\.inline
         use: [
-          // 'style-loader', // 将 JS 字符串生成为 style 节点
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     // you can specify a publicPath here
-          //     // by default it use publicPath in webpackOptions.output
-          //     publicPath: '../',
-          //   },
-          // },
-          // 'to-string-loader',
           'handlebars-loader', // handlebars loader expects raw resource string
           'extract-loader',
-          {
-            loader: 'css-loader',
-            options: {
-            },
-          },
+          'css-loader',
         ],
       },
-      { test: /\.handlebars$/, loader: 'handlebars-loader' },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        // test: /\.css$/,
+        test: /^(?!inline)\.css$/,
+        use: [
+          'style-loader', // 将 JS 字符串生成为 style 节点
+          'css-loader',
+        ],
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // 清理dist文件
     new MiniCssExtractPlugin({
-      filename: 'happy-mobile.css',
+      filename: 'happy.common.css',
       chunkFilename: '[id].css',
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  watchOptions: {
-    aggregateTimeout: 300,
-    poll: 1000,
-    ignored: /node_modules/,
-  },
-  devServer: {
-    contentBase: path.join(__dirname, ''),
-    compress: true,
-    host: '0.0.0.0',
-    port: 9005,
-    hot: true,
-  },
-  // target: 'node',
 }
+
+module.exports = webpackConfig

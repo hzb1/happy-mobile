@@ -67,7 +67,7 @@ header h1 {
 
 }
 
-.component a{
+.component .list{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,6 +83,7 @@ header h1 {
     text-align: left;
     position: relative;
     text-decoration: none;
+    overflow: hidden;
 }
 
 .component a:after{

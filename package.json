@@ -1,6 +1,6 @@
 {
   "name": "happy-mobile",
-  "version": "0.0.2",
+  "version": "0.0.34",
   "description": "",
   "private": false,
   "license": "MIT",
@@ -8,20 +8,23 @@
     "happy-mobile",
     "happy-ui"
   ],
-  "main": "dist/happy-mobile.js",
+  "main": "dist/happy-common.js",
   "module": "dist/happy-mobile.js",
   "unpkg": "dist/happy-mobile.js",
   "style": "dist/happy-mobile.css",
   "homepage": "https://hzb1.github.io/happy-mobile",
-  "typings": "index.d.ts",
+  "typings": "types/index.d.ts",
   "files": [
     "dist",
     "types"
   ],
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server",
-    "build": "webpack --mode production && webpack --config build/webpack.components.js",
+    "build": "npm run clean && npm run build:main && npm run build:common && npm run build:c",
+    "build:main": "webpack --mode production",
     "build:c": "webpack --config build/webpack.components.js",
+    "build:common": "webpack --config build/webpack.common.js",
+    "clean": "rimraf dist",
     "d": "node dev.js",
     "hmr": "webpack-dev-server --inline --hotOnly"
   },
@@ -61,9 +64,9 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-middleware": "^3.6.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "happy-mobile": "^0.0.21"
   },
   "dependencies": {
-    "happy-mobile": "^0.0.2"
   }
 }

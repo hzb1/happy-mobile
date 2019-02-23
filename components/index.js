@@ -7,6 +7,7 @@ import Icon from './icon'
 import Img from './img'
 import Toast from './toast'
 import Grid from './grid'
+import SwipeAction from './swipe-action'
 import Mask from './mask'
 
 const happy = {
@@ -18,6 +19,14 @@ const happy = {
   Grid,
   Toast,
   Mask,
+  SwipeAction,
+}
+
+if (typeof window !== 'undefined' || !window.happy) {
+  const happyArr = Object.values(happy)
+  happyArr.forEach((item) => {
+    if (typeof item.register === 'function') item.register()
+  })
 }
 
 export default happy

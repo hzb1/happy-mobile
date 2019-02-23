@@ -49,9 +49,7 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
   template(data) {
     return `
         <button class="${data.$tag}" type=${data.type} >
-            <span>
-                <slot></slot>
-            </span>
+            <slot></slot>
         </button>
     `
   },
@@ -80,7 +78,6 @@ export default class Button extends BaseComponent {
 
   }
 
-  // 插入到DOM时调用
   connectedCallback() {
     if (!this.firstLoad){
       this.initMethod()
