@@ -74,16 +74,25 @@ header h1 {
     cursor: pointer;
     box-sizing: border-box;
     width: 100%;
-    height: 48px;
-    line-height: 48px;
+    height: 52px;
+    line-height: 52px;
     padding: 0 18px;
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
     background-color: white;
     text-align: left;
     position: relative;
     text-decoration: none;
     overflow: hidden;
+    transition: background-color ease-in-out 300ms;
+}
+
+.component .list:hover{
+    background-color: #f9f9f9f9;
+}
+
+.component .list:hover a:after{
+    background-color: white;
 }
 
 .component a:after{

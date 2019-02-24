@@ -58,10 +58,7 @@ export default class SwipeAction extends BaseComponent {
     const swipeLeft = this.shadow.querySelector('#swipe-left')
     const swipeContent = this.shadow.querySelector('#swipe-content')
     const swipeRight = this.shadow.querySelector('#swipe-right')
-    const handleSize = () => {
-
-    }
-    console.log(swipeContent.offsetWidth,(swipeLeft.offsetWidth + swipeRight.offsetWidth))
+    // console.log(swipeLeft.offsetWidth, swipeRight.offsetWidth)
 
     this.swipe = new SwipeRevealItem(this.root, {
       swipeDirection: { // 可滑动方向
@@ -72,7 +69,7 @@ export default class SwipeAction extends BaseComponent {
         left: Boolean(slotLeft.assignedNodes().length),
         right: Boolean(slotRight.assignedNodes().length)
       },
-      handleSize: Math.round(swipeContent.offsetWidth - (swipeLeft.offsetWidth + swipeRight.offsetWidth)),
+      handleSize: Math.round(swipeContent.offsetWidth - (swipeRight.offsetWidth)),
     })
   }
 

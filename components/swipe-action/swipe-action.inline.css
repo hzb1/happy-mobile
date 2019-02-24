@@ -29,6 +29,14 @@
     flex-shrink: 0;
 }
 
-.swipe-back {
+.swipe-left{
+    position: absolute;
+    left: 0;
+    transform: translateX(-100%);
 }
 
+.swipe-right{
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+}

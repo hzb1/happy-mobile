@@ -161,13 +161,10 @@ export default class SwipeRevealItem {
     if (Math.abs(differenceInX) > this.slopValue) {
       if (this.currentState === this.STATE_DEFAULT) {
         if (differenceInX > 0) {
-          console.log('d', differenceInX, this.slopValue)
-          // if (!this.congif.slot.right)
-            newState = this.STATE_LEFT_SIDE
-
+          newState = this.STATE_LEFT_SIDE
         } else {
           // if (!this.congif.slot.right)
-            newState = this.STATE_RIGHT_SIDE
+          newState = this.STATE_RIGHT_SIDE
         }
       } else if (this.currentState === this.STATE_LEFT_SIDE && differenceInX > 0) {
         newState = this.STATE_DEFAULT
