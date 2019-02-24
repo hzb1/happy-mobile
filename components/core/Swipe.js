@@ -42,19 +42,16 @@ export default class SwipeRevealItem {
     // Check if pointer events are supported.
     // console.log(this.swipeFrontElement, 'this.swipeFrontElement')
     if (window.PointerEvent) {
-      // Add Pointer Event Listener
       this.swipeFrontElement.addEventListener('pointerdown', this.handleGestureStart.bind(this), true)
       this.swipeFrontElement.addEventListener('pointermove', this.handleGestureMove.bind(this), true)
       this.swipeFrontElement.addEventListener('pointerup', this.handleGestureEnd.bind(this), true)
       this.swipeFrontElement.addEventListener('pointercancel', this.handleGestureEnd.bind(this), true)
     } else {
-      // Add Touch Listener
       this.swipeFrontElement.addEventListener('touchstart', this.handleGestureStart.bind(this), true)
       this.swipeFrontElement.addEventListener('touchmove', this.handleGestureMove.bind(this), true)
       this.swipeFrontElement.addEventListener('touchend', this.handleGestureEnd.bind(this), true)
       this.swipeFrontElement.addEventListener('touchcancel', this.handleGestureEnd.bind(this), true)
 
-      // Add Mouse Listener
       this.swipeFrontElement.addEventListener('mousedown', this.handleGestureStart.bind(this), true)
     }
 
@@ -177,7 +174,7 @@ export default class SwipeRevealItem {
 
     this.changeState(newState)
 
-    this.swipeFrontElement.style.transition = 'all 150ms ease-out'
+    this.swipeFrontElement.style.transition = 'all 250ms ease-out'
   }
 
   // 更新状态和ui
@@ -195,25 +192,6 @@ export default class SwipeRevealItem {
     ])
 
     this.currentXPosition = maps.get(newState)()
-
-    // switch (newState) {
-    //   case this.STATE_DEFAULT:
-    //     this.currentXPosition = 0
-    //     break
-    //   case this.STATE_LEFT_SIDE:
-    //     if (this.congif.slot.right) {
-    //       this.currentXPosition = -(this.itemWidth - this.handleSize)
-    //     } else {
-    //       this.currentXPosition = 0
-    //     }
-    //     break
-    //   case this.STATE_RIGHT_SIDE:
-    //     if (this.congif.slot.left) this.currentXPosition = this.itemWidth - this.handleSize
-    //     break
-    //   default:
-    //     this.currentXPosition = 0
-    //     break
-    // }
 
     const transformStyle = `translateX(${this.currentXPosition}px)`
 

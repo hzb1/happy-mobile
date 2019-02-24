@@ -37,10 +37,6 @@ export default class Grid extends BaseComponent {
     `
     this.shadow.appendChild(template.content.cloneNode(true))
     this.root = this.shadow.querySelector('.h-grid-root')
-    // console.log(this.slot)
-    // console.log(this.shadow.slot)
-    console.log(this.root.slot)
-    console.log(this.root.children)
   }
 
   init() {

@@ -70,7 +70,7 @@ export default class Img extends BaseComponent {
   }
 
   initAttribute() {
-    this.setAttribute('src', this.src)
+    if (this.src) this.setAttribute('src', this.src)
   }
 
   initMethod() {
