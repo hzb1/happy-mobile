@@ -4,117 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS HAPPY-MOBILE</title>
-    <link rel="stylesheet" href="../demo.css">
     <link rel="stylesheet" href="../../dist/happy-mobile.css">
+    <link rel="stylesheet" href="../demo.css">
+    <style>
+        :root{ --h-theme-primary: #333333;} /** 更改主题色 **/
+    </style>
 </head>
 <body class="happy-home">
 
 <header>
     <div class="menu">
-        <h-icon type="h-round_menu_fill"></h-icon>
+        <h-icon type="h-sortlight"></h-icon>
     </div>
-    <h1>HAPPY UI</h1>
-    <div>
+    <h1>HAPPY MOBILE</h1>
+    <div class="theme">
+        <input id="theme-input" type="color"/>
     </div>
 </header>
-
 <section class="list-box">
-    <div class="component">
-        <div>
-            <h3>基础</h3>
-            <ul>
-                <li>
-                    <a class="list" href="page/button">按钮 Button
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-                <li>
-                    <a class="list" href="page/icon">图标 Icon
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>
-                数据展示
-            </h3>
-            <ul>
-                <!--<li>-->
-                <!--<a href="page/swipe-action">滑动操作 SwipeAction <h-icon type="h-right"></h-icon></a>-->
-                <!--</li>-->
-                <li>
-                    <h-swipe-action class="list">
-                        <style>
-                            .swipe-action-slot {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                background-color: white;
-                            }
+    <style>
+        route-view{
+            width: 100%;
+            transform: translateX(100%);
 
-                            .swipe-action-slot .swipe-action-content {
-                                width: 100%;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center
-                            }
-                        </style>
-                        <a href="page/swipe-action" class="swipe-action-slot list">
-                            <div class="swipe-action-content">
-                                <p>滑动操作 SwipeAction</p>
-                                <h-icon type="h-right"></h-icon>
-                            </div>
-                        </a>
-                        <div slot="right" style="background-color: var(--h-theme-primary); color: white; width: 70px; text-align: center">
-                            <span>Git</span>
-                        </div>
-                    </h-swipe-action>
-                </li>
-                <li>
-                    <a class="list" href="page/mask">遮罩 Mask
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-                <li>
-                    <a class="list" href="page/grid">宫格 Grid
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-                <li>
-                    <a class="list" href="page/img">图片懒加载 Img
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>
-                反馈
-            </h3>
-            <ul>
-                <li>
-                    <a class="list" href="page/toast">轻提示 Toast
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h3>
-                表单
-            </h3>
-            <ul>
-                <li>
-                    <a class="list" href="page/form">表单 Form
-                        <h-icon type="h-right"></h-icon>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+            transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+            transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+        }
+        route-view.view-show {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    </style>
+    <route-view class="route-view"></route-view>
 </section>
 
 <script src="../../dist/happy-mobile.js"></script>
+<script src="dist/bundle.js"></script>
 </body>
 </html>

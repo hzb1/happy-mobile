@@ -76,14 +76,16 @@
 <h4 class="title">Form</h4>
 
 <div class="form-content">
-    <form id="form" name="testform" class="my-form" onsubmit="return login()">
+    <form id="myForm" name="myForm" class="my-form" onsubmit="return login()">
         <div class="form-item">
             <h-icon type="h-my_light"></h-icon>
-            <input type="text" name="name" required value="hzb" placeholder="请输入账号" />
+            <!-- //用户名正则，3到6位（字母，数字，下划线，减号） -->
+            <input h-input type="text" name="name" required
+                    min="3" max="6" placeholder="请输入用户名（3到6位（字母，数字，下划线，减号）" />
         </div>
         <div class="form-item">
             <h-icon type="h-my_light"></h-icon>
-            <input type="text" name="password" required value="password" placeholder="请输入密码" />
+            <input h-input type="password" name="password" required value="password" placeholder="请输入密码" />
         </div>
         <!--<button type="submit">登录</button>-->
         <div class="form-btn">
@@ -97,7 +99,7 @@
 <div class="form" style="padding-bottom: 70px">
     <p>input type</p>
     <div class="form-ls">
-        text <input type="text"/>
+        text <input h-input type="text"/>
     </div>
     <div class="form-ls">
         url <input type="url"/>
@@ -158,11 +160,14 @@
   var submit = document.querySelector('#submit')
   // submit.showLoading()
   // submit.loading = true;
-  // var form = document.querySelector('#form')
+  var form = document.querySelector('#myForm')
   //
   function login(ev) {
     try {
+      console.log(ev, form.elements)
       submit.loading = true;
+
+      return;
       var body = new FormData();
       body.append('name', testform.name.value)
       body.append('password', testform.password.value)

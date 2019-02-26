@@ -1,5 +1,4 @@
 {
-  "theme": "./components/theme.js",
   "button": "./components/button/index.js",
   "icon": "./components/icon/index.js",
   "img": "./components/img/index.js",

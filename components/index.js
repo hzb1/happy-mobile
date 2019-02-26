@@ -1,7 +1,7 @@
 import { version } from '../package'
 import './theme.scss'
+import './form/form.scss'
 
-import Theme from './theme'
 import Button from './button'
 import Icon from './icon'
 import Img from './img'
@@ -12,7 +12,6 @@ import Mask from './mask'
 
 const happy = {
   version,
-  Theme,
   Button,
   Icon,
   Img,

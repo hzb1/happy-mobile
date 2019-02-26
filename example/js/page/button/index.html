@@ -1,33 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button</title>
-    <link rel="stylesheet" href="../../../../dist/happy-mobile.css">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            padding: 18px;
-            box-sizing: border-box;
-            padding-bottom: 140px;
-        }
-        h4{
-            margin-top: 12px;
-            font-size: 12px;
-        }
-        h-button, button[h-button]{
-            margin: 6px 0;
-        }
-    </style>
-</head>
-<body>
+
+
+<style>
+    h-button, button[h-button]{
+        margin: 6px 0;
+    }
+</style>
 
 <h4>最简单 Button</h4>
-<h-button id="h-btn1" onclick="onClick1()">组件 Button</h-button>
+<h-button id="h-btn1">组件 Button</h-button>
 
 <h4>颜色 Color</h4>
 <h-button color="primary">primary</h-button>
@@ -53,19 +33,20 @@
 <h-button outline color="error" inline >outline</h-button>
 
 <h4>大小 Size</h4>
-<h-button size="small" inline >小 small</h-button>
-<h-button size="medium" inline >中 medium</h-button>
-<h-button size="large" inline >大 large</h-button>
+<h-button size="small" shadow inline >小 small</h-button>
+<h-button size="medium" shadow inline >中 medium</h-button>
+<h-button size="large" shadow inline >大 large</h-button>
 
 <h4>禁用 Disabled</h4>
-<h-button disabled inline id="btn3" onclick="onClick3()">禁用</h-button>
-<h-button disabled color="secondary" inline>secondary</h-button>
-<h-button disabled color="warn" inline>warn</h-button>
-<h-button disabled color="error" inline>error</h-button>
+<!--<h-button disabled inline id="btn3">禁用</h-button>-->
+<!--<h-button disabled color="secondary" inline>secondary</h-button>-->
+<!--<h-button disabled color="success" inline>success</h-button>-->
+<!--<h-button disabled color="warn" inline>warn</h-button>-->
+<!--<h-button disabled color="error" inline>error</h-button>-->
 
 <h4>加载 Loading</h4>
 <!--<button h-button loading="true" onclick="showLoading1()" id="loading1">指令 Loading</button>-->
-<h-button id="btn4" onclick="onClick4()" class="my-class" >Loading</h-button>
+<h-button id="btn4" class="my-class" >Loading</h-button>
 
 <h4>图标按钮</h4>
 <h-button size="small" color="secondary" inline >
@@ -89,31 +70,16 @@
         justify-content: center;
         border-radius: 50%
     }
+    .my-icon2{
+        width: 120px;
+        height: 50px;
+        border-radius: 50px;
+    }
+    .my-icon2::before{ border-radius: 100px;}
 </style>
 <h-button inline shadow class="my-icon" >
     <h-icon type="h-top"></h-icon>
 </h-button>
-
-<!--<script type="text/javascript" src="../../../../happy-ui.js"></script>-->
-<script type="text/javascript" src="../../../../dist/happy-mobile.js"></script>
-<script>
-
-  var onClick1 = function () {
-    var btn1 = document.querySelector('#h-btn1')
-    btn1.type = 'primary'
-    console.log(btn1.hasAttribute('type'))
-  }
-
-  var onClick3 = function () {
-    var btn3 = document.querySelector('#btn3')
-    btn3.disabled = !btn3.disabled
-  }
-
-  var onClick4 = function () {
-    var btn4 = document.querySelector('#btn4')
-    btn4.loading = !btn4.loading
-  }
-
-</script>
-</body>
-</html>
+<h-button inline class="my-icon2" >
+    半圆
+</h-button>
