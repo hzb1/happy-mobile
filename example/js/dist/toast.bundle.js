@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \" <style> @import url('../../../../dist/happy-mobile.css'); </style> <main> <h4>最简单的toast</h4> <h-button inline onclick=show1(0)>show</h-button> <h-button onclick=show1(1e3)>show 1000</h-button> <h-button inline onclick=hide1(4e3)>手动控制hide</h-button> </main> <script>var show1=function(o){happy.Toast.show(\\\"嗨 toase\\\",o)},hide1=function(o){var t=happy.Toast.show(\\\"setTimeout 控制hide\\\",0);setTimeout(t,o)}</script> \";\n\n//# sourceURL=webpack:///./page/toast/index.html?");
+eval("module.exports = \" <style> @import url('./../../../../dist/happy-mobile.css'); </style> <main> <h4>最简单的toast</h4> <h-button inline onclick=show1(0)>show</h-button> <h-button onclick=show1(1e3)>show 1000</h-button> <h-button inline onclick=hide1(4e3)>手动控制hide</h-button> </main> <script>var show1=function(o){happy.Toast.show(\\\"嗨 toase\\\",o)},hide1=function(o){var t=happy.Toast.show(\\\"setTimeout 控制hide\\\",0);setTimeout(t,o)}</script> \";\n\n//# sourceURL=webpack:///./page/toast/index.html?");
 
 /***/ }),
 
