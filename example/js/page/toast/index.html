@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toast</title>
-    <link rel="stylesheet" href="../../../../dist/happy-mobile.css">
-    <style>
-    </style>
-</head>
-<body>
+
+<style>
+    @import url('../../../../dist/happy-mobile.css');
+</style>
 
 <main>
     <h4>最简单的toast</h4>
     <h-button inline onclick="show1(0)">show</h-button>
     <h-button onclick="show1(1000)">show 1000</h-button>
     <h-button inline onclick="hide1(4000)">手动控制hide</h-button>
-
 </main>
 
-<script type="text/javascript" src="../../../../dist/happy-mobile.js"></script>
+<!--<script src="../../../../dist/happy-mobile.js"></script>-->
 <script>
     var show1 = function (time) {
-      console.log(happy)
       happy.Toast.show('嗨 toase', time)
     }
     var hide1 = function (time) {
@@ -29,5 +20,3 @@
       setTimeout(hide, time)
     }
 </script>
-</body>
-</html>

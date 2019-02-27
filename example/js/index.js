@@ -5,7 +5,6 @@ class RouteView extends HTMLElement {
     super()
   }
 }
-
 window.customElements.define('route-view', RouteView)
 
 const { hash } = window.location

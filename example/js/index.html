@@ -12,7 +12,7 @@
 </head>
 <body class="happy-home">
 
-<header>
+<header class="h-elevation--z2">
     <div class="menu">
         <h-icon type="h-sortlight"></h-icon>
     </div>
@@ -24,15 +24,10 @@
 <section class="list-box">
     <style>
         route-view{
+            display: block;
             width: 100%;
-            transform: translateX(100%);
-
             transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
             transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
-        }
-        route-view.view-show {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
         }
     </style>
     <route-view class="route-view"></route-view>

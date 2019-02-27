@@ -1,13 +1,9 @@
 
 const html = require('./index.html')
 
-class Icon extends HTMLElement {
-  static get tag() {
+export default class Icon extends HTMLElement {
+  static get tagName() {
     return 'app-icon'
-  }
-
-  constructor() {
-    super()
   }
 
   connectedCallback() {
@@ -29,8 +25,7 @@ class Icon extends HTMLElement {
       div.appendChild(p)
       iconContent.appendChild(div)
     })
-
-    this.onView('show')
+    // this.classList.add('view-show')
   }
 
   onView(type) {
@@ -46,7 +41,3 @@ class Icon extends HTMLElement {
     this.onView('hide')
   }
 }
-
-window.customElements.define('app-icon', Icon)
-
-export default Icon

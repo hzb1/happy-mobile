@@ -3,6 +3,10 @@ class BaseComponent extends HTMLElement {
   // 注册
   static register(name = this.prototype.$tag) {
     try {
+      if (window.customElements.get(name)) {
+        console.warn(`happy-mobile: ${name}标签不能重复注册`)
+        return
+      }
       window.customElements.define(name, this)
     } catch (e) {
       throw e

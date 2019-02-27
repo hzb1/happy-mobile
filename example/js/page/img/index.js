@@ -2,9 +2,9 @@
 
 const html = require('./index.html')
 
-export default class Button extends HTMLElement {
+export default class Img extends HTMLElement {
   static get tagName() {
-    return 'app-button'
+    return 'app-img'
   }
 
   constructor() {
