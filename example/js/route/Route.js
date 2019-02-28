@@ -3,8 +3,10 @@
 export default class Route {
   constructor(routes) {
     this.routes = routes
-    this.view = document.querySelector('route-view')
+    this.routeView = document.querySelector('route-view')
     window.addEventListener('hashchange', this.hashchange.bind(this))
+    this.view = null
+    this.keepAlive = new WeakMap()
   }
 
   hashchange({ newURL }) {
@@ -14,7 +16,8 @@ export default class Route {
   }
 
   push(path) {
-    console.log(path)
+    // console.log(path)
+    // console.log(this.routes.get(path))
     if (!this.routes.get(path)) {
       path = '*'
     }
@@ -25,15 +28,36 @@ export default class Route {
       if (!customElements.get(tagName)) {
         window.customElements.define(tagName, Component)
       }
-      const tag = document.createElement(tagName)
+      const hasTag = this.keepAlive.has(this.routes.get(path))
+      let tag
+      if (hasTag) {
+        tag = this.keepAlive.get(this.routes.get(path))
+      } else {
+        tag = document.createElement(tagName)
+        this.keepAlive.set(this.routes.get(path), tag)
+      }
+      if (this.view) {
+        this.view.classList.remove('view-show')
+        this.view.classList.add('view-hide')
+      }
 
-      // this.view.classList.remove('view-show')
-      this.view.innerHTML = ''
-      this.view.appendChild(tag)
+      this.view = tag
+      this.routeView.appendChild(tag)
+
+      this.view.classList.remove('view-hide')
+
       setTimeout(() => {
-        tag.classList.add('view-show')
-      }, 100)
-      console.log(tag)
+        this.view.classList.add('view-show')
+      }, 120)
+      // if (hasTag) {
+      //   this.view.classList.add('view-show')
+      // } else {
+      //   setTimeout(() => {
+      //     this.view.classList.add('view-show')
+      //   }, 100)
+      // }
+
+      // console.log(tag)
     }).catch((err) => {
       // console.log(err)
     })

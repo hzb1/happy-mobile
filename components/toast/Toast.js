@@ -104,7 +104,8 @@ export default class Toast extends BaseComponent {
 
   // 从DOM中移除时调用
   disconnectedCallback() {
-    // console.log('插入到DOM', this)
+    this.animationOut()
+    console.log('从DOM中移除时调用')
   }
 
   animationIn() {

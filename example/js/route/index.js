@@ -23,5 +23,6 @@ const routes = new Map([
 ])
 
 const route = new Route(routes)
+window.route = route
 
 export default route

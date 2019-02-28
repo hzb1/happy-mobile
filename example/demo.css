@@ -6,11 +6,14 @@
 body,
 html{
     width: 100%;
+    max-width: 100%;
     height: 100%;
+    overflow-x: hidden;
     background-color: #fff;
 }
 
 main{
+    position: relative;
     padding-bottom: 10vh;
     overflow-x: hidden;
 }
@@ -136,6 +139,12 @@ header .theme #theme-input{
     transform: scaleY(.5);
 }
 
+route-view{
+    display: block;
+    width: 100%;
+    transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
 
 route-view app-home,
 route-view app-button,
@@ -143,10 +152,22 @@ route-view app-toast,
 route-view app-icon{
     display: block;
     width: 100%;
+    min-height: 50%;
     transform: translateX(100%);
     transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
-    transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946), opacity 80ms ease-out;
 }
 route-view .view-show{
+    position: relative;
+    display: block;
+    opacity: 1;
     transform: translateX(0);
+    z-index: 1;
+}
+route-view .view-hide{
+    transition: transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946), opacity 80ms ease-out;
+    transform: translateX(-100%);
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
 }
