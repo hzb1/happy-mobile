@@ -26,14 +26,14 @@ export default class Img extends BaseComponent {
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({mode: 'open'})
+    this.attachShadow({mode: 'open'})
     const template = document.createElement('template')
     template.innerHTML = `
       <style>.h-img-root{display: block;width: 100%;}</style>
       ${this.$template(this)}
     `
-    this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-img-root')
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.root = this.shadowRoot.querySelector('.h-img-root')
   }
 
   load() {

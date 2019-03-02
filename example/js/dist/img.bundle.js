@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \" <style>.vide{height:50vh;background-color:#eee}</style> <main> <h4>最简单的img</h4> <div class=vide>占位符 1</div> <h-img src=http://img.daimg.com/uploads/allimg/190209/1-1Z20Z03010.jpg alt=\\\"my alt\\\"></h-img> <div class=vide>占位符 2</div> <h-img src=http://img.daimg.com/uploads/allimg/190212/1-1Z212145H90-L.jpg></h-img> <div class=vide>占位符 3</div> <h-img src=http://img.daimg.com/uploads/allimg/190207/1-1Z20GTU80-L.jpg></h-img> <div class=vide>占位符 4</div> <h-img src=http://img.daimg.com/uploads/allimg/190207/1-1Z20GJ0000-L.jpg></h-img> </main> \";\n\n//# sourceURL=webpack:///./page/img/index.html?");
+eval("module.exports = \"<!--<link rel=\\\"stylesheet\\\" href=\\\"../../../demo.css\\\">-->\\n\\n<style>\\n    .vide {\\n        height: 50vh;\\n        background-color: #eeeeee;\\n    }\\n</style>\\n\\n<main>\\n    <h4>最简单的img</h4>\\n\\n    <div class=\\\"vide\\\">占位符 1</div>\\n    <h-img src=\\\"http://img.daimg.com/uploads/allimg/190209/1-1Z20Z03010.jpg\\\" alt=\\\"my alt\\\"></h-img>\\n    <div class=\\\"vide\\\">占位符 2</div>\\n    <h-img src=\\\"http://img.daimg.com/uploads/allimg/190212/1-1Z212145H90-L.jpg\\\"></h-img>\\n    <div class=\\\"vide\\\">占位符 3</div>\\n    <h-img src=\\\"http://img.daimg.com/uploads/allimg/190207/1-1Z20GTU80-L.jpg\\\"></h-img>\\n    <div class=\\\"vide\\\">占位符 4</div>\\n    <h-img src=\\\"http://img.daimg.com/uploads/allimg/190207/1-1Z20GJ0000-L.jpg\\\"></h-img>\\n</main>\\n\";\n\n//# sourceURL=webpack:///./page/img/index.html?");
 
 /***/ }),
 

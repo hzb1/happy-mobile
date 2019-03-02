@@ -14,6 +14,7 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
     {
       name: 'loading',
       type: Boolean,
+      default: false,
     },
     {
       name: 'size',
@@ -24,21 +25,24 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
       name: 'outline', // 外边框
       type: Boolean,
       has: true,
+      default: false,
     },
-    {
-      name: 'disabled',
-      type: Boolean,
-      has: true,
-    },
+    // {
+    //   name: 'disabled',
+    //   type: Boolean,
+    //   has: true,
+    // },
     {
       name: 'shadow',
       type: Boolean,
       has: true,
+      default: false,
     },
     {
       name: 'inline',
       type: Boolean,
       has: true,
+      default: false,
     },
     {
       name: 'type',
@@ -61,14 +65,26 @@ export default class Button extends BaseComponent {
     return [ 'color', 'size', 'raised', 'icon', 'loading', 'shadow', 'disabled', 'inline']
   }
 
+  get disabled(){
+    return this.hasAttribute('disabled')
+  }
+
+  set disabled(value){
+    if (value) {
+      this.setAttribute('disabled', value)
+    } else {
+      this.removeAttribute('disabled')
+    }
+  }
+
   constructor() {
     super();
-    this.shadowDom = this.attachShadow({mode: 'open'})
-    this.shadowDom.innerHTML = `
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.innerHTML = `
         <style>${this.$style()}</style>
         ${this.$template(this)}
     `
-    this.root = this.shadowDom.querySelector('button')
+    this.root = this.shadowRoot.querySelector('button')
     // this.init()
   }
 
@@ -100,15 +116,19 @@ export default class Button extends BaseComponent {
   }
 
   initAttribute(){
+    // this._upgradeProperty('disabled')
     this.setAttribute('shadow', this.shadow)
     this.setAttribute('type', this.type)
+    this.setAttribute('inline', this.inline)
+    // this.setAttribute('outline', this.outline)
+    // this.setAttribute('disabled', this.disabled)
     // if (this.loading) this.showLoading()
     // this.setAttribute('loading', this.loading)
   }
 
   initMethod(){
     this.hideLoading = () => {
-      const button = this.shadowDom.querySelector('button')
+      const button = this.shadowRoot.querySelector('button')
       const buttonIcon = button.querySelector('h-icon')
       if (buttonIcon) {
         button.removeChild(buttonIcon)
@@ -122,14 +142,14 @@ export default class Button extends BaseComponent {
       }
       const Icon = customElements.get('h-icon');
       const i = new Icon()
-      const button = this.shadowDom.querySelector('button')
+      const button = this.shadowRoot.querySelector('button')
       button.insertBefore(i, button.childNodes[0])
       i.type = 'h-loading'
       i.classList.add('h-icon--loading')
       this.isLoading = true
       this.disabled = true
       return () => {
-        const button = this.shadowDom.querySelector('button')
+        const button = this.shadowRoot.querySelector('button')
         const buttonIcon = button.querySelector('h-icon')
         if (buttonIcon) {
           button.removeChild(buttonIcon)
@@ -153,6 +173,14 @@ export default class Button extends BaseComponent {
         }
       }, false)
 
+    }
+  }
+
+  _upgradeProperty(prop) {
+    if (this.hasOwnProperty(prop)) {
+      let value = this[prop];
+      delete this[prop];
+      this[prop] = value;
     }
   }
 

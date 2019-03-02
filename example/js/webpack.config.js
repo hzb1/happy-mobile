@@ -19,9 +19,16 @@ module.exports = {
           loader: 'html-loader',
           options: {
             attrs: [':data-src'],
-            minimize: true,
+            // minimize: true,
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader', // 将 JS 字符串生成为 style 节点
+          'css-loader',
+        ],
       },
     ],
   },

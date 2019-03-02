@@ -1,5 +1,4 @@
 
-
 export default class Route {
   constructor(routes) {
     this.routes = routes
@@ -11,13 +10,10 @@ export default class Route {
 
   hashchange({ newURL }) {
     const { hash } = new URL(newURL)
-    // console.log(target, type, bubbles, cancelable, oldURL, newURL)
     this.push(hash)
   }
 
   push(path) {
-    // console.log(path)
-    // console.log(this.routes.get(path))
     if (!this.routes.get(path)) {
       path = '*'
     }
@@ -59,7 +55,6 @@ export default class Route {
 
       // console.log(tag)
     }).catch((err) => {
-      // console.log(err)
     })
   }
 }

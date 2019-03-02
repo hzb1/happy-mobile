@@ -30,14 +30,14 @@ export default class Mask extends BaseComponent {
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' })
     const template = document.createElement('template')
     template.innerHTML = `
       <style>${this.$style()}</style>
       ${this.$template(this)}
     `
-    this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-mask-root')
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.root = this.shadowRoot.querySelector('.h-mask-root')
   }
 
   show() {

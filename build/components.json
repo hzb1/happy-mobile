@@ -1,9 +1,9 @@
 {
   "button": "./components/button/index.js",
   "icon": "./components/icon/index.js",
+  "icon-font": "./components/icon/iconfont/index.js",
   "img": "./components/img/index.js",
   "swipe-action": "./components/swipe-action/index.js",
   "mask": "./components/mask/index.js",
-  "toast": "./components/toast/index.js",
-  "grid": "./components/grid/index.js"
+  "toast": "./components/toast/index.js"
 }

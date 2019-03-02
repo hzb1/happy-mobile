@@ -1,9 +1,24 @@
-@import "iconfont.css";
+/*@import "./iconfont/iconfont.scss";*/
 
-h-icon .h-iconfont {
+/*h-icon .h-iconfont {*/
+    /*width: 1em;*/
+    /*height: 1em;*/
+    /*vertical-align: -0.15em;*/
+    /*fill: currentColor;*/
+    /*overflow: hidden;*/
+/*}*/
+
+:host{
+    display: inline-block;
     width: 1em;
     height: 1em;
-    vertical-align: -0.15em;
+}
+
+.h-iconfont, svg {
+    display: block;
     fill: currentColor;
-    overflow: hidden;
+    stroke: currentColor;
+    height: 100%;
+    width: 100%;
+    color: #50c39c;
 }

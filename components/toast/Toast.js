@@ -35,14 +35,14 @@ export default class Toast extends BaseComponent {
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' })
     const template = document.createElement('template')
     template.innerHTML = `
       <style>${this.$style()}</style>
       ${this.$template(this)}
     `
-    this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-toast-root')
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.root = this.shadowRoot.querySelector('.h-toast-root')
   }
 
   // 显示
@@ -125,7 +125,7 @@ export default class Toast extends BaseComponent {
 
   animationOut() {
     const toastContent = this.root.querySelector('.h-toast-content')
-    const toastMask = this.shadow.querySelector('.h-toast-mask')
+    const toastMask = this.shadowRoot.querySelector('.h-toast-mask')
     toastMask || toastMask.animationOut()
     const player = toastContent.animate([
       { transform: 'scale(1)', opacity: 1 },

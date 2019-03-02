@@ -4,7 +4,6 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  border: 0;
   padding-left: 14px;
   padding-right: 14px;
   border-radius: 5px;
@@ -37,7 +36,10 @@
     border-radius: 10px;
     pointer-events: none;
     overflow: hidden;
-    z-index: 1; }
+    z-index: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--h-theme-border, #eee); }
   .h-button::after {
     content: '';
     display: block;
@@ -80,53 +82,50 @@
 .h-button--primary {
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-primary, #1f78ff); }
+  .h-button--primary:before {
+    border-color: var(--h-theme-primary, #1f78ff); }
   .h-button--primary[outline] {
     color: var(--h-theme-primary, #1f78ff); }
-    .h-button--primary[outline]:before {
-      border: 1px solid var(--h-theme-primary, #1f78ff); }
     .h-button--primary[outline]:after {
       background-color: var(--h-theme-primary, #1f78ff); }
 
 .h-button--secondary {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: var(--h-theme-background, #ffffff); }
-  .h-button--secondary::before {
-    border: 1px solid var(--h-theme-border, #ccc); }
-  .h-button--secondary:hover:after {
-    opacity: 0.06;
-    background-color: var(--h-theme-primary, #1f78ff); }
-  .h-button--secondary:active:after {
-    transition-duration: 75ms;
-    opacity: 0.12;
-    background-color: var(--h-theme-primary, #1f78ff); }
+  color: var(--h-theme-text-87, rgba(0, 0, 0, 0.87));
+  background-color: var(--h-theme-secondary, #ffffff); }
+  .h-button--secondary:before {
+    border: 1px solid var(--h-theme-border, #eeeeee); }
+  .h-button--secondary[outline] {
+    color: var(--h-theme-text-87, rgba(0, 0, 0, 0.87)); }
+    .h-button--secondary[outline]:after {
+      background-color: var(--h-theme-secondary, #ffffff); }
 
 .h-button--success {
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-success, #26bf2c); }
+  .h-button--success:before {
+    border: 1px solid var(--h-theme-success, #26bf2c); }
   .h-button--success[outline] {
     color: var(--h-theme-success, #26bf2c); }
-    .h-button--success[outline]:before {
-      border: 1px solid var(--h-theme-success, #26bf2c); }
     .h-button--success[outline]:after {
       background-color: var(--h-theme-success, #26bf2c); }
 
 .h-button--warn {
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-warn, #fbc02d); }
+  .h-button--warn:before {
+    border: 1px solid var(--h-theme-warn, #fbc02d); }
   .h-button--warn[outline] {
     color: var(--h-theme-warn, #fbc02d); }
-    .h-button--warn[outline]:before {
-      border: 1px solid var(--h-theme-warn, #fbc02d); }
     .h-button--warn[outline]:after {
       background-color: var(--h-theme-warn, #fbc02d); }
 
 .h-button--error {
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-error, #e53935); }
+  .h-button--error:before {
+    border: 1px solid var(--h-theme-error, #e53935); }
   .h-button--error[outline] {
     color: var(--h-theme-error, #e53935); }
-    .h-button--error[outline]:before {
-      border: 1px solid var(--h-theme-error, #e53935); }
     .h-button--error[outline]:after {
       background-color: var(--h-theme-error, #e53935); }
 

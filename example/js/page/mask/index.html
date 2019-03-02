@@ -1,6 +1,12 @@
+<link rel="stylesheet" href="../../../../dist/happy-mobile.css">
+<style>
+    .demo-page{
+        padding: 18px 18px 80px;
+        box-sizing: border-box;
+    }
+</style>
 
-
-<main>
+<section class="demo-page">
     <h4>最简单的mask</h4>
     <h-mask id="mask1" style="display: none">
         <style>
@@ -14,10 +20,11 @@
         </div>
     </h-mask>
     <h-button inline onclick="show1()">show</h-button>
-</main>
+</section>
 
 <script>
-    var mask1 = document.querySelector('#mask1')
+    // var mask1 = document.querySelector('#mask1')
+    var mask1 = document.querySelector('app-mask').shadowRoot.querySelector('#mask1')
     var show1 = function () {
       var hide = mask1.show()
     }

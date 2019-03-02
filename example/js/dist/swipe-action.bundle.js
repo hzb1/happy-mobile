@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \" <main> <h4>最简单的swipe-action</h4> <div style=padding:12px> <h-swipe-action></h-swipe-action> </div> </main> \";\n\n//# sourceURL=webpack:///./page/swipe-action/index.html?");
+eval("module.exports = \"\\n<main>\\n    <h4>最简单的swipe-action</h4>\\n    <div style=\\\"padding: 12px\\\">\\n        <h-swipe-action></h-swipe-action>\\n    </div>\\n</main>\\n\\n\";\n\n//# sourceURL=webpack:///./page/swipe-action/index.html?");
 
 /***/ }),
 

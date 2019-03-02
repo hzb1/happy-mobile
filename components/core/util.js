@@ -1,4 +1,6 @@
 
+const isStatusValid = status => status <= 299
+
 // if
 const mIf = (bool, backValue) => {
   if (bool) {
@@ -33,6 +35,7 @@ const propToObj = (prop) => {
 }
 
 export {
+  isStatusValid,
   mIf,
   toHump,
   propToObj,

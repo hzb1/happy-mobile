@@ -1,11 +1,16 @@
-
-<div class="page-button">
+<div class="code-css">
+    <link rel="stylesheet" href="../../../../dist/button/button.css">
     <style>
+        .demo-page{
+            padding: 18px 18px 80px;
+            box-sizing: border-box;
+        }
         h-button, button[h-button]{
             margin: 6px 0;
         }
     </style>
-
+</div>
+<section class="demo-page">
     <h4>最简单 Button</h4>
     <h-button id="h-btn1">组件 Button</h-button>
 
@@ -38,11 +43,11 @@
     <h-button size="large" shadow inline >大 large</h-button>
 
     <h4>禁用 Disabled</h4>
-    <!--<h-button disabled inline id="btn3">禁用</h-button>-->
-    <!--<h-button disabled color="secondary" inline>secondary</h-button>-->
-    <!--<h-button disabled color="success" inline>success</h-button>-->
-    <!--<h-button disabled color="warn" inline>warn</h-button>-->
-    <!--<h-button disabled color="error" inline>error</h-button>-->
+    <h-button disabled inline id="btn3">禁用</h-button>
+    <h-button disabled color="secondary" inline>secondary</h-button>
+    <h-button disabled color="success" inline>success</h-button>
+    <h-button disabled color="warn" inline>warn</h-button>
+    <h-button disabled color="error" inline>error</h-button>
 
     <h4>加载 Loading</h4>
     <!--<button h-button loading="true" onclick="showLoading1()" id="loading1">指令 Loading</button>-->
@@ -83,4 +88,7 @@
     <h-button inline class="my-icon2" >
         半圆
     </h-button>
-</div>
+</section>
+<script>
+    var btn1 = document.querySelector('#h-btn1')
+</script>

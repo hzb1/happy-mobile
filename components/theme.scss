@@ -2,7 +2,7 @@
 
 :root{
   --h-theme-primary: #1f78ff;                                         // 主要色
-  --h-theme-secondary: #ffffff;                                       // 辅助色
+  --h-theme-secondary: #fff;                                       // 辅助色
   --h-theme-success: #26bf2c;                                         // 成功色
   --h-theme-warn: #fbc02d;                                            // 警告色
   --h-theme-error: #e53935;                                           // 错误色
@@ -12,25 +12,10 @@
   --h-theme-border: #ccc;                                             // 描边色
   --h-theme-surface: #fff;                                            // 外观色
 
-  --h-theme-on-primary: #fff;
-  --h-theme-on-secondary: #fff;
-  --h-theme-on-surface: #000;
-  --h-theme-on-error: #fff;
-  --h-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
-  --h-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
-  --h-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
-  --h-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
-  --h-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
-  --h-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
-  --h-theme-text-primary-on-dark: white;
-  --h-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
-  --h-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
-  --h-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
-  --h-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
+
+  --h-theme-text-87: rgba(0, 0, 0, 0.87);
+  --h-theme-text-54: rgba(0, 0, 0, 0.54);
+  --h-theme-text-38: rgba(0, 0, 0, 0.38);
 }
 
 

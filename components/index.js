@@ -6,7 +6,6 @@ import Button from './button'
 import Icon from './icon'
 import Img from './img'
 import Toast from './toast'
-import Grid from './grid'
 import SwipeAction from './swipe-action'
 import Mask from './mask'
 
@@ -15,7 +14,6 @@ const happy = {
   Button,
   Icon,
   Img,
-  Grid,
   Toast,
   Mask,
   SwipeAction,

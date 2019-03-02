@@ -43,21 +43,21 @@ export default class SwipeAction extends BaseComponent {
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' })
     const template = document.createElement('template')
     template.innerHTML = `
       <style>${this.$style()}</style>
       ${this.$template(this)}
     `
-    this.shadow.appendChild(template.content.cloneNode(true))
-    this.root = this.shadow.querySelector('.h-swipe-action-root')
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.root = this.shadowRoot.querySelector('.h-swipe-action-root')
 
-    const slotLeft = this.shadow.querySelector('#slot-left')
-    const slotContent = this.shadow.querySelector('#slot-content')
-    const slotRight = this.shadow.querySelector('#slot-right')
-    const swipeLeft = this.shadow.querySelector('#swipe-left')
-    const swipeContent = this.shadow.querySelector('#swipe-content')
-    const swipeRight = this.shadow.querySelector('#swipe-right')
+    const slotLeft = this.shadowRoot.querySelector('#slot-left')
+    const slotContent = this.shadowRoot.querySelector('#slot-content')
+    const slotRight = this.shadowRoot.querySelector('#slot-right')
+    const swipeLeft = this.shadowRoot.querySelector('#swipe-left')
+    const swipeContent = this.shadowRoot.querySelector('#swipe-content')
+    const swipeRight = this.shadowRoot.querySelector('#swipe-right')
     // console.log(swipeLeft.offsetWidth, swipeRight.offsetWidth)
 
     this.swipe = new SwipeRevealItem(this.root, {

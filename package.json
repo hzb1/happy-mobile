@@ -1,6 +1,6 @@
 {
   "name": "happy-mobile",
-  "version": "0.0.34",
+  "version": "0.0.384",
   "description": "",
   "private": false,
   "license": "MIT",
@@ -16,6 +16,7 @@
   "typings": "types/index.d.ts",
   "files": [
     "dist",
+    "assets",
     "types"
   ],
   "scripts": {
