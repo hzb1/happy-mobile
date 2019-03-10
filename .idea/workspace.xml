@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d830817a-2454-42d2-8602-71ba5a4f23a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/accordion/Accordion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/accordion/accordion.inline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/accordion/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/js/page/accordion/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/js/page/accordion/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/Swipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/Swipe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/swipe-action/SwipeAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/swipe-action/SwipeAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/happy-mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/happy-mobile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/example/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/js/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/js/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/js/dist/home.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/js/dist/home.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/js/page/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/js/page/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/js/route/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/example/js/route/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -121,28 +106,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="babelrc" value="4" />
-          <entry key="css" value="62" />
+          <entry key="css" value="60" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="72" />
-          <entry key="js" value="283" />
+          <entry key="html" value="71" />
+          <entry key="js" value="270" />
           <entry key="json" value="38" />
           <entry key="lock" value="1" />
           <entry key="md" value="1" />
-          <entry key="scss" value="39" />
+          <entry key="scss" value="38" />
           <entry key="svg" value="20" />
           <entry key="ts" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="62" />
+          <entry key="CSS" value="60" />
           <entry key="Enforced Plain Text" value="6" />
-          <entry key="HTML" value="72" />
+          <entry key="HTML" value="71" />
           <entry key="JSON" value="42" />
-          <entry key="JavaScript" value="277" />
+          <entry key="JavaScript" value="264" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="SCSS" value="39" />
+          <entry key="SCSS" value="38" />
           <entry key="SVG" value="20" />
           <entry key="TypeScript" value="8" />
           <entry key="yarn.lock" value="1" />
@@ -151,10 +136,10 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="babelrc" value="41" />
-          <entry key="css" value="1278" />
+          <entry key="css" value="1239" />
           <entry key="gitignore" value="5" />
-          <entry key="html" value="5443" />
-          <entry key="js" value="10155" />
+          <entry key="html" value="5164" />
+          <entry key="js" value="9589" />
           <entry key="json" value="88" />
           <entry key="md" value="47" />
           <entry key="scss" value="1075" />
@@ -165,11 +150,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1278" />
+          <entry key="CSS" value="1239" />
           <entry key="Enforced Plain Text" value="20" />
-          <entry key="HTML" value="5530" />
+          <entry key="HTML" value="5239" />
           <entry key="JSON" value="129" />
-          <entry key="JavaScript" value="10048" />
+          <entry key="JavaScript" value="9494" />
           <entry key="Markdown" value="47" />
           <entry key="PLAIN_TEXT" value="98" />
           <entry key="SCSS" value="1075" />
@@ -308,10 +293,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/js/route/index.js">
+        <entry file="file://$PROJECT_DIR$/example/js/page/app-bar/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="180">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding>
+                <element signature="n#div#0;n#section#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/js/route/Route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/js/layout/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="9" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/js/page/home/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -326,13 +341,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/accordion/Accordion.js">
+        <entry file="file://$PROJECT_DIR$/example/js/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/js/route/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="67" column="74" selection-start-line="67" selection-start-column="74" selection-end-line="67" selection-end-column="74" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -340,65 +357,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/js/page/home/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="28" />
+            <state>
+              <caret selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/js/page/accordion/index.js">
+        <entry file="file://$PROJECT_DIR$/example/js/page/button/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/js/page/accordion/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/swipe-action/SwipeAction.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="69" column="17" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="17" />
+            <state relative-caret-position="268">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="28" selection-end-column="28" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/core/Swipe.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="115" column="37" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css">
+        <entry file="file://$PROJECT_DIR$/example/demo.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/accordion/accordion.inline.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="153">
+              <caret line="173" selection-start-line="173" selection-start-column="2" selection-end-line="186" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -411,14 +392,16 @@
         <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>border-radius</find>
       <find>inline=&quot;true&quot;</find>
+      <find>content</find>
       <find>bg</find>
       <find>animationOut</find>
       <find>express</find>
@@ -446,8 +429,6 @@
       <find>webpack-hot-middleware</find>
       <find>animate</find>
       <find>removeChild</find>
-      <find>content</find>
-      <find>requestAnimFrame</find>
     </findStrings>
     <replaceStrings>
       <replace>m</replace>
@@ -475,6 +456,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/components/core/util.js" />
+        <option value="$PROJECT_DIR$/assets/svg/close.svg" />
+        <option value="$PROJECT_DIR$/assets/svg/right.svg" />
+        <option value="$PROJECT_DIR$/assets/svg/appreciate.svg" />
+        <option value="$PROJECT_DIR$/assets/svg/check.svg" />
+        <option value="$PROJECT_DIR$/assets/svg/favorfill.svg" />
+        <option value="$PROJECT_DIR$/assets/svg/back.svg" />
         <option value="$PROJECT_DIR$/components/icon/icon.inline.css" />
         <option value="$PROJECT_DIR$/example/js/page/icon/index.js" />
         <option value="$PROJECT_DIR$/example/js/page/icon/index.html" />
@@ -486,6 +474,7 @@
         <option value="$PROJECT_DIR$/components/core/base-component.js" />
         <option value="$PROJECT_DIR$/components/button/button.scss" />
         <option value="$PROJECT_DIR$/example/js/page/swipe-action/index.html" />
+        <option value="$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css" />
         <option value="$PROJECT_DIR$/components/img/Img.js" />
         <option value="$PROJECT_DIR$/example/js/page/toast/index.html" />
         <option value="$PROJECT_DIR$/components/toast/Toast.js" />
@@ -503,29 +492,21 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/app-bar/index.js" />
+        <option value="$PROJECT_DIR$/components/index.js" />
         <option value="$PROJECT_DIR$/build/components.json" />
+        <option value="$PROJECT_DIR$/example/js/route/index.js" />
         <option value="$PROJECT_DIR$/components/app-bar/app-bar.inline.css" />
         <option value="$PROJECT_DIR$/example/js/page/app-bar/index.js" />
         <option value="$PROJECT_DIR$/components/app-bar/AppBar.js" />
         <option value="$PROJECT_DIR$/example/js/page/app-bar/index.html" />
         <option value="$PROJECT_DIR$/components/button/button.inline.css" />
+        <option value="$PROJECT_DIR$/example/demo.css" />
         <option value="$PROJECT_DIR$/example/js/page/home/home.js" />
+        <option value="$PROJECT_DIR$/example/js/page/home/home.html" />
         <option value="$PROJECT_DIR$/example/js/layout/index.js" />
         <option value="$PROJECT_DIR$/example/js/index.js" />
         <option value="$PROJECT_DIR$/example/js/index.html" />
         <option value="$PROJECT_DIR$/example/js/route/Route.js" />
-        <option value="$PROJECT_DIR$/example/demo.css" />
-        <option value="$PROJECT_DIR$/components/accordion/index.js" />
-        <option value="$PROJECT_DIR$/example/js/page/home/home.html" />
-        <option value="$PROJECT_DIR$/example/js/route/index.js" />
-        <option value="$PROJECT_DIR$/components/index.js" />
-        <option value="$PROJECT_DIR$/example/js/page/accordion/index.js" />
-        <option value="$PROJECT_DIR$/components/accordion/Accordion.js" />
-        <option value="$PROJECT_DIR$/components/accordion/accordion.inline.css" />
-        <option value="$PROJECT_DIR$/example/js/page/accordion/index.html" />
-        <option value="$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css" />
-        <option value="$PROJECT_DIR$/components/swipe-action/SwipeAction.js" />
-        <option value="$PROJECT_DIR$/components/core/Swipe.js" />
       </list>
     </option>
   </component>
@@ -553,11 +534,10 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="826" />
+    <option name="width" value="1024" />
+    <option name="height" value="694" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -581,24 +561,6 @@
             <path>
               <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
               <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="accordion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="swipe-action" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="toast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -606,36 +568,6 @@
               <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="accordion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="happy-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="happy-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="route" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -663,19 +595,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/example/js/page" />
-      <recent name="$PROJECT_DIR$/example/js" />
-      <recent name="$PROJECT_DIR$/assets/svg" />
-      <recent name="$PROJECT_DIR$/components/icon" />
-      <recent name="$PROJECT_DIR$/example/js/p" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components/icon/iconfont" />
       <recent name="$PROJECT_DIR$/components/icon" />
       <recent name="$PROJECT_DIR$/example/js/page/form" />
       <recent name="$PROJECT_DIR$/build" />
       <recent name="$PROJECT_DIR$/components/button" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/js/page" />
+      <recent name="$PROJECT_DIR$/example/js" />
+      <recent name="$PROJECT_DIR$/assets/svg" />
+      <recent name="$PROJECT_DIR$/components/icon" />
+      <recent name="$PROJECT_DIR$/example/js/p" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -750,11 +682,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.build:main" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.d" />
         <item itemvalue="npm.hmr" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -917,7 +849,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="536838000" />
+    <option name="totallyTimeSpent" value="527460000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -929,23 +861,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="23" width="1440" height="826" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="826" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422764" visible="true" weight="0.2931642" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5217391" visible="true" weight="0.24594785" />
       <window_info id="Structure" order="1" sideWeight="0.1311787" side_tool="true" weight="0.20114122" />
       <window_info id="Favorites" order="2" sideWeight="0.1311787" side_tool="true" weight="0.20114122" />
-      <window_info id="npm" order="3" sideWeight="0.35772356" side_tool="true" visible="true" weight="0.2931642" />
+      <window_info id="npm" order="3" sideWeight="0.47826087" side_tool="true" visible="true" weight="0.24594785" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32833788" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6363636" visible="true" weight="0.32970026" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.63706833" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.17302452" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32833788" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.572234" weight="0.35149863" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.36363637" side_tool="true" visible="true" weight="0.32970026" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.572234" visible="true" weight="0.31062672" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.42776603" side_tool="true" visible="true" weight="0.31062672" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1012,6 +944,51 @@
     <option name="LAST_COMMIT_MESSAGE" value="icon 改动" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/example/js/page/button/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/button/button.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/icon/icon.inline.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/icon/icon.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/icon/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/theme.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/img/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/js/page/img/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1046,10 +1023,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/carousel/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/toast/Toast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1059,6 +1050,16 @@
           <caret line="67" column="35" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="35" />
           <folding>
             <element signature="e#2238#2597#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/swipe-action/SwipeAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="69" column="46" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1123,10 +1124,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#932#2654#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1175,6 +1190,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/button/Button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="144" column="33" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="33" />
+          <folding>
+            <element signature="e#270#973#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/app-bar/AppBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/app-bar/app-bar.inline.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1193,6 +1228,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="85" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="173" selection-start-line="173" selection-start-column="2" selection-end-line="186" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/js/page/home/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1216,27 +1265,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/accordion/index.js">
+    <entry file="file://$PROJECT_DIR$/example/js/route/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state relative-caret-position="135">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/demo.css">
+    <entry file="file://$PROJECT_DIR$/example/js/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/js/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="12" column="122" selection-start-line="12" selection-start-column="122" selection-end-line="12" selection-end-column="122" />
+        <state relative-caret-position="399">
+          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/app-bar/AppBar.js">
+    <entry file="file://$PROJECT_DIR$/example/js/page/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="429">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1251,126 +1300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/page/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/route/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/button/Button.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1221">
-          <caret line="144" column="33" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="33" />
-          <folding>
-            <element signature="e#270#973#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/button/button.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="200" column="11" selection-start-line="200" selection-start-column="6" selection-end-line="200" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/toast/Toast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="124" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/accordion/accordion.inline.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/swipe-action/swipe-action.inline.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/accordion/Accordion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="67" column="74" selection-start-line="67" selection-start-column="74" selection-end-line="67" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/page/accordion/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/page/accordion/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/js/page/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/swipe-action/SwipeAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="69" column="17" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/core/Swipe.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="115" column="37" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="37" />
         </state>
       </provider>
     </entry>
