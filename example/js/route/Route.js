@@ -2,7 +2,7 @@
 export default class Route {
   constructor(routes) {
     this.routes = routes
-    this.routeView = document.querySelector('route-view')
+    this.routeView = document.querySelector('.route-view')
     window.addEventListener('hashchange', this.hashchange.bind(this))
     this.view = null
     this.keepAlive = new WeakMap()
@@ -25,26 +25,54 @@ export default class Route {
         window.customElements.define(tagName, Component)
       }
       const hasTag = this.keepAlive.has(this.routes.get(path))
-      let tag
+      const oldView = this.view
+      let newView
       if (hasTag) {
-        tag = this.keepAlive.get(this.routes.get(path))
+        newView = this.keepAlive.get(this.routes.get(path))
       } else {
-        tag = document.createElement(tagName)
-        this.keepAlive.set(this.routes.get(path), tag)
+        newView = document.createElement(tagName)
+        this.keepAlive.set(this.routes.get(path), newView)
       }
+      this.routeView.appendChild(newView)
+
       if (this.view) {
-        this.view.classList.remove('view-show')
-        this.view.classList.add('view-hide')
+        const hasHomePage = tagName === 'app-home' // 如果是home页面就做back动画
+        oldView.style.position = 'absolute'
+        const newViewDirection = hasHomePage ? '100%' : '-100%'
+        const oldViewDirection = !hasHomePage ? '100%' : '-100%'
+        const newViewPlayer = newView.animate([
+          {
+            opacity: 1,
+            transform: `translateX(${newViewDirection})`,
+          },
+          { opacity: 1, transform: 'translateX(0)' },
+        ], {
+          duration: 325,
+        })
+        newViewPlayer.addEventListener('finish', () => {
+        })
+
+        const oldViewPlayer = oldView.animate([
+          { opacity: 1, transform: 'translateX(0)' },
+          { opacity: 0, transform: `translateX(${oldViewDirection})` },
+        ], {
+          duration: 325,
+        })
+        oldViewPlayer.addEventListener('finish', () => {
+          oldView.style.position = 'static'
+          if (oldView) {
+            if (oldView.parentNode) oldView.parentNode.removeChild(oldView)
+          }
+        })
       }
 
-      this.view = tag
-      this.routeView.appendChild(tag)
+      this.view = newView
 
-      this.view.classList.remove('view-hide')
+      // this.view.classList.remove('view-hide')
 
-      setTimeout(() => {
-        this.view.classList.add('view-show')
-      }, 120)
+      // setTimeout(() => {
+      //   this.view.classList.add('view-show')
+      // }, 120)
       // if (hasTag) {
       //   this.view.classList.add('view-show')
       // } else {

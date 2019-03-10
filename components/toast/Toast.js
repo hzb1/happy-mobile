@@ -16,6 +16,7 @@ import { BaseComponent, Component } from '../core'
     {
       name: 'mask',
       type: Boolean,
+      default: true,
     },
   ],
   template(data) {
@@ -23,7 +24,7 @@ import { BaseComponent, Component } from '../core'
       <div class="h-toast-root">
           <span class="h-toast-content">${data.content}</span>
       </div>
-      <h-mask class="h-toast-mask"></h-mask>
+      ${ data.mask ? '<h-mask class="h-toast-mask" bc="rgba(0,0,0,0)"></h-mask>': ''}
     `
   },
   styleUrl: require('./toast.inline.css'),
@@ -47,10 +48,12 @@ export default class Toast extends BaseComponent {
 
   // 显示
   static show(content, time = 1500) {
+    const hasToast = document.querySelector('h-toast')
+    if (hasToast) hasToast.fadeOut()
     const Toast = customElements.get('h-toast')
-    const i = new Toast()
-    i.content = content
-    document.body.appendChild(i)
+    const toast = new Toast()
+    toast.content = content
+    document.body.appendChild(toast)
     if (time) {
       setTimeout(this.hide, time)
       return null
@@ -62,7 +65,7 @@ export default class Toast extends BaseComponent {
   static hide() {
     const toast = document.querySelector('h-toast')
     if (toast) {
-      toast.animationOut()
+      toast.fadeOut()
     }
   }
 
@@ -104,8 +107,7 @@ export default class Toast extends BaseComponent {
 
   // 从DOM中移除时调用
   disconnectedCallback() {
-    this.animationOut()
-    console.log('从DOM中移除时调用')
+    // console.log('从DOM中移除时调用', document.querySelector('h-toast'))
   }
 
   animationIn() {
@@ -123,21 +125,21 @@ export default class Toast extends BaseComponent {
     })
   }
 
-  animationOut() {
-    const toastContent = this.root.querySelector('.h-toast-content')
-    const toastMask = this.shadowRoot.querySelector('.h-toast-mask')
-    toastMask || toastMask.animationOut()
-    const player = toastContent.animate([
-      { transform: 'scale(1)', opacity: 1 },
-      { transform: 'scale(.75)', opacity: 0 },
-    ], {
-      duration: 100,
-      easing: 'ease-out',
-    })
-    player.addEventListener('finish', () => {
-      toastContent.style.transform = 'translateY(100)'
-      toastContent.style.opacity = 0
-      if (this.parentNode) this.parentNode.removeChild(this)
-    })
-  }
+  // animationOut() {
+  //   const toastContent = this.root.querySelector('.h-toast-content')
+  //   const toastMask = this.shadowRoot.querySelector('.h-toast-mask')
+  //   toastMask || toastMask.animationOut()
+  //   const player = toastContent.animate([
+  //     { transform: 'scale(1)', opacity: 1 },
+  //     { transform: 'scale(.75)', opacity: 0 },
+  //   ], {
+  //     duration: 100,
+  //     easing: 'ease-out',
+  //   })
+  //   player.addEventListener('finish', () => {
+  //     toastContent.style.transform = 'translateY(100)'
+  //     toastContent.style.opacity = 0
+  //     if (this.parentNode) this.parentNode.removeChild(this)
+  //   })
+  // }
 }

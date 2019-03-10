@@ -6,10 +6,12 @@ import {BaseComponent, Component} from '../core'
     {
       name: 'src',
       type: String,
+      default: '',
     },
     {
       name: 'alt',
       type: String,
+      default: '',
     },
   ],
   template(data) {
@@ -70,7 +72,10 @@ export default class Img extends BaseComponent {
   }
 
   initAttribute() {
-    if (this.src) this.setAttribute('src', this.src)
+    if (this.src) {
+      console.log(this.src)
+      // this.setAttribute('src', this.src)
+    }
   }
 
   initMethod() {

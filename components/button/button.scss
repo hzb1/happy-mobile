@@ -1,13 +1,13 @@
 
 .h-button{
-  display: block;
-  //justify-content: center;
-  //align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   position: relative;
   //overflow: hidden;
   width: 100%;
-  //border: 0;
+  border: 0;
   padding-left: 14px;
   padding-right: 14px;
   border-radius: 5px;
@@ -51,9 +51,9 @@
     pointer-events: none;
     overflow: hidden;
     z-index: 1;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--h-theme-border, #eee);
+    //border-width: 1px;
+    //border-style: solid;
+    //border-color: var(--h-theme-border, #eee);
   }
 
   // 动画
@@ -112,10 +112,10 @@
 .h-button--primary{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-primary, #1f78ff);
-  &:before{ border-color: var(--h-theme-primary, #1f78ff) }
 
   &[outline]{
     color: var(--h-theme-primary, #1f78ff);
+    &:before{ border: 1px solid var(--h-theme-primary, #1f78ff) }
     &:after{
       background-color: var(--h-theme-primary, #1f78ff);
     }
@@ -128,8 +128,31 @@
   &:before{ border: 1px solid var(--h-theme-border, #eeeeee) };
   &[outline]{
     color: var(--h-theme-text-87, rgba(0, 0, 0, .87));
+    &:before{ border: 1px solid var(--h-theme-border, #eeeeee) };
     &:after{
       background-color: var(--h-theme-secondary, #ffffff);
+    }
+    &:active{
+      &:after{
+        transition-duration: 75ms;
+        background-color: rgba(0,0,0, 1);
+        opacity: 0.1;
+      }
+    }
+  }
+
+  &:hover{
+    &:after{
+      background-color: var(--h-theme-text-38, rgba(0, 0, 0, 0.38));
+      opacity: 0.1;
+    }
+  }
+
+  &:active{
+    &:after{
+      transition-duration: 75ms;
+      background-color: rgba(0,0,0, 1);
+      opacity: 0.1;
     }
   }
 }
@@ -137,10 +160,10 @@
 .h-button--success{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-success, #26bf2c);
-  &:before{ border: 1px solid var(--h-theme-success, #26bf2c) };
 
   &[outline]{
     color: var(--h-theme-success, #26bf2c);
+    &:before{ border: 1px solid var(--h-theme-success, #26bf2c) };
     &:after{
       background-color: var(--h-theme-success, #26bf2c);
     }
@@ -150,10 +173,10 @@
 .h-button--warn{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-warn, #fbc02d);
-  &:before{ border: 1px solid var(--h-theme-warn, #fbc02d) };
 
   &[outline]{
     color: var(--h-theme-warn, #fbc02d);
+    &:before{ border: 1px solid var(--h-theme-warn, #fbc02d) };
     &:after{
       background-color: var(--h-theme-warn, #fbc02d);
     }
@@ -163,10 +186,10 @@
 .h-button--error{
   color: var(--h-theme-on-primary, white);
   background-color: var(--h-theme-error, #e53935);
-  &:before{ border: 1px solid var(--h-theme-error, #e53935) };
 
   &[outline]{
     color: var(--h-theme-error, #e53935);
+    &:before{ border: 1px solid var(--h-theme-error, #e53935) };
     &:after{
       background-color: var(--h-theme-error, #e53935);
     }

@@ -1,0 +1,13 @@
+
+:host {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.h-carousel-root,
+.carousel-content{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

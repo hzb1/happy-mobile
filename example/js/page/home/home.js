@@ -11,8 +11,12 @@ export default class Home extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = html
-    this.classList.add('view-show')
-    console.log('home')
+
+    const script = document.createElement('script')
+    const oldScript = this.removeChild(this.querySelector('script'))
+    script.innerHTML = oldScript.innerText
+    this.appendChild(script)
+    // this.classList.add('view-show')
     // const lists = this.querySelectorAll('.list')
     // for (let i = 0; i < lists.length; i++) {
     //   lists[i].addEventListener('click', this.onViewChange, false)

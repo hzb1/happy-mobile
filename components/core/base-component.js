@@ -52,6 +52,42 @@ class BaseComponent extends HTMLElement {
   unlisten(evNmae, handler) {
     this.removeEventListener(evNmae, handler)
   }
+
+  fadeIn(param) {
+    const defParam = { time: 150, display: 'display' }
+    const { time, display } = { ...defParam, ...param }
+    return new Promise((resolve) => {
+      this.style.display = display
+      const player = this.animate([
+        { opacity: 0 },
+        { opacity: 1 },
+      ], {
+        duration: time,
+        easing: 'ease-in',
+      })
+      player.addEventListener('finish', () => {
+        resolve()
+      })
+    })
+  }
+
+  fadeOut(param = {}) {
+    const defParam = { time: 150 }
+    const { time } = { ...defParam, ...param }
+    return new Promise((resolve) => {
+      const player = this.animate([
+        { opacity: 1 },
+        { opacity: 0 },
+      ], {
+        duration: time,
+        easing: 'ease-out',
+      })
+      player.addEventListener('finish', () => {
+        if (this.parentNode) this.parentNode.removeChild(this)
+        resolve()
+      })
+    })
+  }
 }
 
 export default BaseComponent

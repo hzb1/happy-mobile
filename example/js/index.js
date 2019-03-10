@@ -1,7 +1,5 @@
-import route from './route/index.js'
 
-class RouteView extends HTMLElement {}
-window.customElements.define('route-view', RouteView)
+import route from './route/index.js'
 
 const { hash } = window.location
 route.push(hash)

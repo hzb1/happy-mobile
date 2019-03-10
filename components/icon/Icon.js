@@ -13,6 +13,7 @@ const requests = new Map()
     {
       name: 'type',
       type: String,
+      default: '',
     },
     {
       name: 'color',
@@ -106,7 +107,7 @@ export default class MButton extends BaseComponent {
         }
         return Promise.resolve(null);
       }).then( res => {
-        console.log(res)
+        // console.log(res)
         return res
       });
 

@@ -7,7 +7,6 @@ const express = require('express')
 
 const app = express()
 
-console.log(config.output.path)
 app.use(middleware(compiler, {
   // path: config.output.path,
   // path: config.output.path,

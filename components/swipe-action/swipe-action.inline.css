@@ -2,11 +2,14 @@
 :host{
     width: 100%;
     height: 100%;
+    display: block;
 }
 
 .h-swipe-action-root{
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .swipe-front {

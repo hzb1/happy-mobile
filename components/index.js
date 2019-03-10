@@ -7,7 +7,9 @@ import Icon from './icon'
 import Img from './img'
 import Toast from './toast'
 import SwipeAction from './swipe-action'
+import Carousel from './carousel'
 import Mask from './mask'
+import AppBar from './app-bar/AppBar'
 
 const happy = {
   version,
@@ -17,6 +19,8 @@ const happy = {
   Toast,
   Mask,
   SwipeAction,
+  Carousel,
+  AppBar,
 }
 
 if (typeof window !== 'undefined' || !window.happy) {

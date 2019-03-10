@@ -32,5 +32,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
 }

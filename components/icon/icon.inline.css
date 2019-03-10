@@ -20,5 +20,5 @@
     stroke: currentColor;
     height: 100%;
     width: 100%;
-    color: #50c39c;
+    color: inherit;
 }

@@ -6,6 +6,8 @@ const form = () =>  import(/* webpackChunkName: "form" */'./../page/form/index.j
 const img = () =>  import(/* webpackChunkName: "img" */'./../page/img/index.js')
 const mask = () =>  import(/* webpackChunkName: "mask" */'./../page/mask/index.js')
 const swipeAction = () =>  import(/* webpackChunkName: "swipe-action" */'./../page/swipe-action/index.js')
+const carousel = () =>  import(/* webpackChunkName: "carousel" */'./../page/carousel/index.js')
+const appBar = () =>  import(/* webpackChunkName: "app-bar" */'./../page/app-bar/index.js')
 const toast = () =>  import(/* webpackChunkName: "toast" */'./../page/toast/index.js')
 
 const routes = new Map([
@@ -16,6 +18,8 @@ const routes = new Map([
   [ '#form', { path: '#form', component: form }],
   [ '#img', { path: '#form', component: img }],
   [ '#mask', { path: '#mask', component: mask }],
+  [ '#carousel', { path: '#carousel', component: carousel }],
+  [ '#app-bar', { path: '#app-bar', component: appBar }],
   [ '#swipe-action', { path: '#swipe-action', component: swipeAction }],
   [ '#toast', { path: '#toast', component: toast }],
   [ '404', { path: '#home', component: home }],

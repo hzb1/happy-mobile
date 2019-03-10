@@ -119,7 +119,7 @@ export default class Button extends BaseComponent {
     // this._upgradeProperty('disabled')
     this.setAttribute('shadow', this.shadow)
     this.setAttribute('type', this.type)
-    this.setAttribute('inline', this.inline)
+    // this.setAttribute('inline', this.inline)
     // this.setAttribute('outline', this.outline)
     // this.setAttribute('disabled', this.disabled)
     // if (this.loading) this.showLoading()
@@ -127,15 +127,17 @@ export default class Button extends BaseComponent {
   }
 
   initMethod(){
-    this.hideLoading = () => {
+
+    const hideLoading = function () {
       const button = this.shadowRoot.querySelector('button')
       const buttonIcon = button.querySelector('h-icon')
       if (buttonIcon) {
-        button.removeChild(buttonIcon)
+        buttonIcon.fadeOut()
         this.isLoading = false
         this.disabled = false
       }
     }
+    this.hideLoading = hideLoading
     this.showLoading = () => {
       if (this.isLoading) {
         return null
@@ -144,19 +146,12 @@ export default class Button extends BaseComponent {
       const i = new Icon()
       const button = this.shadowRoot.querySelector('button')
       button.insertBefore(i, button.childNodes[0])
-      i.type = 'h-loading'
+      i.type = 'loading'
       i.classList.add('h-icon--loading')
+      i.fadeIn()
       this.isLoading = true
       this.disabled = true
-      return () => {
-        const button = this.shadowRoot.querySelector('button')
-        const buttonIcon = button.querySelector('h-icon')
-        if (buttonIcon) {
-          button.removeChild(buttonIcon)
-          this.isLoading = false
-          this.disabled = false
-        }
-      }
+      return hideLoading
     }
 
     if (this.type === 'submit' || this.type === 'reset') {

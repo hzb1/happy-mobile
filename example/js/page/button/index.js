@@ -28,28 +28,29 @@ export default class Button extends HTMLElement {
     script.innerHTML = oldScript.innerText
     this.appendChild(script)
 
+    // console.log(html)
+    const from = html.indexOf('<!--html 开始-->')
+    const to = html.indexOf('<!--html 结束-->')
     // code
-    // const cssCode = document.createElement('div')
-    // cssCode.innerHTML = `
-    //   <pre>
-    //     <code class="language-markup" >
-    //       <script type="text/plain" class="language-markup">
-    //       ${this.querySelector('section').innerHTML}
-    //       </script>
-    //     </code>
-    //   </pre>
-    //   <pre>
-    //     <code class="language-js">
-    //       ${this.querySelector('script').innerHTML}
-    //     </code>
-    //   </pre>
-    //   <pre>
-    //     <code class="language-css">
-    //       ${this.querySelector('style').innerHTML}
-    //     </code>
-    //   </pre>
-    // `
-    // this.appendChild(cssCode)
+    const cssCode = document.createElement('div')
+    cssCode.innerHTML = `
+      <pre>
+        <code class="language-markup" >
+          <script type="text/plain" class="language-markup">${html.substring(from + 14, to)}</script>
+        </code>
+      </pre>
+      <pre>
+        <code class="language-js">
+          ${this.querySelector('script').innerHTML}
+        </code>
+      </pre>
+      <pre>
+        <code class="language-css">
+          ${this.querySelector('style').innerHTML}
+        </code>
+      </pre>
+    `
+    this.appendChild(cssCode)
   }
 
   connectedCallback() {
