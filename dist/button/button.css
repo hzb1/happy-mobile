@@ -1,0 +1,192 @@
+@charset "UTF-8";
+.h-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 5px;
+  background-color: white;
+  text-align: center;
+  text-transform: none;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: width 150ms linear; }
+  .h-button[outline] {
+    background-color: white; }
+    .h-button[outline]:hover:after {
+      opacity: 0.1; }
+    .h-button[outline]:active:after {
+      transition-duration: 75ms;
+      opacity: 0.2; }
+  .h-button::before {
+    content: '';
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; }
+  .h-button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+    opacity: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 150ms linear, background-color 150ms ease-in-out;
+    background-color: white; }
+  .h-button:hover:after {
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0.2; }
+  .h-button:active:after {
+    transition-duration: 75ms;
+    background-color: black;
+    opacity: 0.2; }
+  .h-button:focus {
+    outline: 0; }
+  .h-button .h-icon--loading {
+    transition: all 1000ms ease-in-out;
+    display: inline-block;
+    animation: loading 1s linear 0ms infinite; }
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/**
+  hType 类型
+ */
+.h-button--primary {
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-primary, #1f78ff); }
+  .h-button--primary[outline] {
+    color: var(--h-theme-primary, #1f78ff); }
+    .h-button--primary[outline]:before {
+      border: 1px solid var(--h-theme-primary, #1f78ff); }
+    .h-button--primary[outline]:after {
+      background-color: var(--h-theme-primary, #1f78ff); }
+
+.h-button--secondary {
+  color: var(--h-theme-text-87, rgba(0, 0, 0, 0.87));
+  background-color: var(--h-theme-secondary, #ffffff); }
+  .h-button--secondary:before {
+    border: 1px solid var(--h-theme-border, #eeeeee); }
+  .h-button--secondary[outline] {
+    color: var(--h-theme-text-87, rgba(0, 0, 0, 0.87)); }
+    .h-button--secondary[outline]:before {
+      border: 1px solid var(--h-theme-border, #eeeeee); }
+    .h-button--secondary[outline]:after {
+      background-color: var(--h-theme-secondary, #ffffff); }
+    .h-button--secondary[outline]:active:after {
+      transition-duration: 75ms;
+      background-color: black;
+      opacity: 0.1; }
+  .h-button--secondary:hover:after {
+    background-color: var(--h-theme-text-38, rgba(0, 0, 0, 0.38));
+    opacity: 0.1; }
+  .h-button--secondary:active:after {
+    transition-duration: 75ms;
+    background-color: black;
+    opacity: 0.1; }
+
+.h-button--success {
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-success, #26bf2c); }
+  .h-button--success[outline] {
+    color: var(--h-theme-success, #26bf2c); }
+    .h-button--success[outline]:before {
+      border: 1px solid var(--h-theme-success, #26bf2c); }
+    .h-button--success[outline]:after {
+      background-color: var(--h-theme-success, #26bf2c); }
+
+.h-button--warn {
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-warn, #fbc02d); }
+  .h-button--warn[outline] {
+    color: var(--h-theme-warn, #fbc02d); }
+    .h-button--warn[outline]:before {
+      border: 1px solid var(--h-theme-warn, #fbc02d); }
+    .h-button--warn[outline]:after {
+      background-color: var(--h-theme-warn, #fbc02d); }
+
+.h-button--error {
+  color: var(--h-theme-on-primary, white);
+  background-color: var(--h-theme-error, #e53935); }
+  .h-button--error[outline] {
+    color: var(--h-theme-error, #e53935); }
+    .h-button--error[outline]:before {
+      border: 1px solid var(--h-theme-error, #e53935); }
+    .h-button--error[outline]:after {
+      background-color: var(--h-theme-error, #e53935); }
+
+/*
+  大小: small、medium、large
+ */
+.h-button--small {
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.h-button--medium {
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px; }
+
+.h-button--large {
+  height: 52px;
+  line-height: 52px;
+  font-size: 22px;
+  padding-left: 16px;
+  padding-right: 16px; }
+
+/**
+  禁用
+ */
+.h-button--disabled {
+  cursor: default;
+  pointer-events: none; }
+  .h-button--disabled::after {
+    opacity: .5 !important;
+    background-color: #eee !important; }
+
+/**
+  阴影
+ */
+.h-button--shadow {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1); }
+  .h-button--shadow:hover, .h-button--shadow:active, .h-button--shadow:focus {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
+
+/**
+  inline
+ */
+.h-button--inline {
+  display: inline-table;
+  width: auto; }
+

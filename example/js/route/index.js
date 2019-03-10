@@ -9,6 +9,7 @@ const swipeAction = () =>  import(/* webpackChunkName: "swipe-action" */'./../pa
 const carousel = () =>  import(/* webpackChunkName: "carousel" */'./../page/carousel/index.js')
 const appBar = () =>  import(/* webpackChunkName: "app-bar" */'./../page/app-bar/index.js')
 const toast = () =>  import(/* webpackChunkName: "toast" */'./../page/toast/index.js')
+const accordion = () =>  import(/* webpackChunkName: "accordion" */'./../page/accordion/index.js')
 
 const routes = new Map([
   [ '', { path: '#home', component: home }],
@@ -22,6 +23,7 @@ const routes = new Map([
   [ '#app-bar', { path: '#app-bar', component: appBar }],
   [ '#swipe-action', { path: '#swipe-action', component: swipeAction }],
   [ '#toast', { path: '#toast', component: toast }],
+  [ '#accordion', { path: '#accordion', component: accordion }],
   [ '404', { path: '#home', component: home }],
   [ '*', { path: '#home', component: home }],
 ])

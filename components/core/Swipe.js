@@ -228,6 +228,13 @@ export default class SwipeRevealItem {
     }
     const differenceInX = this.initialTouchPos.x - this.lastTouchPos.x
     const newXTransform = `${this.currentXPosition - differenceInX}px`
+    // console.log(differenceInX, newXTransform) // rightLeft
+    // const r = this.currentXPosition - differenceInX
+    // console.log(r)
+    // if (r >= this.congif.slot.rightWidth) {
+    //   console.log(r, this.congif.slot.rightWidth) // rightLeft
+    //   return
+    // }
     const transformStyle = `translateX(${newXTransform})`
     this.swipeFrontElement.style.webkitTransform = transformStyle
     this.swipeFrontElement.style.MozTransform = transformStyle

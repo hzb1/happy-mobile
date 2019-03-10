@@ -23,8 +23,8 @@ import SwipeRevealItem from '../core/Swipe'
                 <div class="swipe-left" id="swipe-left">
                   <slot id="slot-left" name="left"></slot>
                 </div>
-                <div class="swipe-content" id="swipe-content">
-                    <slot id="slot-content"></slot>
+                <div class="swipe-default" id="swipe-default">
+                    <slot id="slot-default"></slot>
                 </div>
                 <div class="swipe-right" id="swipe-right">
                   <slot id="slot-right" name="right"></slot>
@@ -53,12 +53,11 @@ export default class SwipeAction extends BaseComponent {
     this.root = this.shadowRoot.querySelector('.h-swipe-action-root')
 
     const slotLeft = this.shadowRoot.querySelector('#slot-left')
-    const slotContent = this.shadowRoot.querySelector('#slot-content')
+    const slotDefault = this.shadowRoot.querySelector('#slot-default')
     const slotRight = this.shadowRoot.querySelector('#slot-right')
     const swipeLeft = this.shadowRoot.querySelector('#swipe-left')
-    const swipeContent = this.shadowRoot.querySelector('#swipe-content')
+    const swipeDefault = this.shadowRoot.querySelector('#swipe-default')
     const swipeRight = this.shadowRoot.querySelector('#swipe-right')
-    // console.log(swipeLeft.offsetWidth, swipeRight.offsetWidth)
 
     this.swipe = new SwipeRevealItem(this.root, {
       swipeDirection: { // 可滑动方向
@@ -67,9 +66,11 @@ export default class SwipeAction extends BaseComponent {
       },
       slot: {  // slot 如果无slot回自动回滑
         left: Boolean(slotLeft.assignedNodes().length),
-        right: Boolean(slotRight.assignedNodes().length)
+        right: Boolean(slotRight.assignedNodes().length),
+        rightLeft: swipeLeft.offsetWidth,
+        rightWidth: swipeRight.offsetWidth,
       },
-      handleSize: Math.round(swipeContent.offsetWidth - (swipeRight.offsetWidth)),
+      handleSize: Math.round(swipeDefault.offsetWidth - (swipeRight.offsetWidth)),
     })
   }
 

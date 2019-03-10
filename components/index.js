@@ -10,6 +10,7 @@ import SwipeAction from './swipe-action'
 import Carousel from './carousel'
 import Mask from './mask'
 import AppBar from './app-bar/AppBar'
+import Accordion from './accordion/Accordion'
 
 const happy = {
   version,
@@ -21,6 +22,7 @@ const happy = {
   SwipeAction,
   Carousel,
   AppBar,
+  Accordion,
 }
 
 if (typeof window !== 'undefined' || !window.happy) {

@@ -1,0 +1,12 @@
+
+:host{
+    display: block;
+}
+
+.h-accordion-root{
+    overflow: hidden;
+}
+
+#slot-content-wrap{
+    transition: height 350ms ease-in-out;
+}

@@ -27,7 +27,7 @@
     /* // [END touch-action-example] */
 }
 
-.swipe-content {
+.swipe-default {
     min-width: 100%;
     flex-shrink: 0;
 }
