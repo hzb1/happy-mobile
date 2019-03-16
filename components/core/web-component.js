@@ -1,4 +1,5 @@
 import { propToObj } from './util'
+import BaseComponent from './base-component'
 
 const Component = ({
   tag,

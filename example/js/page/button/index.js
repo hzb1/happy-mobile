@@ -1,4 +1,4 @@
-import '../../p/prism.css'
+import '../../plugin/prism.css'
 import Prism from 'prismjs'
 // import Prism from '../../p/prism'
 // const PrismJs = () => import(/* webpackChunkName: "prismmyjs" */ '../../p/prism')

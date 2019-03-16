@@ -39,22 +39,18 @@ export default class Accordion extends BaseComponent {
     this.root = this.shadowRoot.querySelector('div')
 
     const slotDefaultWrap = this.shadowRoot.querySelector('#slot-default-wrap')
-    this.slotContentWrap_ = this.shadowRoot.querySelector('#slot-content-wrap')
+    this._slotContentWrap = this.shadowRoot.querySelector('#slot-content-wrap')
 
     this.getHeight_()
-    // const slotDefault = this.shadowRoot.querySelector('#slot-default')
-    // const slotContent = this.shadowRoot.querySelector('#slot-content')
-    // this.root.classList.toggle()
   }
 
   getHeight_() {
-    this.slotContentWrapHeight = this.slotContentWrap_.offsetHeight
+    this.slotContentWrapHeight = `${this._slotContentWrap.offsetHeight}px`
   }
 
   connectedCallback() {
-    this.slotContentWrap_.style.height = '0px'
+    this._slotContentWrap.style.height = '0px'
     this.firstLoad = true
-    // this.win.addEventListener('')
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
@@ -62,23 +58,32 @@ export default class Accordion extends BaseComponent {
     // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
       case 'value':
-        console.log('value', newVal)
         const slotContentWrap = this.shadowRoot.querySelector('#slot-content-wrap')
         if (this.value) {
-          slotContentWrap.style.height = `${this.slotContentWrapHeight}px`
-          // const player = slotContentWrap.animate([
-          //   { height: 0 },
-          //   { height: `${this.slotContentWrapHeight}px` },
-          // ], {
-          //   duration: 300,
-          //   easing: 'ease',
-          // })
-          // player.addEventListener('finish', () => {
-          //   slotContentWrap.style.height = 'auto'
-          // })
+          const player = slotContentWrap.animate([
+            { height: 0 },
+            { height: this.slotContentWrapHeight },
+          ], {
+            duration: 150,
+            easing: 'ease-in',
+          })
+          player.addEventListener('finish', () => {
+            slotContentWrap.style.height = this.slotContentWrapHeight
+          })
+
         } else {
-          slotContentWrap.style.height = '0px'
+          const player = slotContentWrap.animate([
+            { height: this.slotContentWrapHeight },
+            { height: 0 },
+          ], {
+            duration: 150,
+            easing: 'ease-out',
+          })
+          player.addEventListener('finish', () => {
+            slotContentWrap.style.height = 0
+          })
         }
+
     }
   }
 

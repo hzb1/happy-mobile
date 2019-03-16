@@ -1,5 +1,9 @@
 
 import { BaseComponent, Component } from '../core'
+import {
+  fadeIn,
+  fadeOut,
+} from '../core/animation'
 
 @Component({
   tag: 'h-toast',
@@ -49,11 +53,13 @@ export default class Toast extends BaseComponent {
   // 显示
   static show(content, time = 1500) {
     const hasToast = document.querySelector('h-toast')
-    if (hasToast) hasToast.fadeOut()
+    if (hasToast) this.hide()
     const Toast = customElements.get('h-toast')
     const toast = new Toast()
     toast.content = content
     document.body.appendChild(toast)
+    const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
+    fadeIn(toastContent, { duration: 250 }).then()
     if (time) {
       setTimeout(this.hide, time)
       return null
@@ -65,12 +71,14 @@ export default class Toast extends BaseComponent {
   static hide() {
     const toast = document.querySelector('h-toast')
     if (toast) {
-      toast.fadeOut()
+      const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
+      fadeOut(toastContent, { duration: 250 }).then(()=>{
+        if (toast.parentNode) toast.parentNode.removeChild(toast)
+      })
     }
   }
 
   init() {
-    this.animationIn()
     if (!this.firstLoad) {
       this.initMethod()
       this.initClass()
@@ -109,37 +117,4 @@ export default class Toast extends BaseComponent {
   disconnectedCallback() {
     // console.log('从DOM中移除时调用', document.querySelector('h-toast'))
   }
-
-  animationIn() {
-    const toastContent = this.root.querySelector('.h-toast-content')
-    const player = toastContent.animate([
-      { transform: 'scale(.75)', opacity: 0 },
-      { transform: 'scale(1)', opacity: 1 },
-    ], {
-      duration: 100,
-      easing: 'ease-in',
-    })
-    player.addEventListener('finish', () => {
-      toastContent.style.transform = 'translateY(0)'
-      toastContent.style.opacity = 1
-    })
-  }
-
-  // animationOut() {
-  //   const toastContent = this.root.querySelector('.h-toast-content')
-  //   const toastMask = this.shadowRoot.querySelector('.h-toast-mask')
-  //   toastMask || toastMask.animationOut()
-  //   const player = toastContent.animate([
-  //     { transform: 'scale(1)', opacity: 1 },
-  //     { transform: 'scale(.75)', opacity: 0 },
-  //   ], {
-  //     duration: 100,
-  //     easing: 'ease-out',
-  //   })
-  //   player.addEventListener('finish', () => {
-  //     toastContent.style.transform = 'translateY(100)'
-  //     toastContent.style.opacity = 0
-  //     if (this.parentNode) this.parentNode.removeChild(this)
-  //   })
-  // }
 }

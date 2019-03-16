@@ -4,31 +4,71 @@
         padding: 18px 18px 80px;
         box-sizing: border-box;
     }
+    .my-mask-slot{
+        width: 100%;
+        height: 100%;
+        padding: 4vw;
+        box-sizing: border-box;
+        background-color: white;
+    }
 </style>
 
 <section class="demo-page">
     <h4>最简单的mask</h4>
     <h-mask id="mask1" style="display: none">
-        <style>
-            .my-mask-slot{
-                background-color: white;
-            }
-        </style>
         <div class="my-mask-slot">
-            content
-            <h-button inline onclick="hide1()">hide</h-button>
+            <h-button inline onclick="hide1()" style="margin-top: 20px">hide</h-button>
         </div>
     </h-mask>
-    <h-button inline onclick="show1()">show</h-button>
+    <h-button inline shadow onclick="show1()">show</h-button>
+
+
+    <h4>动画</h4>
+    <h6>fadeDown</h6>
+    <h-mask id="fadeDownMask" style="display: none">
+        <div class="my-mask-slot fadeDown">
+            <h-button inline onclick="fadeDownHide()">fadeDown Hide</h-button>
+        </div>
+    </h-mask>
+    <h-button inline shadow onclick="fadeDownShow()">fadeDown</h-button>
+
+
+    <h6>slide</h6>
+    <h-mask id="mask2" style="display: none">
+        <div class="my-mask-slot">
+            <h-button inline onclick="slideHide()" style="margin-top: 20px">hide</h-button>
+        </div>
+    </h-mask>
+    <h-button inline shadow onclick="slideShow('slideUp')">slideUp</h-button>
+    <h-button inline shadow onclick="slideShow('slideDown')">slideDown</h-button>
+    <h-button inline shadow onclick="slideShow('slideRight')">slideRight</h-button>
 </section>
 
 <script>
-    // var mask1 = document.querySelector('#mask1')
+    // 最简单的mask
     var mask1 = document.querySelector('app-mask').shadowRoot.querySelector('#mask1')
-    var show1 = function () {
-      var hide = mask1.show()
+    var show1 = function (animation) {
+      mask1.show(animation)
     }
     var hide1 = function () {
       mask1.hide()
+    }
+
+    // fadeDown
+    var fadeDownMask = document.querySelector('app-mask').shadowRoot.querySelector('#fadeDownMask')
+    var fadeDownShow = function () {
+      fadeDownMask.show('fadeDown')
+    }
+    var fadeDownHide = function () {
+      fadeDownMask.hide()
+    }
+
+
+    var mask2 = document.querySelector('app-mask').shadowRoot.querySelector('#mask2')
+    var slideShow = function (animation) {
+      mask2.show(animation)
+    }
+    var slideHide = function () {
+      mask2.hide()
     }
 </script>

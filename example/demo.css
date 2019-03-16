@@ -10,7 +10,8 @@ html{
     height: 100%;
     overflow-x: hidden;
     background-color: #fff;
-    font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+    /*font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;*/
+    font-family: "Arial Nova","Arial",sans-serif;
 }
 
 main{

@@ -1,4 +1,6 @@
 import { BaseComponent, Component } from '../core'
+import * as animation from '../core/animation/index'
+import { transitionMap } from '../core/animation/transition'
 
 @Component({
   tag: 'h-mask',
@@ -13,11 +15,16 @@ import { BaseComponent, Component } from '../core'
       type: Boolean,
       default: true,
     },
+    {
+      name: 'animation', // 动画
+      type: String,
+      default: '', // fade
+    },
   ],
   template(data) {
     return `
         <div class="h-mask-root">
-            <slot></slot>
+            <slot id="slot-default"></slot>
         </div>
     `
   },
@@ -40,12 +47,32 @@ export default class Mask extends BaseComponent {
     this.root = this.shadowRoot.querySelector('.h-mask-root')
   }
 
-  show() {
-    this.animationIn()
+  show(name) {
+    this.animation = transitionMap.get(name) ? name : 'fade'
+    const slotDefault = this.root
+    animation.fadeIn(this, { duration: 150 }).then()
+    if (name) {
+      const { In } =  transitionMap.get(this.animation)
+      animation[In](slotDefault)
+    }
   }
 
   hide() {
-    this.animationOut()
+    // const slotDefault = this.shadowRoot.querySelector('#slot-default')
+    const slotDefault = this.root
+    if (this.animation === 'fade') {
+      animation.fadeOut(this, { duration: 150 }).then(() => {
+        this.style.display = 'none'
+      })
+      return
+    }
+    const { Out } =  transitionMap.get(this.animation)
+    animation[Out](slotDefault).then(()=>{
+      animation.fadeOut(this).then(() => {
+        this.style.display = 'none'
+      })
+    })
+
   }
 
   init() {
@@ -90,37 +117,5 @@ export default class Mask extends BaseComponent {
 
   disconnectedCallback() {
     // console.log('插入到DOM', this)
-  }
-
-  animationIn(option = { endDelay: 0 }) {
-    this.style.display = 'block'
-    const player = this.animate([
-      { opacity: 0 },
-      { opacity: 1 },
-    ], {
-      duration: 100,
-      easing: 'ease-in',
-      endDelay: option.endDelay,
-    })
-    player.addEventListener('finish', () => {
-      this.style.opacity = 1
-      this.style.display = 'block'
-    })
-  }
-
-  animationOut(option = { endDelay: 0 }) {
-    const player = this.animate([
-      { opacity: 1 },
-      { opacity: 0 },
-    ], {
-      duration: 100,
-      endDelay: option.endDelay,
-      easing: 'ease-out',
-    })
-    player.addEventListener('finish', () => {
-      this.style.opacity = 0
-      this.style.display = 'none'
-      // if (this.parentNode) this.parentNode.removeChild(this)
-    })
   }
 }

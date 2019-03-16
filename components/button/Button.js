@@ -1,6 +1,7 @@
-import { BaseComponent, Component} from '../core'
+import { BaseComponent, Component, Prop} from '../core'
 // import { styleType, styleSize, shadow } from './styleMap'
 import styleMap from './styleMap'
+import { fadeIn, fadeOut } from '../core/animation'
 const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = styleMap
 
 @Component({
@@ -86,6 +87,7 @@ export default class Button extends BaseComponent {
     `
     this.root = this.shadowRoot.querySelector('button')
     // this.init()
+    this.name = 1
   }
 
   init() {
@@ -132,7 +134,9 @@ export default class Button extends BaseComponent {
       const button = this.shadowRoot.querySelector('button')
       const buttonIcon = button.querySelector('h-icon')
       if (buttonIcon) {
-        buttonIcon.fadeOut()
+        fadeOut(buttonIcon).then(() => {
+          if (buttonIcon.parentNode) buttonIcon.parentNode.removeChild(buttonIcon)
+        })
         this.isLoading = false
         this.disabled = false
       }
@@ -148,7 +152,7 @@ export default class Button extends BaseComponent {
       button.insertBefore(i, button.childNodes[0])
       i.type = 'loading'
       i.classList.add('h-icon--loading')
-      i.fadeIn()
+      fadeIn(i).then()
       this.isLoading = true
       this.disabled = true
       return hideLoading

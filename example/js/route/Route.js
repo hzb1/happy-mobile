@@ -38,8 +38,8 @@ export default class Route {
       if (this.view) {
         const hasHomePage = tagName === 'app-home' // 如果是home页面就做back动画
         oldView.style.position = 'absolute'
-        const newViewDirection = hasHomePage ? '100%' : '-100%'
-        const oldViewDirection = !hasHomePage ? '100%' : '-100%'
+        const newViewDirection = hasHomePage ? '-100%' : '100%'
+        const oldViewDirection = !hasHomePage ? '-100%' : '100%'
         const newViewPlayer = newView.animate([
           {
             opacity: 1,
@@ -54,7 +54,7 @@ export default class Route {
 
         const oldViewPlayer = oldView.animate([
           { opacity: 1, transform: 'translateX(0)' },
-          { opacity: 0, transform: `translateX(${oldViewDirection})` },
+          { opacity: 1, transform: `translateX(${oldViewDirection})` },
         ], {
           duration: 325,
         })

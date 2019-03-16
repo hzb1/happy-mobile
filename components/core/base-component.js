@@ -1,3 +1,4 @@
+/* eslint-disable no-console, class-methods-use-this */
 
 class BaseComponent extends HTMLElement {
   // 注册
@@ -53,40 +54,12 @@ class BaseComponent extends HTMLElement {
     this.removeEventListener(evNmae, handler)
   }
 
-  fadeIn(param) {
-    const defParam = { time: 150, display: 'display' }
-    const { time, display } = { ...defParam, ...param }
-    return new Promise((resolve) => {
-      this.style.display = display
-      const player = this.animate([
-        { opacity: 0 },
-        { opacity: 1 },
-      ], {
-        duration: time,
-        easing: 'ease-in',
-      })
-      player.addEventListener('finish', () => {
-        resolve()
-      })
-    })
+  wran(message = '') {
+    console.warn(`[happy-mobile]: ${message}`)
   }
 
-  fadeOut(param = {}) {
-    const defParam = { time: 150 }
-    const { time } = { ...defParam, ...param }
-    return new Promise((resolve) => {
-      const player = this.animate([
-        { opacity: 1 },
-        { opacity: 0 },
-      ], {
-        duration: time,
-        easing: 'ease-out',
-      })
-      player.addEventListener('finish', () => {
-        if (this.parentNode) this.parentNode.removeChild(this)
-        resolve()
-      })
-    })
+  error(message = '') {
+    console.error(`[happy-mobile]: ${message}`)
   }
 }
 
