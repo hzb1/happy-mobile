@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="../../../../dist/happy-mobile.css">
+<style>
+    .demo-page{
+        padding: 18px 18px 80px;
+        box-sizing: border-box;
+    }
+    h-button{
+        margin-bottom: 6px;
+    }
+</style>
+
+<section class="demo-page">
+    <h4>最简单的picker</h4>
+    <h-button shadow onclick="open1()" >open picker</h-button>
+    <h-picker id="picker1"></h-picker>
+
+</section>
+
+<script>
+    var open1 = function () {
+      picker1.open()
+    }
+    var picker1 = document.querySelector('app-picker').shadowRoot.querySelector('#picker1')
+    console.log(picker1)
+    picker1.data = [{
+      value: 1,
+      label: '1',
+    },{
+      value: 2,
+      label: '2',
+    },{
+      value: 3,
+      label: '3',
+    },{
+      value: 4,
+      label: '4',
+    },
+    ]
+    picker1.addEventListener('ok', function (ev) {
+      var val = ev.detail
+      window.happy.Toast.show(`您选择了 ${val.label}`)
+    })
+</script>

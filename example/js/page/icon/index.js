@@ -1,3 +1,4 @@
+import icons from '../../../../components/core/icon'
 
 const html = require('./index.html')
 
@@ -27,11 +28,8 @@ export default class Icon extends HTMLElement {
       this.shadow.appendChild(script)
     }
 
-    const iconList = [
-      'appreciate', 'back', 'check', 'close', 'edit', 'emoji', 'favor', 'favorfill', 'loading', 'location',
-      'locationfill', 'phone', 'right', 'roundcheck', 'roundcheckfill', 'roundclose', 'roundclosefill', 'roundright',
-      'roundrightfill', 'search', 'taxi', 'timefill',
-    ]
+    const iconList = Object.keys(icons)
+    console.log(iconList)
     const iconContent = this.shadow.querySelector('.icon-content')
     iconList.forEach((item) => {
       const div = document.createElement('div')

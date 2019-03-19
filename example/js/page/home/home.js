@@ -54,6 +54,10 @@ export default class Home extends HTMLElement {
             name: '轻提示 Toast',
             link: '#toast',
           },
+          {
+            name: '气泡 Popover',
+            link: '#popover',
+          },
         ],
       },
       {
@@ -62,6 +66,14 @@ export default class Home extends HTMLElement {
           {
             name: '表单 Form',
             link: '#form',
+          },
+          // {
+          //   name: '选择器 Select',
+          //   link: '#select',
+          // },
+          {
+            name: '选择器 Picker',
+            link: '#picker',
           },
         ],
       },

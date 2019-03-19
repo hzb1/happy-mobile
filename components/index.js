@@ -6,11 +6,14 @@ import Button from './button'
 import Icon from './icon'
 import Img from './img'
 import Toast from './toast'
+import Popover from './popover'
 import SwipeAction from './swipe-action'
 import Carousel from './carousel'
 import Mask from './mask'
 import AppBar from './app-bar/AppBar'
 import Accordion from './accordion/Accordion'
+import Select from './select/Select'
+import Picker from './picker'
 
 const happy = {
   version,
@@ -18,10 +21,13 @@ const happy = {
   Icon,
   Img,
   Toast,
+  Popover,
   Mask,
   SwipeAction,
   Carousel,
   AppBar,
+  Select,
+  Picker,
   Accordion,
 }
 

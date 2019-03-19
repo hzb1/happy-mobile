@@ -1,4 +1,4 @@
-import { propToObj } from './util'
+import { propToObj } from './util/util'
 import BaseComponent from './base-component'
 
 const Component = ({

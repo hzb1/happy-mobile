@@ -31,7 +31,7 @@ const store = createStore(counter)
 // 通常使用视图绑定库（例如react redux），而不是直接使用subscribe（）。
 // 但是，在本地存储中保持当前状态也很方便。
 
-store.subscribe(() => console.log(store.getState()))
+// store.subscribe(() => console.log(store.getState()))
 
 // 唯一改变内部状态的方法是调度一个操作。
 // 这些操作可以序列化、记录或存储，稍后再重放。

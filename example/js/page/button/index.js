@@ -15,12 +15,15 @@ export default class Button extends HTMLElement {
   }
 
   init() {
+    this.i += 1
     // this.attachShadow({ mode: 'open' })
     const template = document.createElement('template')
     template.innerHTML = `
       ${html}
     `
-    this.appendChild(template.content.cloneNode(true))
+    this.innerHTML = `
+      ${html}
+    `
 
     // script
     const script = document.createElement('script')
@@ -29,28 +32,28 @@ export default class Button extends HTMLElement {
     this.appendChild(script)
 
     // console.log(html)
-    const from = html.indexOf('<!--html 开始-->')
-    const to = html.indexOf('<!--html 结束-->')
-    // code
-    const cssCode = document.createElement('div')
-    cssCode.innerHTML = `
-      <pre>
-        <code class="language-markup" >
-          <script type="text/plain" class="language-markup">${html.substring(from + 14, to)}</script>
-        </code>
-      </pre>
-      <pre>
-        <code class="language-js">
-          ${this.querySelector('script').innerHTML}
-        </code>
-      </pre>
-      <pre>
-        <code class="language-css">
-          ${this.querySelector('style').innerHTML}
-        </code>
-      </pre>
-    `
-    this.appendChild(cssCode)
+    // const from = html.indexOf('<!--html 开始-->')
+    // const to = html.indexOf('<!--html 结束-->')
+    // // code
+    // const cssCode = document.createElement('div')
+    // cssCode.innerHTML = `
+    //   <pre>
+    //     <code class="language-markup" >
+    //       <script type="text/plain" class="language-markup">${html.substring(from + 14, to)}</script>
+    //     </code>
+    //   </pre>
+    //   <pre>
+    //     <code class="language-js">
+    //       ${this.querySelector('script').innerHTML}
+    //     </code>
+    //   </pre>
+    //   <pre>
+    //     <code class="language-css">
+    //       ${this.querySelector('style').innerHTML}
+    //     </code>
+    //   </pre>
+    // `
+    // this.appendChild(cssCode)
   }
 
   connectedCallback() {

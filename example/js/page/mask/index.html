@@ -25,7 +25,7 @@
 
     <h4>动画</h4>
     <h6>fadeDown</h6>
-    <h-mask id="fadeDownMask" style="display: none">
+    <h-mask id="fadeDownMask">
         <div class="my-mask-slot fadeDown">
             <h-button inline onclick="fadeDownHide()">fadeDown Hide</h-button>
         </div>
@@ -53,6 +53,10 @@
     var hide1 = function () {
       mask1.hide()
     }
+
+    mask1.addEventListener('backdrop', function (ev) {
+      console.log('mask1 backdrop', ev.detail)
+    })
 
     // fadeDown
     var fadeDownMask = document.querySelector('app-mask').shadowRoot.querySelector('#fadeDownMask')

@@ -6,9 +6,14 @@ import { transitionMap } from '../core/animation/transition'
   tag: 'h-mask',
   prop: [
     {
+      name: 'view',
+      type: Boolean,
+      default: true,
+    },
+    {
       name: 'bc',
       type: String,
-      default: 'rgba(0,0,0,.35)',
+      default: 'rgba(0,0,0, 0.35)',
     },
     {
       name: 'backdrop',
@@ -23,7 +28,7 @@ import { transitionMap } from '../core/animation/transition'
   ],
   template(data) {
     return `
-        <div class="h-mask-root">
+        <div class="h-mask-root" style="background-color: ${data.bc}">
             <slot id="slot-default"></slot>
         </div>
     `
@@ -32,7 +37,7 @@ import { transitionMap } from '../core/animation/transition'
 })
 export default class Mask extends BaseComponent {
   static get observedAttributes() {
-    return ['bc']
+    return ['bc', 'view']
   }
 
   constructor() {
@@ -48,59 +53,51 @@ export default class Mask extends BaseComponent {
   }
 
   show(name) {
-    this.animation = transitionMap.get(name) ? name : 'fade'
-    const slotDefault = this.root
     animation.fadeIn(this, { duration: 150 }).then()
-    if (name) {
-      const { In } =  transitionMap.get(this.animation)
+    const slotDefault = this.shadowRoot.querySelector('#slot-default')
+    if (slotDefault.assignedNodes().length) {
+      this.animation = transitionMap.get(name) ? name : 'fade'
+      const { In } = transitionMap.get(this.animation)
       animation[In](slotDefault)
     }
   }
 
   hide() {
     // const slotDefault = this.shadowRoot.querySelector('#slot-default')
-    const slotDefault = this.root
-    if (this.animation === 'fade') {
+    const slotDefault = this.shadowRoot.querySelector('#slot-default')
+    if (this.animation === '') {
       animation.fadeOut(this, { duration: 150 }).then(() => {
         this.style.display = 'none'
       })
       return
     }
-    const { Out } =  transitionMap.get(this.animation)
-    animation[Out](slotDefault).then(()=>{
+    const { Out } = transitionMap.get(this.animation)
+    animation[Out](slotDefault).then(() => {
       animation.fadeOut(this).then(() => {
         this.style.display = 'none'
       })
     })
-
   }
 
   init() {
-    if (!this.firstLoad) {
-      this.initMethod()
-      this.initClass()
-      this.firstLoad = true
-    }
     this.initAttribute()
+    this.root.addEventListener('click', () => {
+      this.emit('backdrop', this)
+    }, false)
   }
 
   connectedCallback() {
     this.init()
-  }
-
-  initClass() {
+    // if (this.view) this.show()
   }
 
   initAttribute() {
     this.setAttribute('bc', this.bc)
-  }
-
-  initMethod() {
+    this.setAttribute('view', this.view)
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return
-    // console.log(attrName, 'oldVal:', oldVal, 'newVal:', newVal, '属性改变时调用', typeof newVal, this[attrName])
     switch (attrName) {
       // case 'show':
       //   if (this.show) {
@@ -111,7 +108,15 @@ export default class Mask extends BaseComponent {
       //   }
       //   return;
       case 'bc':
-        this.style.backgroundColor = this.bc
+        this.root.style.backgroundColor = this.bc
+        return
+      case 'view':
+        if (this.view) {
+          this.show()
+        } else {
+          this.hide()
+        }
+        return
     }
   }
 

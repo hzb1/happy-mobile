@@ -22,3 +22,19 @@
     width: 100%;
     color: inherit;
 }
+
+.h-icon{
+    fill: currentColor;
+    background-size: cover;
+}
+
+.h-icon--loading{
+    transition: all 1000ms ease-in-out;
+    display: block;
+    animation: loading 1s linear 0ms infinite;
+}
+
+@keyframes loading {
+    0%   {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}

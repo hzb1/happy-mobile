@@ -15,11 +15,7 @@ const animation = (name, element, param) => {
     const {
       duration, display, easing, fill,
     } = { ...defParam, ...param }
-    // console.log('fill', fill, name)
     const oldDisplay = element.style.display
-    // if (oldDisplay === '') {
-    //   alert('1')
-    // }
     if (oldDisplay === 'none') element.style.display = 'block'
     const player = element.animate(transition[name], {
       duration,
@@ -28,9 +24,6 @@ const animation = (name, element, param) => {
       // composite: 'add',
     })
     player.addEventListener('finish', () => {
-      // if (oldDisplay === 'none') element.style.display = 'none'
-      // console.log(element.style.display, element, 'finish')
-      // if (oldDisplay === 'none') element.style.display = oldDisplay
       resolve(element)
     })
   })

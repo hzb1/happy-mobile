@@ -4,6 +4,7 @@ import {
   fadeIn,
   fadeOut,
 } from '../core/animation'
+import { If } from '../core/util/util'
 
 @Component({
   tag: 'h-toast',
@@ -11,31 +12,40 @@ import {
     {
       name: 'content',
       type: String,
+      default: '',
     },
     {
       name: 'type',
       type: String,
-      default: 'text',
+      default: 'text', // text loading
     },
     {
       name: 'mask',
       type: Boolean,
       default: true,
     },
+    {
+      name: 'maskBc',
+      type: String,
+      default: 'rgba(0,0,0,0)',
+    },
   ],
   template(data) {
     return `
       <div class="h-toast-root">
-          <span class="h-toast-content">${data.content}</span>
+          <span class="h-toast-content">
+              ${If(data.type === 'loading', `<h-icon type="loading" loading="true"></h-icon>`)}
+              ${If(data.content, `<p>${data.content}</p>`)}
+          </span>
       </div>
-      ${ data.mask ? '<h-mask class="h-toast-mask" bc="rgba(0,0,0,0)"></h-mask>': ''}
+      ${ data.mask ? `<h-mask class="h-toast-mask" bc="${data.maskBc}"></h-mask>`: ''}
     `
   },
   styleUrl: require('./toast.inline.css'),
 })
 export default class Toast extends BaseComponent {
   static get observedAttributes() {
-    return ['content', 'mask']
+    return ['content', 'maskbc', 'mask', 'type', 'loading']
   }
 
   constructor() {
@@ -59,7 +69,7 @@ export default class Toast extends BaseComponent {
     toast.content = content
     document.body.appendChild(toast)
     const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
-    fadeIn(toastContent, { duration: 250 }).then()
+    fadeIn(toastContent, { duration: 100 }).then()
     if (time) {
       setTimeout(this.hide, time)
       return null
@@ -72,15 +82,28 @@ export default class Toast extends BaseComponent {
     const toast = document.querySelector('h-toast')
     if (toast) {
       const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
-      fadeOut(toastContent, { duration: 250 }).then(()=>{
+      fadeOut(toastContent, { duration: 100 }).then(() => {
         if (toast.parentNode) toast.parentNode.removeChild(toast)
       })
     }
   }
 
+  // loading
+  static loading(content = '') {
+    const hasToast = document.querySelector('h-toast')
+    if (hasToast) this.hide()
+    const toast = new Toast()
+    toast.type = 'loading'
+    toast.content = content
+    toast.maskBc = 'rgba(0,0,0,0.35)'
+    document.body.appendChild(toast)
+    const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
+    fadeIn(toastContent, { duration: 250 }).then()
+    return this.hide
+  }
+
   init() {
     if (!this.firstLoad) {
-      this.initMethod()
       this.initClass()
       this.firstLoad = true
     }
@@ -99,22 +122,34 @@ export default class Toast extends BaseComponent {
 
   initAttribute() {
     this.setAttribute('content', this.content)
-  }
-
-  initMethod() {
+    this.setAttribute('maskbc', this.maskBc)
+    this.setAttribute('type', this.type)
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return
-    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
     switch (attrName) {
       case 'content':
         this.root.querySelector('.h-toast-content').innerHTML = newVal
+        break
+      case 'mask':
+        if (this.mask) {
+          const mask = document.createElement('h-mask')
+          this.shadowRoot.appendChild(mask)
+        }
+        break
+      case 'maskbc':
+        if (this.mask) {
+          const mask = this.shadowRoot.querySelector('h-mask')
+          mask.bc = this.maskBc
+        }
+        break
+      case 'type':
+        this.shadowRoot.innerHTML = `
+          <style>${this.$style()}</style>
+          ${this.$template(this)}
+        `
+        break
     }
-  }
-
-  // 从DOM中移除时调用
-  disconnectedCallback() {
-    // console.log('从DOM中移除时调用', document.querySelector('h-toast'))
   }
 }

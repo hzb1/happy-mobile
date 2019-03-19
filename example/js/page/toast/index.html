@@ -9,18 +9,29 @@
 <section class="demo-page">
     <h4>最简单的toast</h4>
     <!--<h-button inline onclick="show1(0)">show</h-button>-->
-    <h-button inline onclick="show1()">show Toase</h-button>
+    <h-button inline onclick="show1(0)">show Toase</h-button>
     <h-button inline onclick="show1(1000)">show Toase</h-button>
-    <h-button inline onclick="hide1(4000)">手动控制hide</h-button>
+    <h-button inline onclick="hide1(4000)">5s后隐藏</h-button>
+    <h-button inline onclick="loading1()">loading</h-button>
+    <h-button inline onclick="loading2()">loading2</h-button>
 </section>
 
 <!--<script src="../../../../dist/happy-mobile.js"></script>-->
 <script>
+    var Toast = window.happy.Toast
     var show1 = function (time) {
-      happy.Toast.show('嗨 toase', time)
+      Toast.show('嗨 toase', time)
     }
     var hide1 = function (time) {
-      var hide = happy.Toast.show('setTimeout 控制hide', 0)
+      var hide = Toast.show('setTimeout 控制hide', 0)
       setTimeout(hide, time)
+    }
+    var loading1 = function () {
+      var hide = Toast.loading('loading...')
+      // setTimeout(hide, 3000)
+    }
+    var loading2 = function () {
+      var hide = Toast.loading('loading...')
+      // setTimeout(hide, 3000)
     }
 </script>

@@ -1,12 +1,28 @@
+
+
 import {BaseComponent, Component} from '../core'
-import { isStatusValid } from '../core/util'
+import { If, isStatusValid } from '../core/util/util'
+import icons from '../core/icon'
 
 // import iconFont from './iconfont'
 // import './icon.scss'
 
-
+// const iconHandler = new IconHandler()
 const requests = new Map()
+const svgSprite = contents => `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  id="__HAPPY_MOBILE_SVG_SPRITE_NODE__"
+  style="position:absolute;width:0;height:0"
+>
+  <defs>
+    ${contents}
+  </defs>
+</svg>
+`
 
+// <div class="h-iconfont ${If(this.loading, 'h-icon--loading')}">
 @Component({
   tag: 'h-icon',
   prop: [
@@ -27,6 +43,7 @@ const requests = new Map()
       name: 'loading',
       type: Boolean,
       has: true,
+      default: false,
     },
   ],
   template(data) {
@@ -34,7 +51,11 @@ const requests = new Map()
         <!--<link rel="stylesheet" href="https://unpkg.com/happy-mobile@0.0.37/dist/icon-font/icon-font.css">-->
         <!--<span class="h-iconfont ${data.type}"></span>-->
         <!--<img class="h-iconfont" src="${data.type}" alt="">-->
-        <div class="h-iconfont"></div>
+        <div class="h-iconfont ${If(this.loading, 'h-icon--loading')}">
+          <svg class="h-icon">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#${data.type}"></use>
+          </svg>
+        </div>
     `
   },
   styleUrl: require('./icon.inline.css'),
@@ -54,16 +75,11 @@ export default class MButton extends BaseComponent {
       ${this.$template(this)}
     `
 
-    // console.log(iconFont)
     this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.root = this.shadowRoot.querySelector('.h-iconfont')
 
-    // const link = document.createElement('link')
-    // link.rel = 'stylesheet'
-    // link.href = 'https://unpkg.com/happy-mobile@0.0.37/dist/icon-font/icon-font.css'
-    // script.src = 'https://unpkg.com/happy-mobile@0.0.35/dist/icon-font/icon-font.js'
-    // this.shadowRoot.appendChild(link)
-    this.loadImg()
+    this.icons = icons
+    this.load()
   }
 
   init() {
@@ -79,42 +95,26 @@ export default class MButton extends BaseComponent {
     this.init()
   }
 
-  loadImg(){
-    // console.log('type', this.type)
-    if (this.type) {
-      const url = `https://unpkg.com/happy-mobile/assets/svg/${this.type}.svg`
-      this.getSvg(url).then(res => {
-        this.root.innerHTML = res
-      })
-      // const img = new Image()
-      // img.src = `https://unpkg.com/happy-mobile/assets/svg/${this.type}.svg`
-      // img.onload = (res) => {
-      //   console.log(res.path[0].src, 'res')
-      //   this.shadowRoot.querySelector('img').src = res.path[0].src
-      // }
-      // img.onerror = (err) => {
-      //   console.log(err, 'err')
-      // }
-    }
+  renderSvgSprite() {
+    const symbols = Object.keys(this.icons)
+    .map((iconName) => {
+      const svgContent = this.icons[iconName].split('svg')[1]
+      return `<symbol id=${iconName}${svgContent}symbol>`
+    })
+    .join('')
+    return svgSprite(symbols)
   }
 
-  getSvg(url) {
-    let req = requests.get(url);
-    if (!req) {
-      req = fetch(url, { cache: 'force-cache' }).then(rsp => {
-        if (isStatusValid(rsp.status)) {
-          return rsp.text();
-        }
-        return Promise.resolve(null);
-      }).then( res => {
-        // console.log(res)
-        return res
-      });
-
-      // cache for the same requests
-      requests.set(url, req);
+  load() {
+    if (!document) {
+      return
     }
-    return req;
+    const existing = this.shadowRoot.getElementById('__HAPPY_MOBILE_SVG_SPRITE_NODE__')
+    const mountNode = this.root
+
+    if (!existing) {
+      mountNode.insertAdjacentHTML('afterbegin', this.renderSvgSprite())
+    }
   }
 
   initClass(){
@@ -137,7 +137,9 @@ export default class MButton extends BaseComponent {
       case 'type':
         // this.root.classList.remove(oldVal)
         // this.root.classList.add(newVal)
-        this.loadImg()
+        // this.load()
+        this.root.querySelector('.h-icon').querySelector('use').setAttribute('xlink:href', `#${this.type}`)
+        // this.loadImg()
         break;
       case 'color':
         this.style.color = newVal
