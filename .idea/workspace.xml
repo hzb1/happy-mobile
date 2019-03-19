@@ -313,8 +313,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/js/page/toast/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state relative-caret-position="302">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -788,7 +788,7 @@
       <workItem from="1551763278152" duration="933000" />
       <workItem from="1551764583079" duration="13510000" />
       <workItem from="1552190420155" duration="8486000" />
-      <workItem from="1552605329859" duration="93791000" />
+      <workItem from="1552605329859" duration="93873000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1549363459271</created>
@@ -906,7 +906,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="621414000" />
+    <option name="totallyTimeSpent" value="621496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -921,7 +921,7 @@
     <frame x="0" y="23" width="1440" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7023256" visible="true" weight="0.21353066" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7023256" visible="true" weight="0.21353066" />
       <window_info id="Structure" order="1" sideWeight="0.1311787" side_tool="true" weight="0.20114122" />
       <window_info id="Favorites" order="2" sideWeight="0.1311787" side_tool="true" weight="0.20114122" />
       <window_info id="npm" order="3" sideWeight="0.29767442" side_tool="true" visible="true" weight="0.21353066" />
@@ -934,7 +934,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.17302452" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32833788" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.56518674" visible="true" weight="0.41416892" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.56518674" visible="true" weight="0.41416892" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.43481326" side_tool="true" visible="true" weight="0.41416892" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49964765" weight="0.065395094" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1409,8 +1409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/js/page/toast/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="302">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
