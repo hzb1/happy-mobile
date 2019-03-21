@@ -80,14 +80,23 @@ export default class Button extends BaseComponent {
 
   constructor() {
     super();
-    this.attachShadow({mode: 'open'})
-    this.shadowRoot.innerHTML = `
-        <style>${this.$style()}</style>
-        ${this.$template(this)}
-    `
+    // this.attachShadow({mode: 'open'})
+    // this.shadowRoot.innerHTML = `
+    //     <style>${this.$style()}</style>
+    //     ${this.$template(this)}
+    // `
+    // // this.init()
+    // this.name = 1
     this.root = this.shadowRoot.querySelector('button')
-    // this.init()
-    this.name = 1
+  }
+
+  render(){
+    return `
+        <style>${this.$style()}</style>
+        <button class="${this.$tag}" type=${this.type} >
+            <slot></slot>
+        </button>
+    `
   }
 
   init() {

@@ -1,6 +1,20 @@
 /* eslint-disable no-console, class-methods-use-this */
 
 class BaseComponent extends HTMLElement {
+  constructor() {
+    super()
+
+    if (typeof this.render === 'function') {
+      this.attachShadow({ mode: 'open' })
+      this.shadowRoot.innerHTML = `${this.render()}`
+    }
+  }
+
+  // 渲染
+  // render() {
+  //
+  // }
+
   // 注册
   static register(name = this.prototype.$tag) {
     try {

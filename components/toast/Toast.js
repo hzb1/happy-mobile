@@ -22,7 +22,7 @@ import { If } from '../core/util/util'
     {
       name: 'mask',
       type: Boolean,
-      default: true,
+      default: false,
     },
     {
       name: 'maskBc',
@@ -61,7 +61,7 @@ export default class Toast extends BaseComponent {
   }
 
   // 显示
-  static show(content, time = 1500) {
+  static show(content, time = 2500) {
     const hasToast = document.querySelector('h-toast')
     if (hasToast) this.hide()
     const Toast = customElements.get('h-toast')

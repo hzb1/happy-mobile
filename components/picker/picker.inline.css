@@ -1,6 +1,6 @@
 
 :host {
-    display: none;
+    /*display: none;*/
 }
 
 .h-picker-popup {
@@ -8,6 +8,7 @@
     background-color: #fff;
     -webkit-transform: translateZ(1px);
     transform: translateZ(1px);
+    z-index: 999;
 }
 
 .h-picker-popup, .h-picker-popup-mask, .h-picker-popup-wrap {
@@ -84,7 +85,6 @@
 .h-picker-col-indicator {
     box-sizing: border-box;
     height: 38px;
-    top: 102px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -94,6 +94,7 @@
     z-index: 3;
     position: absolute;
     left: 0;
+    top: 114px;
 }
 
 .h-picker-col-mask {
@@ -103,15 +104,8 @@
     background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .95), rgba(255, 255, 255, .6)), -webkit-linear-gradient(bottom, rgba(255, 255, 255, .95), rgba(255, 255, 255, .6));
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, .95), rgba(255, 255, 255, .6)), linear-gradient(to top, rgba(255, 255, 255, .95), rgba(255, 255, 255, .6));
     background-position: top, bottom;
-    background-size: 100% 102px;
+    background-size: 100% 114px;
     background-repeat: no-repeat;
-}
-
-.h-picker-col-indicator, .h-picker-col-mask {
-    width: 100%;
-    z-index: 3;
-    position: absolute;
-    left: 0;
 }
 
 .h-picker-col-content {
@@ -120,7 +114,7 @@
     top: 0;
     width: 100%;
     z-index: 1;
-    padding: 102px 0;
+    padding: 114px 0;
 }
 
 .h-picker-col-item {

@@ -2,6 +2,12 @@
 const isStatusValid = status => status <= 299
 
 // if
+const Html = (val, li) => {
+  console.log(val.join(''), li)
+  return val.join('')
+}
+
+// if
 const If = (bool, backValue) => {
   if (bool) {
     return backValue
@@ -48,5 +54,6 @@ export {
   If,
   ForIn,
   toHump,
+  Html,
   propToObj,
 }

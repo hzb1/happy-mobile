@@ -26,11 +26,11 @@ const svgSprite = contents => `
 @Component({
   tag: 'h-icon',
   prop: [
-    {
-      name: 'type',
-      type: String,
-      default: '',
-    },
+    // {
+    //   name: 'type',
+    //   type: String,
+    //   default: '',
+    // },
     {
       name: 'color',
       type: String,
@@ -53,7 +53,7 @@ const svgSprite = contents => `
         <!--<img class="h-iconfont" src="${data.type}" alt="">-->
         <div class="h-iconfont ${If(this.loading, 'h-icon--loading')}">
           <svg class="h-icon">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#${data.type}"></use>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href='${data.type}'></use>
           </svg>
         </div>
     `
@@ -64,6 +64,15 @@ export default class MButton extends BaseComponent {
 
   static get observedAttributes() {
     return [ 'type', 'color', 'size']
+  }
+
+  get type() {
+    return this.getAttribute('type')
+  }
+
+
+  set type(val) {
+    return this.setAttribute('type', val)
   }
 
   constructor() {

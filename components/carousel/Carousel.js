@@ -1,5 +1,8 @@
 import { BaseComponent, Component } from '../core'
 import SwipeRevealItem from '../core/Swipe'
+import { Html } from '../core/util/util'
+
+const property = () => {}
 
 @Component({
   tag: 'h-carousel',
@@ -7,12 +10,27 @@ import SwipeRevealItem from '../core/Swipe'
     {
       name: 'content',
       type: String,
-      default: '',
+      default: 'default',
     },
     {
-      name: 'type',
-      type: String,
-      default: 'text',
+      name: 'myArray',
+      type: Array,
+      default: [
+        {
+          title: 'title1'
+        },
+        {
+          title: 'title2'
+        },
+        {
+          title: 'title3'
+        },
+      ],
+    },
+    {
+      name: 'myBool',
+      type: Boolean,
+      default: true,
     },
   ],
   template(data) {
@@ -27,22 +45,32 @@ import SwipeRevealItem from '../core/Swipe'
   styleUrl: require('./carousel.inline.css'),
 })
 export default class Carousel extends BaseComponent {
+
   static get observedAttributes() {
     return ['content', 'mask']
   }
 
   constructor() {
     super()
-    this.attachShadow({ mode: 'open' })
-    const template = document.createElement('template')
-    template.innerHTML = `
-      <style>${this.$style()}</style>
-      ${this.$template(this)}
+    // this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // this.root = this.shadowRoot.querySelector('.h-carousel-root')
+    // const slotContent = this.shadowRoot.querySelector('#slot-content')
+    // console.log(slotContent.assignedNodes())
+
+    // this.message = 'Hello world! From my-element';
+    // this.myArray = ['an','array','of','test','data'];
+    // this.myBool = true;
+  }
+
+  render() {
+    return `
+      <p>${this.content}</p>
+      <ul>${ (this.myArray.map((item, i) => `<li>${i}: ${item.title}</li>`)).join('') }</ul>
+      ${this.myBool ?
+      `<p>Render some HTML if myBool is true</p>` :
+      `<p>Render some other HTML if myBool is false</p>`}
+      <button>Click</button>
     `
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
-    this.root = this.shadowRoot.querySelector('.h-carousel-root')
-    const slotContent = this.shadowRoot.querySelector('#slot-content')
-    console.log(slotContent.assignedNodes())
   }
 
   init() {
@@ -52,6 +80,11 @@ export default class Carousel extends BaseComponent {
       this.firstLoad = true
     }
     this.initAttribute()
+  }
+
+  clickHandler() {
+    console.log(this);
+    this.myBool = !this.myBool;
   }
 
   connectedCallback() {

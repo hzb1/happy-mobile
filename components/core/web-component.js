@@ -34,10 +34,17 @@ const Component = ({
           const tv = String(val)
           return tv === 'null' ? this.$prop[name].default : tv
         }
+        if (type === Array) {
+          if (!val || val === 'undefined') return this.$prop[name].default
+
+          // console.warn(val, 'Array get val')
+          return JSON.parse(val)
+        }
         return type(val)
       },
       set(val) {
-        this.setAttribute(name, val)
+        // console.warn(JSON.stringify(val), 'Array set')
+        this.setAttribute(name, JSON.stringify(val))
       },
     })
   })

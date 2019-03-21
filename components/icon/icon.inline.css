@@ -17,7 +17,7 @@
 .h-iconfont, svg {
     display: block;
     fill: currentColor;
-    stroke: currentColor;
+    /*stroke: currentColor;*/
     height: 100%;
     width: 100%;
     color: inherit;

@@ -47,7 +47,7 @@ export default class Route {
           },
           { opacity: 1, transform: 'translateX(0)' },
         ], {
-          duration: 325,
+          duration: 175,
         })
         newViewPlayer.addEventListener('finish', () => {
         })
@@ -56,7 +56,7 @@ export default class Route {
           { opacity: 1, transform: 'translateX(0)' },
           { opacity: 1, transform: `translateX(${oldViewDirection})` },
         ], {
-          duration: 325,
+          duration: 175,
         })
         oldViewPlayer.addEventListener('finish', () => {
           oldView.style.position = 'static'

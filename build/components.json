@@ -7,5 +7,6 @@
   "mask": "./components/mask/index.js",
   "carousel": "./components/carousel/index.js",
   "app-bar": "./components/app-bar/index.js",
-  "toast": "./components/toast/index.js"
+  "toast": "./components/toast/index.js",
+  "picker": "./components/picker/index.js"
 }
