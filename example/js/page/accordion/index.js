@@ -7,17 +7,21 @@ export default class AppAccordion extends HTMLElement {
     return 'app-accordion'
   }
 
-  constructor() {
-    super()
-    // this.attachShadow({ mode: 'open' })
+  init() {
+    this.innerHTML = `
+      ${html}
+    `
+
+    // script
+    if (this.querySelector('script')) {
+      const script = document.createElement('script')
+      const oldScript = this.removeChild(this.querySelector('script'))
+      script.innerHTML = oldScript.innerText
+      this.appendChild(script)
+    }
   }
 
   connectedCallback() {
-    this.innerHTML = html
-
-    const script = document.createElement('script')
-    const oldScript = this.removeChild(this.querySelector('script'))
-    script.innerHTML = oldScript.innerText
-    this.appendChild(script)
+    this.init()
   }
 }

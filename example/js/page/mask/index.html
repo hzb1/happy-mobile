@@ -46,7 +46,7 @@
 
 <script>
     // 最简单的mask
-    var mask1 = document.querySelector('app-mask').shadowRoot.querySelector('#mask1')
+    var mask1 = document.querySelector('app-mask').querySelector('#mask1')
     var show1 = function (animation) {
       mask1.show(animation)
     }
@@ -59,7 +59,7 @@
     })
 
     // fadeDown
-    var fadeDownMask = document.querySelector('app-mask').shadowRoot.querySelector('#fadeDownMask')
+    var fadeDownMask = document.querySelector('app-mask').querySelector('#fadeDownMask')
     var fadeDownShow = function () {
       fadeDownMask.show('fadeDown')
     }
@@ -68,7 +68,7 @@
     }
 
 
-    var mask2 = document.querySelector('app-mask').shadowRoot.querySelector('#mask2')
+    var mask2 = document.querySelector('app-mask').querySelector('#mask2')
     var slideShow = function (animation) {
       mask2.show(animation)
     }

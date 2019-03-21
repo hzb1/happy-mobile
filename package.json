@@ -1,6 +1,6 @@
 {
   "name": "happy-mobile",
-  "version": "0.0.384",
+  "version": "0.0.4",
   "description": "",
   "private": false,
   "license": "MIT",
@@ -74,6 +74,5 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "hammerjs": "^2.0.8"
   }
 }

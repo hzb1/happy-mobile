@@ -7,26 +7,21 @@ export default class Toast extends HTMLElement {
     return 'app-toast'
   }
 
-  constructor() {
-    super()
-    this.init()
-  }
-
   init() {
-    this.shadow = this.attachShadow({ mode: 'open' })
-    const template = document.createElement('template')
-    template.innerHTML = `
+    this.innerHTML = `
       ${html}
     `
-    this.shadow.appendChild(template.content.cloneNode(true))
 
     // script
-    const script = document.createElement('script')
-    const oldScript = this.shadow.removeChild(this.shadow.querySelector('script'))
-    script.innerHTML = oldScript.innerText
-    this.shadow.appendChild(script)
+    if (this.querySelector('script')) {
+      const script = document.createElement('script')
+      const oldScript = this.removeChild(this.querySelector('script'))
+      script.innerHTML = oldScript.innerText
+      this.appendChild(script)
+    }
   }
 
   connectedCallback() {
+    this.init()
   }
 }
