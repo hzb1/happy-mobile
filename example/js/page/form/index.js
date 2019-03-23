@@ -7,39 +7,44 @@ export default class Form extends HTMLElement {
     return 'app-form'
   }
 
-  constructor() {
-    super()
-  }
-
   connectedCallback() {
     this.innerHTML = html
+
+    const myFrom = this.querySelector('#myForm')
+    myFrom.addEventListener('submit', this.login, false)
   }
 
   login(ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+    const submit = this.querySelector('#submit')
     try {
-      const { toast } = window.happy
-      const submit = this.querySelector('#submit')
-      // submit.showLoading()
-      // submit.loading = true;
-      const form = this.querySelector('#myForm')
+      const formData = {}
+      Array.from(ev.target.elements).forEach((item) => {
+        if (item.name) formData[item.name] = item.value
+      })
+      console.log('myForm', formData)
       submit.loading = true
       const body = new FormData()
-      body.append('name', testform.name.value)
-      body.append('password', testform.password.value)
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const o in formData) {
+        body.append(o, formData[o])
+      }
       const option = {
         method: 'post',
         body,
       }
       fetch('https://easy-mock.com/mock/5c6cf7008d04876a33c074fb/api/login', option).then(response => response.json()).then((res) => {
         if (res.code === 0) {
-          toast.show(res.msg) // 登录成功
+          const { Toast } = window.happy
+          Toast.show(res.msg) // 登录成功
         }
       }).finally(() => {
         submit.loading = false
       })
     } catch (e) {
-      // submit.loading = false;
-      // submit.disabled = false;
+      submit.loading = false
+      submit.disabled = false
     }
 
     return false

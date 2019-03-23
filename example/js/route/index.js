@@ -15,6 +15,7 @@ const accordion = () =>  import(/* webpackChunkName: "accordion" */'./../page/ac
 
 const form = () =>  import(/* webpackChunkName: "form" */'./../page/form/index.js')
 const select = () =>  import(/* webpackChunkName: "select" */'./../page/select/index.js')
+const switchs = () =>  import(/* webpackChunkName: "switch" */'./../page/switch/index.js')
 const picker = () =>  import(/* webpackChunkName: "picker" */'../page/picker/index.js')
 
 const routes = new Map([
@@ -24,6 +25,7 @@ const routes = new Map([
   [ '#icon', { path: '#icon', component: icon }],
   [ '#form', { path: '#form', component: form }],
   [ '#select', { path: '#select', component: select }],
+  [ '#switch', { path: '#switch', component: switchs }],
   [ '#picker', { path: '#picker', component: picker }],
   [ '#img', { path: '#form', component: img }],
   [ '#mask', { path: '#mask', component: mask }],

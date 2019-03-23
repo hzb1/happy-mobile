@@ -7,10 +7,6 @@ export default class SwipeAction extends HTMLElement {
     return 'app-swipe-action'
   }
 
-  constructor() {
-    super()
-  }
-
   connectedCallback() {
     this.innerHTML = html
   }

@@ -3,18 +3,28 @@
 <h4 class="title">Form</h4>
 
 <div class="form-content">
-    <form id="myForm" name="myForm" class="my-form" onsubmit="return login()">
+    <form id="myForm" name="myForm" class="my-form">
         <div class="form-item">
-            <h-icon type="h-my_light"></h-icon>
+            <h-icon type="check"></h-icon>
             <!-- //用户名正则，3到6位（字母，数字，下划线，减号） -->
             <input h-input type="text" name="name" required
                     min="3" max="6" placeholder="请输入用户名（3到6位（字母，数字，下划线，减号）" />
         </div>
         <div class="form-item">
-            <h-icon type="h-my_light"></h-icon>
+            <h-icon type="check"></h-icon>
             <input h-input type="password" name="password" required value="password" placeholder="请输入密码" />
         </div>
-        <!--<button type="submit">登录</button>-->
+        <div class="form-item">
+            <p>开关</p>
+            <h-switch name="switch"></h-switch>
+        </div>
+        <div class="form-item">
+            <p>订阅</p>
+            <h-switch name="subscription"></h-switch>
+        </div>
+
+        <!--<h-switch></h-switch>-->
+        <!--<h-switch value="true"></h-switch>-->
         <div class="form-btn">
             <h-button id="submit" type="submit" shadow >登录</h-button>
             <h-button color="warn" type="reset" shadow style="margin-top: 18px">重置</h-button>
@@ -24,6 +34,7 @@
 </div>
 
 <div class="form" style="padding-bottom: 70px">
+
     <p>input type</p>
     <div class="form-ls">
         text <input h-input type="text"/>
@@ -87,6 +98,12 @@
     </datalist>
 
 </div>
+
+<!--<script>-->
+    <!--var login = function () {-->
+      <!--console.log('login')-->
+    <!--}-->
+<!--</script>-->
 
 <!--<script type="text/javascript" src="../../../../dist/c/iconfont.js"></script>-->
 <!--<script type="text/javascript" src="https://unpkg.com/happy-mobile/dist/c/iconfont.js"></script>-->

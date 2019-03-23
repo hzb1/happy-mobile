@@ -72,6 +72,10 @@ export default class Home extends HTMLElement {
           //   link: '#select',
           // },
           {
+            name: '开关 Switch',
+            link: '#switch',
+          },
+          {
             name: '选择器 Picker',
             link: '#picker',
           },
