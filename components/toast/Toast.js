@@ -24,11 +24,11 @@ import { If } from '../core/util/util'
       type: Boolean,
       default: false,
     },
-    {
-      name: 'maskBc',
-      type: String,
-      default: 'rgba(0,0,0,0)',
-    },
+    // {
+    //   name: 'maskBc',
+    //   type: String,
+    //   default: 'rgba(0,0,0,0)',
+    // },
   ],
   template(data) {
     return `
@@ -38,7 +38,7 @@ import { If } from '../core/util/util'
               ${If(data.content, `<p>${data.content}</p>`)}
           </span>
       </div>
-      ${ data.mask ? `<h-mask class="h-toast-mask" bc="${data.maskBc}"></h-mask>`: ''}
+      ${ data.mask ? `<h-mask class="h-toast-mask"></h-mask>`: ''}
     `
   },
   styleUrl: require('./toast.inline.css'),
@@ -94,8 +94,8 @@ export default class Toast extends BaseComponent {
     if (hasToast) this.hide()
     const toast = new Toast()
     toast.type = 'loading'
+    toast.mask = true
     toast.content = content
-    toast.maskBc = 'rgba(0,0,0,0.35)'
     document.body.appendChild(toast)
     const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
     fadeIn(toastContent, { duration: 250 }).then()
@@ -138,12 +138,12 @@ export default class Toast extends BaseComponent {
           this.shadowRoot.appendChild(mask)
         }
         break
-      case 'maskbc':
-        if (this.mask) {
-          const mask = this.shadowRoot.querySelector('h-mask')
-          mask.bc = this.maskBc
-        }
-        break
+      // case 'maskbc':
+      //   if (this.mask) {
+      //     const mask = this.shadowRoot.querySelector('h-mask')
+      //     // mask.bc = this.maskBc
+      //   }
+      //   break
       case 'type':
         this.shadowRoot.innerHTML = `
           <style>${this.$style()}</style>

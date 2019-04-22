@@ -4,35 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>HAPPY-MOBILE</title>
     <link rel="stylesheet" href="../happy-mobile.css">
     <style>
         *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 5vw 40px;
+            width: 100%;
+            /*height: 200px;*/
+        }
+        header h1{
+            font-size: 24px;
+            color: rgba(0,0,0,.85);
+        }
+        header p{
+            margin-top: .5em;
+            font-size: 14px;
+            color: rgba(0,0,0,.35);
+        }
+        .container{
+            padding: 0 5vw;
         }
     </style>
 </head>
 <body>
 
-<h4>按钮 Button</h4>
-<a href="../example/js/page/button/button.html">
-    <h-button>Button</h-button>
-</a>
+<header>
+    <h1>HAPPY-MOBILE</h1>
+    <p>HAPPY-MOBILE 是一套移动端的web组件库，包含button、icon等组件。</p>
+</header>
 
-
-<h4>标签 Tab</h4>
-<a href="../example/js/page/tab/tab.html">
-    <h-button>Tab</h-button>
-</a>
-
-
-
-<h4>标签栏 TabBar</h4>
-<a href="../example/js/page/tab-bar/tab-bar.html">
-    <h-button>TabBar</h-button>
-</a>
+<div class="container">
+    <a href="../example/js">
+        <h-button>查看演示</h-button>
+    </a>
+</div>
 
 
 <script src="./happy-mobile.js"></script>

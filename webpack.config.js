@@ -106,17 +106,19 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  watch: true,
   watchOptions: {
-    aggregateTimeout: 300,
+    aggregateTimeout: 100,
     poll: 1000,
     ignored: /node_modules/,
   },
   devServer: {
-    contentBase: path.join(__dirname, ''),
-    compress: true,
+    contentBase: path.join(__dirname, ''), // web服务地址
+    compress: true, // gzip 压缩和提供为服务
     host: '0.0.0.0',
-    port: 9005,
+    port: 7777,
     hot: true,
+    hotOnly: true, // 在没有页面刷新的情况下启用热模块替换
   },
   // target: 'node',
 }

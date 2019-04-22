@@ -11,3 +11,42 @@
     height: 100%;
     overflow: hidden;
 }
+
+.h-carousel-root{
+    position: relative;
+}
+
+/*#carousel-content{*/
+    /*transition: 1s;*/
+/*}*/
+
+#slot-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.carousel-dots{
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+.carousel-dots span {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background-color: #fdfdfd;
+    margin: 4px;
+    opacity: 0.5;
+}
+
+.carousel-dots span.current{
+    background-color: var(--h-theme-primary, #1f78ff);
+    opacity: 1;
+}

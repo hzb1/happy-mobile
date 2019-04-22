@@ -16,18 +16,27 @@ const accordion = () =>  import(/* webpackChunkName: "accordion" */'./../page/ac
 const form = () =>  import(/* webpackChunkName: "form" */'./../page/form/index.js')
 const select = () =>  import(/* webpackChunkName: "select" */'./../page/select/index.js')
 const switchs = () =>  import(/* webpackChunkName: "switch" */'./../page/switch/index.js')
+const slider = () =>  import(/* webpackChunkName: "slider" */'./../page/slider/index.js')
+const checkbox = () =>  import(/* webpackChunkName: "checkbox" */'./../page/checkbox/index.js')
 const picker = () =>  import(/* webpackChunkName: "picker" */'../page/picker/index.js')
 
 const routes = new Map([
   [ '', { path: '#home', component: home }],
   [ '#home', { path: '#home', component: home }],
+
+  // 基础
   [ '#button', { path: '#button', component: button }],
   [ '#icon', { path: '#icon', component: icon }],
+
+  // 表单
   [ '#form', { path: '#form', component: form }],
   [ '#select', { path: '#select', component: select }],
   [ '#switch', { path: '#switch', component: switchs }],
+  [ '#slider', { path: '#slider', component: slider }],
+  [ '#checkbox', { path: '#checkbox', component: checkbox }],
   [ '#picker', { path: '#picker', component: picker }],
   [ '#img', { path: '#form', component: img }],
+
   [ '#mask', { path: '#mask', component: mask }],
   [ '#carousel', { path: '#carousel', component: carousel }],
   [ '#app-bar', { path: '#app-bar', component: appBar }],

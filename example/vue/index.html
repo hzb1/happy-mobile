@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue happy-mobile</title>
-    <link rel="stylesheet" href="https://unpkg.com/happy-mobile/dist/happy-mobile.css">
+    <!--<link rel="stylesheet" href="https://unpkg.com/happy-mobile/dist/happy-mobile.css">-->
+    <link rel="stylesheet" href="../../dist/happy-mobile.css">
 </head>
 <body>
     <!--<h-tab></h-tab>-->
@@ -75,8 +76,19 @@
                   :inline="inline1"
                   v-html="message"></h-button>
 
-        <h-button inline="false">{{message}}</h-button>
+        <h-button inline>{{message}}</h-button>
+
+        <h4>switch</h4>
+        <h-switch value="true"></h-switch>
+        <h-switch :value="switch1" @change="switchEv"></h-switch>
+
+        <h4>h-slider</h4>
+        <h-slider :value="slider1"></h-slider>
+        <h-slider :value="slider2"></h-slider>
+        <h-slider id="slider3" :value="slider3" @input="sliderEv"></h-slider>{{slider3}} <!-- v-model="slider3" -->
+        <!--<h-button @click="switchClick()">switch</h-button>-->
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!--<script src="./dist/index.js"></script>-->
     <script>
@@ -91,6 +103,14 @@
           shadow1: false,
           disabled1: false,
           inline1: false,
+
+          // switch
+          switch1: false,
+
+          // slider
+          slider1: 0,
+          slider2: 50,
+          slider3: 100,
         },
         created() {
         },
@@ -98,10 +118,19 @@
           clicks(){
             var t = this.$refs.btn1.showLoading()
             setTimeout(t, 2000)
+          },
+          switchEv(ev){
+            console.log(' switchEv',  ev.detail)
+            // this.switch1 = !this.switch1
+          },
+          sliderEv(ev){
+            this.slider3 = ev.detail
+            console.log(this.slider3)
           }
         }
       })
     </script>
-    <script src="https://unpkg.com/happy-mobile/dist/happy-mobile.js"></script>
+    <script src="../../dist/happy-mobile.js"></script>
+    <!--<script src="https://unpkg.com/happy-mobile/dist/happy-mobile.js"></script>-->
 </body>
 </html>

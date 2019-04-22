@@ -17,15 +17,17 @@ export default class Form extends HTMLElement {
   login(ev) {
     ev.preventDefault()
     ev.stopPropagation()
+    // console.log('name', ev.target.name.name, ev.target.name.value)
+    // console.log('password', ev.target.password.name, ev.target.password.value)
+    // console.log('checkbox1', ev.target.checkbox1.name, ev.target.checkbox1.value)
     const submit = this.querySelector('#submit')
     try {
       const formData = {}
       Array.from(ev.target.elements).forEach((item) => {
         if (item.name) formData[item.name] = item.value
       })
-      console.log('myForm', formData)
       submit.loading = true
-      const body = new FormData()
+      const body = new FormData(formData)
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const o in formData) {
         body.append(o, formData[o])

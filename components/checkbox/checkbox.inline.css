@@ -1,0 +1,25 @@
+
+:host{
+    display: inline-block;
+    color: var(--h-theme-primary, #1f78ff);
+    font-size: inherit;
+}
+
+.h-checked {
+}
+
+.h-checked-true {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    font-size: inherit;
+}
+
+.h-checked-false{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    border: 1px solid var(--h-theme-border, #ccc);
+    border-radius: 50%;
+}

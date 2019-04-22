@@ -1,42 +1,71 @@
 
 :host{
-    /*margin: 4px;*/
-}
-
-.h-button {
-    all: inherit;
-    /*display: inherit;*/
-    /*justify-content: inherit;*/
-    /*align-items: inherit;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*line-height: inherit;*/
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border: none;
-    background-color: inherit;
-    /*text-align: inherit;*/
-    /*text-transform: inherit;*/
-    /*background-color: initial;*/
-    /*background-image: inherit;*/
-    /*font-size: inherit;*/
-    /*color: inherit;*/
-    /*cursor: inherit;*/
-}
-
-.h-button .h-icon--loading{
-    margin-right: 4px;
-    transition: all 1000ms ease-in-out;
     display: inline-block;
-    animation: loading 1s linear 0ms infinite;
 }
 
-@keyframes loading {
-    0%   {transform: rotate(0deg)}
-    100% {transform: rotate(360deg)}
+.h-switch {
+
 }
 
-.h-button:focus{
+.h-switch-input{
+    /*width: 0;*/
+    /*height: 0;*/
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.checked .h-switch-box {
+    border-color: var(--h-theme-primary, #1f78ff);
+    background-color: var(--h-theme-primary, #1f78ff);
+}
+
+.h-switch-box{
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 32px;
     outline: 0;
+    border-radius: 16px;
+    box-sizing: border-box;
+    border: 1px solid var(--h-theme-border, #DFDFDF);
+    background-color: var(--h-theme-border, #DFDFDF);
+    -webkit-transition: background-color 0.1s, border 0.1s;
+    transition: background-color 0.1s, border 0.1s;
+    /*background-color: var(--h-theme-primary, #1f78ff);*/
+}
+
+.checked .h-switch-box:before{
+    transform: scale(0);
+}
+.h-switch-box:before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+    -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    transition: -webkit-transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1), -webkit-transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+
+.checked .h-switch-box:after{
+    /*transform: translateX(20px);*/
+    left: calc(100% - 30px);
+}
+.h-switch-box:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: left 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
 }

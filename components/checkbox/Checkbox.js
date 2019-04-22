@@ -2,7 +2,7 @@ import BaseComponent from '../core/base-component'
 import Component from '../core/web-component'
 
 @Component({
-  tag: 'h-switch',
+  tag: 'h-checkbox',
   prop: [
     {
       name: 'value',
@@ -16,23 +16,23 @@ import Component from '../core/web-component'
       default: '',
     },
   ],
-  styleUrl: require('./switch.inline.css'),
+  styleUrl: require('./checkbox.inline.css'),
 })
-export default class Switch extends BaseComponent{
+export default class Checkbox extends BaseComponent{
   static get observedAttributes() {
     return ['value']
   }
 
   constructor(){
     super()
-    this.root = this.shadowRoot.querySelector('#h-switch')
+    this.root = this.shadowRoot.querySelector('#h-checkbox')
   }
 
   render() {
     return `
         <style>${this.$style()}</style>
-        <div id="h-switch" class="h-switch ${this.value ? 'checked' : ''}">
-            <div class="h-switch-box"></div>
+        <div id="h-checkbox" class="h-checkbox">
+            ${this.value ? `<h-icon type="check-circle" class="h-checked-true"></h-icon>` : `<i class="h-checked-false"></i>`}
         </div>
     `
   }
@@ -56,10 +56,8 @@ export default class Switch extends BaseComponent{
           fakeInput.name = this.name;
           fakeInput.type = 'checkbox';
           fakeInput.value = this.value;
-          fakeInput.style.display = 'none';
+          // fakeInput.style.display = 'none';
           form.appendChild(fakeInput);
-          // fakeButton.remove();
-          console.log('form', form)
         }
     }
   }
@@ -70,8 +68,7 @@ export default class Switch extends BaseComponent{
   }
 
   _listener() {
-    const switchBox = this.root.querySelector('.h-switch-box')
-    switchBox.addEventListener('click', () => {
+    this.root.addEventListener('click', () => {
       this.value = !this.value
     })
   }
@@ -86,7 +83,7 @@ export default class Switch extends BaseComponent{
   }
 
   _watchValue() {
-    this.root.classList.toggle('checked')
+    this.root.innerHTML = `${this.value ? `<h-icon type="check-circle" class="h-checked-true"></h-icon>` : `<i class="h-checked-false"></i>`}`
     this.emit('change', this.value)
     if (this.name) {
       const form = this.closest('form');

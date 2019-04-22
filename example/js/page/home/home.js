@@ -76,6 +76,14 @@ export default class Home extends HTMLElement {
             link: '#switch',
           },
           {
+            name: '滑块 Slider',
+            link: '#slider',
+          },
+          {
+            name: '复选框 Checkbox',
+            link: '#checkbox',
+          },
+          {
             name: '选择器 Picker',
             link: '#picker',
           },

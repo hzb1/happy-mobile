@@ -1,18 +1,32 @@
 
+<style>
+    .form-item {
+        font-size: 22px;
+    }
+</style>
 
 <h4 class="title">Form</h4>
 
 <div class="form-content">
-    <form id="myForm" name="myForm" class="my-form">
+    <form id="myForm" name="myForm" h-form class="my-form">
         <div class="form-item">
             <h-icon type="check"></h-icon>
             <!-- //用户名正则，3到6位（字母，数字，下划线，减号） -->
-            <input h-input type="text" name="name" required
+            <input type="text" name="name" required
                     min="3" max="6" placeholder="请输入用户名（3到6位（字母，数字，下划线，减号）" />
         </div>
         <div class="form-item">
             <h-icon type="check"></h-icon>
-            <input h-input type="password" name="password" required value="password" placeholder="请输入密码" />
+            <input h-input type="password" name="password1" required value="password" placeholder="请输入密码" />
+        </div>
+        <div class="form-item">
+            <p>复选框</p>
+            <h-checkbox name="checkbox1"></h-checkbox>
+            <h-checkbox name="checkbox2"></h-checkbox>
+        </div>
+        <div class="form-item">
+            <p>slider</p>
+            <h-slider name="slider"></h-slider>
         </div>
         <div class="form-item">
             <p>开关</p>
@@ -22,7 +36,6 @@
             <p>订阅</p>
             <h-switch name="subscription"></h-switch>
         </div>
-
         <!--<h-switch></h-switch>-->
         <!--<h-switch value="true"></h-switch>-->
         <div class="form-btn">

@@ -23,6 +23,7 @@
 }
 
 .h-toast-content{
+    max-width: 80vw;
     background-color: rgba(0,0,0,.75);
     padding: 6px 14px;
     border-radius: 8px;
@@ -41,7 +42,9 @@
 }
 
 .h-toast-content p{
+    max-width: 100%;
     line-height: 1.6em;
+    display: flex;
     white-space: nowrap;
 }
 

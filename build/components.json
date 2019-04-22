@@ -8,5 +8,7 @@
   "carousel": "./components/carousel/index.js",
   "app-bar": "./components/app-bar/index.js",
   "toast": "./components/toast/index.js",
+  "switch": "./components/switch/index.js",
+  "checkbox": "./components/checkbox/index.js",
   "picker": "./components/picker/index.js"
 }

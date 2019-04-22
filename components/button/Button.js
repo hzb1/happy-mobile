@@ -51,13 +51,13 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
       default: 'button',
     },
   ],
-  template(data) {
-    return `
-        <button class="${data.$tag}" type=${data.type} >
-            <slot></slot>
-        </button>
-    `
-  },
+  // template(data) {
+  //   return `
+  //       <button class="${data.$tag}" type=${data.type} >
+  //           <slot></slot>
+  //       </button>
+  //   `
+  // },
   styleUrl: require('./button.inline.css'),
 })
 export default class Button extends BaseComponent {
@@ -80,13 +80,6 @@ export default class Button extends BaseComponent {
 
   constructor() {
     super();
-    // this.attachShadow({mode: 'open'})
-    // this.shadowRoot.innerHTML = `
-    //     <style>${this.$style()}</style>
-    //     ${this.$template(this)}
-    // `
-    // // this.init()
-    // this.name = 1
     this.root = this.shadowRoot.querySelector('button')
   }
 
@@ -177,6 +170,7 @@ export default class Button extends BaseComponent {
           fakeButton.style.display = 'none';
           form.appendChild(fakeButton);
           fakeButton.click();
+          // form.removeChild(fakeButton)
           fakeButton.remove();
         }
       }, false)

@@ -18,9 +18,10 @@ const Component = ({
       get() {
         const val = this.getAttribute(name)
         // console.log(val, ':val', name, ':name')
+        const defaults = this.$prop[name].default
         if (has) {
           const hasAttr = this.hasAttribute(name)
-          if (!hasAttr) return false
+          if (!hasAttr) return defaults
           if (val === '') return true
           if (!val) return false
         }
@@ -40,11 +41,19 @@ const Component = ({
           // console.warn(val, 'Array get val')
           return JSON.parse(val)
         }
+        if (val === null) {
+          return defaults
+        }
         return type(val)
       },
       set(val) {
-        // console.warn(JSON.stringify(val), 'Array set')
-        this.setAttribute(name, JSON.stringify(val))
+        let strVal = ''
+        if (typeof val === 'string') {
+          strVal = val
+        } else {
+          strVal = JSON.stringify(val)
+        }
+        this.setAttribute(name, strVal)
       },
     })
   })

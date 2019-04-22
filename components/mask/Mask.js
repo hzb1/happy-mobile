@@ -71,12 +71,19 @@ export default class Mask extends BaseComponent {
       })
       return
     }
-    const { Out } = transitionMap.get(this.animation)
-    animation[Out](slotDefault).then(() => {
-      animation.fadeOut(this).then(() => {
+    if (slotDefault.assignedNodes().length){
+      const { Out } = transitionMap.get(this.animation)
+      animation[Out](slotDefault, { duration: 150 }).then(() => {
+        animation.fadeOut(this, { duration: 150 }).then(() => {
+          this.style.display = 'none'
+        })
+      })
+    } else {
+      animation.fadeOut(this, { duration: 150 }).then(() => {
         this.style.display = 'none'
       })
-    })
+    }
+
   }
 
   init() {

@@ -1,3 +1,7 @@
+
+// import 'core-js'
+import 'core-js/stable'
+// import 'core-js-pure/stable'
 import { version } from '../package'
 import './theme.scss'
 import './form/form.scss'
@@ -8,12 +12,15 @@ import Img from './img'
 import Toast from './toast'
 import Popover from './popover'
 import SwipeAction from './swipe-action'
-import Carousel from './carousel'
+import { Carousel, CarouselItem } from './carousel/index'
 import Mask from './mask'
-import AppBar from './app-bar/AppBar'
-import Accordion from './accordion/Accordion'
-import Select from './select/Select'
+import AppBar from './app-bar'
+import Accordion from './accordion'
 import Picker from './picker'
+import Switch from './switch'
+import Slider from './slider'
+import Checkbox from './checkbox'
+import Select from './select'
 
 const happy = {
   version,
@@ -25,10 +32,14 @@ const happy = {
   Mask,
   SwipeAction,
   Carousel,
+  CarouselItem,
   AppBar,
-  Select,
   Picker,
   Accordion,
+  Switch,
+  Slider,
+  Checkbox,
+  Select,
 }
 
 if (typeof window !== 'undefined' || !window.happy) {
