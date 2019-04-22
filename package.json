@@ -1,6 +1,6 @@
 {
   "name": "happy-mobile",
-  "version": "0.0.4",
+  "version": "0.0.41",
   "description": "",
   "private": false,
   "license": "MIT",
@@ -26,6 +26,7 @@
     "build:main": "webpack --mode production",
     "build:c": "webpack --config build/webpack.components.js",
     "build:common": "webpack --config build/webpack.common.js",
+    "build:example/js": "cd example/js/ && webpack  --mode production",
     "clean": "rimraf dist",
     "d": "node dev.js && npm run devJS",
     "devJS": "cd example/js/ && node dev.js",
