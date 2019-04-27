@@ -51,6 +51,7 @@ export default class SwipeAction extends BaseComponent {
     `
     this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.root = this.shadowRoot.querySelector('.h-swipe-action-root')
+    const swipeFront = this.shadowRoot.querySelector('.swipe-front')
 
     const slotLeft = this.shadowRoot.querySelector('#slot-left')
     const slotDefault = this.shadowRoot.querySelector('#slot-default')
@@ -59,7 +60,7 @@ export default class SwipeAction extends BaseComponent {
     const swipeDefault = this.shadowRoot.querySelector('#swipe-default')
     const swipeRight = this.shadowRoot.querySelector('#swipe-right')
 
-    this.swipe = new SwipeRevealItem(this.root, {
+    this.swipe = new SwipeRevealItem(swipeFront, {
       swipeDirection: { // 可滑动方向
         left: true,
         right: true,

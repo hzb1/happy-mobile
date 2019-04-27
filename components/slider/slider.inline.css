@@ -30,7 +30,7 @@
 
 .h-slider-value{
     font-size: 14px;
-    margin-left: 1.4em;
+    margin-left: 1.3em;
     text-align: center;
     /*max-width: 3em;*/
     color: var(--h-theme-text-87, rgba(0, 0, 0, 0.87));
@@ -52,6 +52,9 @@
     background-color: white;
     cursor: pointer;
     position: absolute;
+    touch-action: none;
+    -ms-touch-action: none;
+    -webkit-touch-callout: none;
     left: 0;
     top: 0;
     transform: translate(-50%, -50%);

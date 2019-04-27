@@ -12,6 +12,7 @@ import Img from './img'
 import Toast from './toast'
 import Popover from './popover'
 import SwipeAction from './swipe-action'
+import Swipe from './swipe'
 import { Carousel, CarouselItem } from './carousel/index'
 import Mask from './mask'
 import AppBar from './app-bar'
@@ -21,6 +22,7 @@ import Switch from './switch'
 import Slider from './slider'
 import Checkbox from './checkbox'
 import Select from './select'
+import PullRefresh from './pull-refresh'
 
 const happy = {
   version,
@@ -40,6 +42,8 @@ const happy = {
   Slider,
   Checkbox,
   Select,
+  Swipe,
+  PullRefresh,
 }
 
 if (typeof window !== 'undefined' || !window.happy) {

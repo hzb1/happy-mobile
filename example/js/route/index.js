@@ -19,6 +19,7 @@ const switchs = () =>  import(/* webpackChunkName: "switch" */'./../page/switch/
 const slider = () =>  import(/* webpackChunkName: "slider" */'./../page/slider/index.js')
 const checkbox = () =>  import(/* webpackChunkName: "checkbox" */'./../page/checkbox/index.js')
 const picker = () =>  import(/* webpackChunkName: "picker" */'../page/picker/index.js')
+const pullRefresh = () =>  import(/* webpackChunkName: "picker" */'../page/pull-refresh/index.js')
 
 const routes = new Map([
   [ '', { path: '#home', component: home }],
@@ -44,6 +45,7 @@ const routes = new Map([
   [ '#toast', { path: '#toast', component: toast }],
   [ '#popover', { path: '#popover', component: popover }],
   [ '#accordion', { path: '#accordion', component: accordion }],
+  [ '#pull-refresh', { path: '#pull-refresh', component: pullRefresh }],
   [ '404', { path: '#home', component: home }],
   [ '*', { path: '#home', component: home }],
 ])

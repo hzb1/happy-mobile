@@ -9,6 +9,10 @@
         h-button, button[h-button] {
             margin: 6px 0;
         }
+
+        h-button > h-icon+span{
+            margin-left: 4px;
+        }
     </style>
 </div>
 
@@ -59,15 +63,15 @@
     <h4>图标按钮</h4>
     <h-button size="small" color="secondary" inline>
         <h-icon type="check-circle"></h-icon>
-        Icon
+        <span>Icon</span>
     </h-button>
     <h-button size="medium" color="warn" inline>
         <h-icon type="check-circle"></h-icon>
-        Icon
+        <span>Icon</span>
     </h-button>
     <h-button size="large" color="error" inline>
         <h-icon type="check-circle"></h-icon>
-        Icon
+        <span>Icon</span>
     </h-button>
 
     <h4>自定义style</h4>

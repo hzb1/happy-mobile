@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin') // 清理dist文件
+const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成index.html
 
 module.exports = {
   mode: 'development',
@@ -9,7 +11,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '../js/dist/',
+    // publicPath: '../../../',
   },
   module: {
     rules: [
@@ -33,11 +35,19 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: '../../',
+    host: '0.0.0.0',
+    port: 7777,
+    hot: true,
+    inline: true,
+    // hotOnly: true, // 在没有页面刷新的情况下启用热模块替换
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    // new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+    }),
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
 }

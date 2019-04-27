@@ -16,9 +16,14 @@
     position: relative;
 }
 
-/*#carousel-content{*/
-    /*transition: 1s;*/
-/*}*/
+.carousel-content{
+    touch-action: none;
+    -ms-touch-action: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
 
 #slot-content{
     display: flex;

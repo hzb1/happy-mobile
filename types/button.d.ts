@@ -1,6 +1,6 @@
 
 export declare class Button extends HTMLElement {
-  color: 'primary' | 'secondary' | 'success' | 'warn' | 'error';
+  color: 'primary' | 'secondary' | 'success' | 'error';
   size: 'medium' | 'small' | 'large';
   icon: string;
   loading: boolean;

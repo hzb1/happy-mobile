@@ -1,5 +1,4 @@
 import { BaseComponent, Component, Prop} from '../core'
-// import { styleType, styleSize, shadow } from './styleMap'
 import styleMap from './styleMap'
 import { fadeIn, fadeOut } from '../core/animation'
 const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = styleMap
@@ -51,13 +50,6 @@ const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = style
       default: 'button',
     },
   ],
-  // template(data) {
-  //   return `
-  //       <button class="${data.$tag}" type=${data.type} >
-  //           <slot></slot>
-  //       </button>
-  //   `
-  // },
   styleUrl: require('./button.inline.css'),
 })
 export default class Button extends BaseComponent {

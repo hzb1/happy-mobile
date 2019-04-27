@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+li{
+    list-style: none;
+}
+
 body,
 html{
     width: 100%;
@@ -24,13 +28,17 @@ main{
     /*background-color: var(--h-theme-background);*/
 }
 
-header {
+.app-header {
     width: 100%;
-    height: 54px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 4;
+}
+
+.app-header {
+    width: 100%;
+    height: 54px;
     padding: 0 10px;
     box-sizing: border-box;
     display: flex;
@@ -39,19 +47,19 @@ header {
     background-color: rgba(255,255,255,.75);
     /*color: #333;*/
     color: var(--h-theme-primary);
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);*/
 
     font-size: 18px;
     overflow: hidden;
 }
 
-header h1 {
+.app-header h1 {
     font-size: 18px;
     font-weight: normal;
 }
 
 
-header .menu {
+.app-header .menu {
     font-size: 24px;
     font-weight: normal;
     padding: 6px 20px;
@@ -61,25 +69,29 @@ header .menu {
     align-items: center;
 }
 
-header .theme {
+.app-header .theme {
     padding: 6px 20px;
     cursor: pointer;
     position: absolute; right: 0;
 }
 
-header .theme #theme-input{
+.app-header .theme #theme-input{
     padding: 0;
     margin: 0;
     border: none;
 }
 
 .list-box {
-    padding-top: 52px;
+    padding-top: 54px;
     box-sizing: border-box;
     width: 100%;
-    /*height: 100%;*/
     /*overflow-y: scroll;*/
     overflow-x: hidden;
+}
+
+.list-box,
+.route-view{
+    height: 100%;
 }
 
 

@@ -98,7 +98,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']), // 清理dist文件
+    // new CleanWebpackPlugin(['dist']), // 清理dist文件
     new MiniCssExtractPlugin({
       filename: 'happy-mobile.css',
       chunkFilename: '[id].css',
@@ -110,15 +110,15 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 100,
     poll: 1000,
-    ignored: /node_modules/,
+    // ignored: /node_modules/,
   },
-  devServer: {
-    contentBase: path.join(__dirname, ''), // web服务地址
-    compress: true, // gzip 压缩和提供为服务
-    host: '0.0.0.0',
-    port: 7777,
-    hot: true,
-    hotOnly: true, // 在没有页面刷新的情况下启用热模块替换
-  },
+  // devServer: {
+  //   contentBase: path.join(__dirname, './'), // web服务地址
+  //   compress: true, // gzip 压缩和提供为服务
+  //   host: '0.0.0.0',
+  //   port: 7777,
+  //   hot: true,
+  //   hotOnly: true, // 在没有页面刷新的情况下启用热模块替换
+  // },
   // target: 'node',
 }

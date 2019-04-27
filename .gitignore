@@ -1,6 +1,7 @@
 
 node_modules
 .DS_Store
+.idea/*
 .idea
 dist/*.json
 dist/*.hot-update.js

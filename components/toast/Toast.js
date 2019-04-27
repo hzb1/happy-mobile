@@ -66,7 +66,7 @@ export default class Toast extends BaseComponent {
     if (hasToast) this.hide()
     const Toast = customElements.get('h-toast')
     const toast = new Toast()
-    toast.content = content
+    toast.content = content.toString()
     document.body.appendChild(toast)
     const toastContent = toast.shadowRoot.querySelector('.h-toast-content')
     fadeIn(toastContent, { duration: 100 }).then()

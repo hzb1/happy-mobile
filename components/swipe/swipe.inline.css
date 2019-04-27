@@ -1,0 +1,14 @@
+
+:host {
+    display: block;
+}
+
+.h-swipe-root{
+    width: 100%;
+}
+
+.h-swipe{
+    width: 100%;
+    touch-action: none;
+    -ms-touch-action: none;
+}

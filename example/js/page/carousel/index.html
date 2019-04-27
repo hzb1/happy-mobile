@@ -1,29 +1,60 @@
 <style>
-    .my-carousel{
+    .my-carousel {
         width: 100%;
         /*height: 150px;*/
     }
-    .my-carousel img{
+
+    .my-carousel h-img {
         width: 100%;
+        height: 100%;
         display: block;
     }
 </style>
 
 <!--html 开始-->
 <section>
-    <h4>最简单的carousel</h4>
+    <h4>最简单的carousel12</h4>
+    <!--<img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg" alt="img1">-->
+    <!--<img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" alt="img2">-->
+    <!--<img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" alt="img3">-->
     <div>
-        <h-carousel height="117px" class="my-carousel">
-            <h-carousel-item>
-                <img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg" alt="img1">
-            </h-carousel-item>
-            <h-carousel-item>
-                <img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" alt="img2">
-            </h-carousel-item>
-            <h-carousel-item>
-                <img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" alt="img3">
-            </h-carousel-item>
+        <h-carousel class="my-carousel" style="height: 31vw; width: 100%">
+            <h-img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg" threshold="0.1"></h-img>
+            <h-img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" threshold="0.1"></h-img>
+            <h-img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" threshold="0.1"></h-img>
         </h-carousel>
+        <style>
+            .my-carousel h1 {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                color: white;
+            }
+
+            .my-carousel .carousel1 {
+                background-color: #6853d8;
+            }
+        </style>
+        <!--<h-carousel height="117px" class="my-carousel">-->
+            <!--<img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg" alt="img1">-->
+            <!--<img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" alt="img2">-->
+            <!--<img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" alt="img3">-->
+        <!--</h-carousel>-->
+
+        <!--<h-carousel height="117px" class="my-carousel" infinite="false" style="margin-top: 24px">-->
+        <!--<h-carousel-item>-->
+        <!--<h1>1</h1>-->
+        <!--</h-carousel-item>-->
+        <!--<h-carousel-item>-->
+        <!--<h1>2</h1>-->
+        <!--</h-carousel-item>-->
+        <!--<h-carousel-item>-->
+        <!--<h1>3</h1>-->
+        <!--</h-carousel-item>-->
+        <!--</h-carousel>-->
     </div>
 </section>
 <!--html 结束-->

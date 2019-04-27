@@ -10,18 +10,7 @@ import Component from '../core/web-component'
       default: false,
     },
   ],
-  template(data) {
-    return `
-        <div class="${data.$tag}-root" >
-            <div id="slot-default-wrap">
-                <slot id="slot-default"></slot>
-            </div>
-            <div id="slot-content-wrap">
-                <slot name="content" id="slot-content"></slot>
-            </div>
-        </div>
-    `
-  },
+
   styleUrl: require('./accordion.inline.css'),
 })
 export default class Accordion extends BaseComponent {
@@ -31,17 +20,25 @@ export default class Accordion extends BaseComponent {
 
   constructor() {
     super()
-    this.attachShadow({ mode: 'open' })
-    this.shadowRoot.innerHTML = `
-        <style>${this.$style()}</style>
-        ${this.$template(this)}
-    `
-    this.root = this.shadowRoot.querySelector('div')
+    this.root = this.shadowRoot.querySelector(`${this.$tag}-root`)
 
-    const slotDefaultWrap = this.shadowRoot.querySelector('#slot-default-wrap')
+    this._slotDefaultWrap = this.shadowRoot.querySelector('#slot-default-wrap')
     this._slotContentWrap = this.shadowRoot.querySelector('#slot-content-wrap')
 
     this.getHeight_()
+  }
+
+  render() {
+    return `
+        <div class="${this.$tag}-root" >
+            <div id="slot-default-wrap">
+                <slot id="slot-default"></slot>
+            </div>
+            <div id="slot-content-wrap">
+                <slot name="content" id="slot-content"></slot>
+            </div>
+        </div>
+    `
   }
 
   getHeight_() {
@@ -50,7 +47,9 @@ export default class Accordion extends BaseComponent {
 
   connectedCallback() {
     this._slotContentWrap.style.height = '0px'
+    this.setAttribute('value', this.value)
     this.firstLoad = true
+    this._slotDefaultWrap.addEventListener('click', this.toggle.bind(this), true)
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {

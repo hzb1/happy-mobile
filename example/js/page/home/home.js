@@ -90,14 +90,23 @@ export default class Home extends HTMLElement {
         ],
       },
       {
-        name: '布局',
+        name: '拉动',
         children: [
           {
-            name: 'AppBar',
-            link: '#app-bar',
+            name: '拉动刷新 PullRefresh',
+            link: '#pull-refresh',
           },
         ],
       },
+      // {
+      //   name: '布局',
+      //   children: [
+      //     {
+      //       name: 'AppBar',
+      //       link: '#app-bar',
+      //     },
+      //   ],
+      // },
     ]
   }
 

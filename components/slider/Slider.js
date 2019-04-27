@@ -78,10 +78,11 @@ export default class Slider extends BaseComponent {
     this.currentXPosition = (this.value / 100) * this.width // 当前X位置
     this.rafPending = false // 是否在操作
 
+    window.PointerEvent = false // PointerEvent有bug ！
     if (window.PointerEvent) {
       this.slidingElement.addEventListener('pointerdown', this._handleGestureStart.bind(this), true)
       this.slidingElement.addEventListener('pointermove', this._handleGestureMove.bind(this), true)
-      this.slidingElement.addEventListener('pointerup', this._handleGestureEnd.bind(this), true) // 当指针不再处于活动状态时会触发该事件。
+      this.slidingElement.addEventListener('pointerup', this._handleGestureEnd.bind(this), true)
       this.slidingElement.addEventListener('pointercancel', this._handleGestureEnd.bind(this), true)
     } else {
       this.slidingElement.addEventListener('touchstart', this._handleGestureStart.bind(this), true)
@@ -89,6 +90,12 @@ export default class Slider extends BaseComponent {
       this.slidingElement.addEventListener('touchend', this._handleGestureEnd.bind(this), true)
       this.slidingElement.addEventListener('touchcancel', this._handleGestureEnd.bind(this), true)
       this.slidingElement.addEventListener('mousedown', this._handleGestureStart.bind(this), true)
+    }
+    window.onload = () => {
+      if (/iP(hone|ad)/.test(window.navigator.userAgent)) {
+        document.body.addEventListener('touchstart', () => {
+        }, false)
+      }
     }
   }
 
@@ -102,8 +109,8 @@ export default class Slider extends BaseComponent {
       ev.target.setPointerCapture(ev.pointerId)
     } else {
       // 添加鼠标侦听器
-      document.addEventListener('mousemove', this._handleGestureMove, true)
-      document.addEventListener('mouseup', this._handleGestureEnd, true)
+      document.addEventListener('mousemove', this._handleGestureMove.bind(this), true)
+      document.addEventListener('mouseup', this._handleGestureEnd.bind(this), true)
     }
 
     this.initialTouchPos = this.getGesturePointFromEvent(ev)
@@ -151,8 +158,8 @@ export default class Slider extends BaseComponent {
     if (window.PointerEvent) {
       ev.target.releasePointerCapture(ev.pointerId)
     } else {
-      document.removeEventListener('mousemove', this.handleGestureMove, true)
-      document.removeEventListener('mouseup', this.handleGestureEnd, true)
+      document.removeEventListener('mousemove', this._handleGestureMove, true)
+      document.removeEventListener('mouseup', this._handleGestureEnd, true)
     }
 
     this.updateSwipeRestPosition()
@@ -188,7 +195,6 @@ export default class Slider extends BaseComponent {
   }
 
   connectedCallback() {
-    this.init()
     if (!this.firstLoad){
       this.init()
       this.firstLoad = true

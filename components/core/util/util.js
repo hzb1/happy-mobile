@@ -49,6 +49,23 @@ const propToObj = (prop) => {
   return obj
 }
 
+/**
+ * 获取事件对象的x和y
+ * @param ev
+ */
+const getEventXY = (ev) => {
+  const point = {}
+  if (ev.targetTouches) {
+    point.x = ev.targetTouches[0].clientX
+    point.y = ev.targetTouches[0].clientY
+  } else {
+    // 鼠标事件或指针事件
+    point.x = ev.clientX
+    point.y = ev.clientY
+  }
+  return point
+}
+
 export {
   isStatusValid,
   If,
@@ -56,4 +73,5 @@ export {
   toHump,
   Html,
   propToObj,
+  getEventXY,
 }

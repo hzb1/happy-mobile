@@ -5,6 +5,22 @@ const requestAnimFrame = (() => window.requestAnimationFrame
     window.setTimeout(callback, 1000 / 60)
   })()
 
+// 获取x和y
+const getGesturePointFromEvent = (ev) => {
+  const point = {}
+
+  if (ev.targetTouches) {
+    point.x = ev.targetTouches[0].clientX
+    point.y = ev.targetTouches[0].clientY
+  } else {
+    // 鼠标事件或指针事件
+    point.x = ev.clientX
+    point.y = ev.clientY
+  }
+
+  return point
+}
+
 const defaultOption = {
   swipeDirection: {
     left: true,
@@ -20,27 +36,30 @@ const defaultOption = {
 export default class SwipeRevealItem {
   constructor(element, option = {}) {
     this.congif = Object.assign(defaultOption, option)
+    console.log(this.congif)
     this.handleSize = this.congif.handleSize // 手柄尺寸
 
-    this.STATE_DEFAULT = 1 // 错误
+    this.STATE_DEFAULT = 1 // 默认
     this.STATE_LEFT_SIDE = 2 // 左侧
     this.STATE_RIGHT_SIDE = 3 // 右侧
 
-    this.swipeFrontElement = element.querySelector('.swipe-front')
+    this.swipeFrontElement = element
+    this.swipeFrontElement.style.position = 'relative'
+    this.swipeFrontElement.style.touchAction = 'none'
+    this.swipeFrontElement.style.msTouchAction = 'none'
+
+    // this.swipeFrontElement = element.querySelector('.swipe-front')
     this.rafPending = false // 是否在操作
     this.initialTouchPos = null // 初始触摸屏
     this.lastTouchPos = null // 最后触摸屏
     this.currentXPosition = 0 // 当前X位置
-    this.currentState = this.STATE_DEFAULT // 当前状态 1错误 2左侧 3右侧
+    this.currentState = this.STATE_DEFAULT // 当前状态 1默认 2左侧 3右侧
 
     // 这里计算宽度不可行
     // 更改到window.onResize
     this.itemWidth = this.swipeFrontElement.clientWidth
     this.slopValue = this.itemWidth * (1 / 4)
 
-    /* // [START addlisteners] */
-    // Check if pointer events are supported.
-    // console.log(this.swipeFrontElement, 'this.swipeFrontElement')
     if (window.PointerEvent) {
       this.swipeFrontElement.addEventListener('pointerdown', this.handleGestureStart.bind(this), true)
       this.swipeFrontElement.addEventListener('pointermove', this.handleGestureMove.bind(this), true)
@@ -55,13 +74,13 @@ export default class SwipeRevealItem {
       this.swipeFrontElement.addEventListener('mousedown', this.handleGestureStart.bind(this), true)
     }
 
-    // We do this so :active pseudo classes are applied.
-    window.onload = () => {
-      if (/iP(hone|ad)/.test(window.navigator.userAgent)) {
-        document.body.addEventListener('touchstart', () => {
-        }, false)
-      }
-    }
+    // 我们这样做：伪手机事件。
+    // window.onload = () => {
+    //   if (/iP(hone|ad)/.test(window.navigator.userAgent)) {
+    //     document.body.addEventListener('touchstart', () => {
+    //     }, false)
+    //   }
+    // }
   }
 
   resize() {
@@ -72,23 +91,22 @@ export default class SwipeRevealItem {
   /* // [启动 手柄启动手势] */
 
   // 处理手势开始
-  handleGestureStart(evt) {
-    evt.preventDefault()
-
-    if (evt.touches && evt.touches.length > 1) {
+  handleGestureStart(ev) {
+    ev.preventDefault()
+    if (ev.touches && ev.touches.length > 1) {
       return
     }
 
     // 添加移动和结束侦听器
     if (window.PointerEvent) {
-      evt.target.setPointerCapture(evt.pointerId)
+      ev.target.setPointerCapture(ev.pointerId)
     } else {
       // 添加鼠标侦听器
-      document.addEventListener('mousemove', this.handleGestureMove, true)
-      document.addEventListener('mouseup', this.handleGestureEnd, true)
+      document.addEventListener('mousemove', this.handleGestureMove.bind(this), true)
+      document.addEventListener('mouseup', this.handleGestureEnd.bind(this), true)
     }
 
-    this.initialTouchPos = this.getGesturePointFromEvent(evt)
+    this.initialTouchPos = getGesturePointFromEvent(ev)
 
     this.swipeFrontElement.style.transition = 'initial'
   }
@@ -98,14 +116,14 @@ export default class SwipeRevealItem {
   // 手柄移动手势
   //
   /* // [启动 手柄移动] */
-  handleGestureMove(evt) {
-    evt.preventDefault()
-
+  handleGestureMove(ev) {
+    ev.preventDefault()
+    // console.log(this, 'M')
     if (!this.initialTouchPos) {
       return
     }
 
-    this.lastTouchPos = this.getGesturePointFromEvent(evt)
+    this.lastTouchPos = getGesturePointFromEvent(ev)
 
     if (this.rafPending) {
       return
@@ -121,10 +139,10 @@ export default class SwipeRevealItem {
   /* // [开始 手柄结束手势] */
 
   // 处理结束手势
-  handleGestureEnd(evt) {
-    evt.preventDefault()
+  handleGestureEnd(ev) {
+    ev.preventDefault()
 
-    if (evt.touches && evt.touches.length > 0) {
+    if (ev.touches && ev.touches.length > 0) {
       return
     }
 
@@ -132,7 +150,7 @@ export default class SwipeRevealItem {
 
     // 删除事件侦听器
     if (window.PointerEvent) {
-      evt.target.releasePointerCapture(evt.pointerId)
+      ev.target.releasePointerCapture(ev.pointerId)
     } else {
       // Remove Mouse Listeners
       document.removeEventListener('mousemove', this.handleGestureMove, true)
@@ -140,13 +158,12 @@ export default class SwipeRevealItem {
     }
 
     this.updateSwipeRestPosition()
-
-    this.initialTouchPos = null
   }
 
   /* // [结束手柄结束手势] */
 
   updateSwipeRestPosition() {
+    if (!this.initialTouchPos) return
     const differenceInX = this.initialTouchPos.x - this.lastTouchPos.x // X的差值
     this.currentXPosition = this.currentXPosition - differenceInX // 当前X位置
 
@@ -175,6 +192,8 @@ export default class SwipeRevealItem {
     this.changeState(newState)
 
     this.swipeFrontElement.style.transition = 'all 250ms ease-out'
+
+    this.initialTouchPos = null
   }
 
   // 更新状态和ui
@@ -201,22 +220,6 @@ export default class SwipeRevealItem {
     this.swipeFrontElement.style.transform = transformStyle
 
     this.currentState = newState
-  }
-
-  // 获取x和y
-  getGesturePointFromEvent(evt) {
-    const point = {}
-
-    if (evt.targetTouches) {
-      point.x = evt.targetTouches[0].clientX
-      point.y = evt.targetTouches[0].clientY
-    } else {
-      // 鼠标事件或指针事件
-      point.x = evt.clientX
-      point.y = evt.clientY
-    }
-
-    return point
   }
 
   // eslint-disable-next-line class-methods-use-this
