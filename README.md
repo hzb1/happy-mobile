@@ -1,7 +1,7 @@
 
 # [happy-mobile-ui](https://github.com/hzb1/happy-mobile)
-一套移动端的web组件库，可在JavaScript、jQuery、Vue项目中使用
-- [Demo](https://hzb1.github.io/happy-mobile/example/js)
+一套原生JS组件库
+- [Demo](https://hzb1.github.io/happy-mobile/example/js/dist)
 
 ## 安装使用
 - npm
