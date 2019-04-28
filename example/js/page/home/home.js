@@ -37,10 +37,10 @@ export default class Home extends HTMLElement {
             name: '轮播 Carousel',
             link: '#carousel',
           },
-          {
-            name: '手风琴 Accordion',
-            link: '#accordion',
-          },
+          // {
+          //   name: '手风琴 Accordion',
+          //   link: '#accordion',
+          // },
           {
             name: '图片懒加载 Img',
             link: '#img',
@@ -54,10 +54,10 @@ export default class Home extends HTMLElement {
             name: '轻提示 Toast',
             link: '#toast',
           },
-          {
-            name: '气泡 Popover',
-            link: '#popover',
-          },
+          // {
+          //   name: '气泡 Popover',
+          //   link: '#popover',
+          // },
         ],
       },
       {
@@ -89,15 +89,15 @@ export default class Home extends HTMLElement {
           },
         ],
       },
-      {
-        name: '拉动',
-        children: [
-          {
-            name: '拉动刷新 PullRefresh',
-            link: '#pull-refresh',
-          },
-        ],
-      },
+      // {
+      //   name: '拉动',
+      //   children: [
+      //     {
+      //       name: '拉动刷新 PullRefresh',
+      //       link: '#pull-refresh',
+      //     },
+      //   ],
+      // },
       // {
       //   name: '布局',
       //   children: [
