@@ -89,15 +89,15 @@ export default class Home extends HTMLElement {
           },
         ],
       },
-      // {
-      //   name: '拉动',
-      //   children: [
-      //     {
-      //       name: '拉动刷新 PullRefresh',
-      //       link: '#pull-refresh',
-      //     },
-      //   ],
-      // },
+      {
+        name: '拉动',
+        children: [
+          {
+            name: '拉动刷新 PullRefresh',
+            link: '#pull-refresh',
+          },
+        ],
+      },
       // {
       //   name: '布局',
       //   children: [
