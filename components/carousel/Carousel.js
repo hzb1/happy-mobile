@@ -73,7 +73,7 @@ export default class Carousel extends BaseComponent {
       console.log('无carouselItem！')
       return
     }
-    console.log('2')
+    // console.log('2')
   }
 
   render() {

@@ -110,7 +110,7 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 100,
     poll: 1000,
-    // ignored: /node_modules/,
+    ignored: /node_modules/,
   },
   // devServer: {
   //   contentBase: path.join(__dirname, './'), // web服务地址
