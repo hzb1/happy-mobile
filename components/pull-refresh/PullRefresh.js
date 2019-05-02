@@ -2,134 +2,132 @@
 
 
 import { BaseComponent, Component } from '../core'
-import { getEventXY } from '../core/util/util'
+import { getEventXY, requestAnimFrame } from '../core/util/util'
 
-const requestAnimFrame = (() => window.requestAnimationFrame
-  || window.webkitRequestAnimationFrame
-  || window.mozRequestAnimationFrame
-  || function (callback) {
-    window.setTimeout(callback, 1000 / 60)
-  })()
 
+// 事件 down-refresh
 @Component({
   tag: 'h-pull-refresh',
   prop: [
     {
-      name: 'value',
-      type: Number,
-      default: 0,
+      name: 'state', // 状态
+      type: String,
+      default: 'deactivate',
     },
     {
-      name: 'direction',
+      name: 'direction', // 方向
       type: String,
-      default: 'up', // up、down
+      default: '', // up、down
+    },
+    {
+      name: 'damping', // 下拉的最大距离
+      type: Number,
+      default: 80, // up、down
+    },
+    {
+      name: 'distanceToRefresh', // 触发刷新值
+      type: Number,
+      default: 25,
     },
   ],
   styleUrl: require('./pull-refresh.inline.css'),
 })
 export default class PullRefresh extends BaseComponent {
   static get observedAttributes() {
-    return ['value']
+    return ['state']
   }
+
 
   constructor() {
     super()
     this.root = this.shadowRoot.querySelector('.h-pull-refresh-root')
+    this.pullRefresh = this.root.querySelector('.h-pull-refresh')
 
-    // this.swipeFrontElement = this.root.querySelector('.h-swipe')
     this.rafPending = false // 是否在操作
     this.initialTouchPos = null // 初始触摸屏
     this.lastTouchPos = null // 最后触摸屏
     this.currentYPosition = 0 // 当前X位置
+    this.currentState = 'deactivate' // 当前状态
+    this.currentDirection = '' // 当前方向
 
-    // this.currentState = this.STATE_DEFAULT // 当前状态 1默认 2左侧 3右侧
-    // this.itemWidth = this.swipeFrontElement.clientWidth
-    // this.slopValue = this.itemWidth * (1 / 4)
+    this._pullDownStateText = {
+      deactivate: '下拉可以刷新',
+      activate: '松开立即刷新',
+      release: '刷新中...',
+      finish: '完成刷新',
+      noData: '无数据',
+    }
+
+    this._pullUpStateText = {
+      deactivate: '上拉可以加载',
+      activate: '松开立即加载',
+      release: '加载中...',
+      finish: '完成加载',
+      noData: '无数据',
+    }
+
+
+    this.pullDown = this.root.querySelector('.h-pull-down')
+    this.pullUp = this.root.querySelector('.h-pull-up')
+    this.pullDown.style.marginTop = `-25px`
   }
 
   render() {
     return `
         <style>${this.$style()}</style>
         <div class="h-pull-refresh-root" >
+            <div class="h-pull-down"></div>
             <div class="h-pull-refresh">
                 <slot></slot>
             </div>
+            <div class="h-pull-up"></div>
         </div>
     `
   }
 
-  get heightDValue () {
+  get heightDValue() {
     const pullBox = this.root.querySelector('.h-pull-refresh')
     return this.getBoundingClientRect().height - pullBox.getBoundingClientRect().height
   }
 
-  _watchValue() {
-    this.emit('input', this.value)
+  _watchState() {
+    this.currentState = this.state
+    this.changeState()
   }
 
   init() {
     this.swipeFrontElement = this.root
-    const pullBox = this.root.querySelector('.h-pull-refresh').querySelector('slot')
-    // console.log(pullBox, pullBox.getBoundingClientRect())
-    // console.log(this.heightDValue)
-    // this.yValue = this.swipeFrontElement.getBoundingClientRect().height
-    // this.swipeFrontElement = getScrollEventTarget(this.root);
-    // console.log(this.scrollEventTarget)
     this._listener()
   }
 
-  // setData(fun) {
-  //   // console.log('setData')
-  //   // console.log(this.heightDValue)
-  //   fun()
-  // }
-
   _listener() {
-    // console.log(window.PointerEvent)
-    // window.PointerEvent = false
-    if (window.PointerEvent instanceof Function) {
-      window.happy.Toast.show('PointerEvent')
-    } else {
-      window.happy.Toast.show('无PointerEvent 2')
-    }
-    if (window.PointerEvent) {
-      this.swipeFrontElement.addEventListener('pointerdown', this._handleGestureStart.bind(this), true)
-      this.swipeFrontElement.addEventListener('pointermove', this._handleGestureMove.bind(this), true)
-      this.swipeFrontElement.addEventListener('pointerup', this._handleGestureEnd.bind(this), true)
-      this.swipeFrontElement.addEventListener('pointercancel', this._handleGestureEnd.bind(this), true)
-    } else {
-      this.swipeFrontElement.addEventListener('touchstart', this._handleGestureStart.bind(this), true)
-      this.swipeFrontElement.addEventListener('touchmove', this._handleGestureMove.bind(this), true)
-      this.swipeFrontElement.addEventListener('touchend', this._handleGestureEnd.bind(this), true)
-      this.swipeFrontElement.addEventListener('touchcancel', this._handleGestureEnd.bind(this), true)
+    this.swipeFrontElement.addEventListener('touchstart', this._handleGestureStart.bind(this), true)
+    this.swipeFrontElement.addEventListener('touchmove', this._handleGestureMove.bind(this), true)
+    this.swipeFrontElement.addEventListener('touchend', this._handleGestureEnd.bind(this), true)
+    this.swipeFrontElement.addEventListener('touchcancel', this._handleGestureEnd.bind(this), true)
 
-      this.swipeFrontElement.addEventListener('mousedown', this._handleGestureStart.bind(this), true)
-    }
-
-    // window.onload = () => {
-    //   if (/iP(hone|ad)/.test(window.navigator.userAgent)) {
-    //     document.body.addEventListener('touchstart', () => {}, false)
-    //   }
-    // }
+    this.swipeFrontElement.addEventListener('mousedown', this._handleGestureStart.bind(this), true)
   }
 
   connectedCallback() {
-    if (!this.firstLoad){
+    if (!this.firstLoad) {
       this.init()
       this.firstLoad = true
     }
-    // this.initAttribute()
+    this.initAttribute()
   }
 
   initAttribute() {
     this.setAttribute('value', this.value)
+    this.setAttribute('direction', this.direction)
+    this.setAttribute('distanceToRefresh', this.distanceToRefresh)
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.firstLoad) return
     switch (attrName) {
-      case 'value':
-        this._watchValue()
+      case 'state':
+        this._watchState()
     }
   }
 
@@ -138,61 +136,66 @@ export default class PullRefresh extends BaseComponent {
   }
 
   _handleGestureStart(ev) {
-    ev.preventDefault()
+    // ev.preventDefault()
+    this._startTime = Date.now()
     if (ev.touches && ev.touches.length > 1) {
       return
     }
-
     // 添加移动和结束侦听器
-    if (window.PointerEvent) {
-      ev.target.setPointerCapture(ev.pointerId)
-    } else {
-      // 添加鼠标侦听器
-      document.addEventListener('mousemove', this._handleGestureMove.bind(this), true)
-      document.addEventListener('mouseup', this._handleGestureEnd.bind(this), true)
-    }
+    // if (window.PointerEvent) {
+    //   ev.target.setPointerCapture(ev.pointerId)
+    // } else {
+    //   // 添加鼠标侦听器
+    //   document.addEventListener('mousemove', this._handleGestureMove.bind(this), true)
+    //   document.addEventListener('mouseup', this._handleGestureEnd.bind(this), true)
+    // }
 
     this.initialTouchPos = getEventXY(ev)
+
 
     this.swipeFrontElement.style.transition = 'initial'
     // this.swipeFrontElement.style.transition = 'transform 500ms linear'
   }
 
   _handleGestureMove(ev) {
-    ev.preventDefault()
 
     if (!this.initialTouchPos) {
       return
     }
-    console.log('M scrollTop', this.scrollTop)
 
     this.lastTouchPos = getEventXY(ev)
-
-    if (this.rafPending) {
-      return
+    let distanceY = this.lastTouchPos.y - this.initialTouchPos.y
+    const h = this.pullRefresh.scrollHeight - this.offsetHeight // - this.pullUp.offsetHeight
+    // console.log('distanceY', distanceY, this.distanceToRefresh, this.scrollTop, h)
+    if (distanceY > 0 && this.scrollTop > 0) { // 向下滚动
+      this.currentDirection = ''
+    } else if (distanceY < 0 && this.scrollTop < h) { // 向上滚动
+      this.currentDirection = ''
+    } else if (distanceY > this.distanceToRefresh && this.scrollTop <= 0) {
+      // console.log('下拉刷新')
+      this.currentDirection = 'down'
+      if (ev.cancelable) ev.preventDefault()
+      this.currentState = 'activate'
+    } else if (distanceY < 0 && this.scrollTop >= h) {
+      // console.log('上拉加载')
+      this.currentDirection = 'up'
+      this.currentState = 'activate'
     }
 
+
+    if (this.rafPending) return
     this.rafPending = true
     requestAnimFrame(this._onAnimFrame.bind(this))
   }
 
   _handleGestureEnd(ev) {
-    ev.preventDefault()
+    // ev.preventDefault()
 
     if (ev.touches && ev.touches.length > 0) {
       return
     }
 
     this.rafPending = false
-
-    // 删除事件侦听器
-    if (window.PointerEvent) {
-      ev.target.releasePointerCapture(ev.pointerId)
-    } else {
-      document.removeEventListener('mousemove', this.handleGestureMove, true)
-      document.removeEventListener('mouseup', this.handleGestureEnd, true)
-    }
-
     this.updateSwipeRestPosition()
   }
 
@@ -200,8 +203,25 @@ export default class PullRefresh extends BaseComponent {
     if (!this.rafPending) {
       return
     }
-    const differenceInY = (this.initialTouchPos.y - this.lastTouchPos.y) / 2
-    this.currentYPosition = this.currentYPosition - differenceInY
+    // const differenceInY = (this.initialTouchPos.y - this.lastTouchPos.y) / 2
+    // let y = this.currentYPosition - differenceInY
+    if (this.currentDirection === 'down') {
+      let y = this.lastTouchPos.y - this.initialTouchPos.y
+      if (y > this.damping) { //当超过设定阈值是，缓慢增加
+        y = (y / (y + this.damping)) * this.damping * 2
+      } else if (y < 0) {
+        y = 0
+      }
+      if (y > this.distanceToRefresh) {
+        this.currentState = 'activate'
+      }
+      this.currentYPosition = y
+    } else if (this.currentDirection === 'up') {
+      this.currentState = 'activate'
+      this.currentYPosition = 0
+    } else {
+      this.currentYPosition = 0
+    }
     this.changeState()
 
     this.rafPending = false
@@ -209,28 +229,31 @@ export default class PullRefresh extends BaseComponent {
 
   updateSwipeRestPosition() {
     if (!this.initialTouchPos) return
-    const differenceInY = this.initialTouchPos.y - this.lastTouchPos.y // X的差值
-    const h = this.swipeFrontElement.getBoundingClientRect().height
+    const differenceInY = this.lastTouchPos.y - this.initialTouchPos.y
+    this.swipeFrontElement.style.transition = 'transform 450ms ease'
 
-
-    this.swipeFrontElement.style.transition = 'all 450ms ease'
-    if ((this.currentYPosition - differenceInY) >= 0) {
+    if (this.currentDirection === 'down') { // 下拉刷新
+      this.currentState = 'release'
+      this.emit('down-refresh')
+    } else if (this.currentDirection === 'up') { // 上拉加载
+      this.currentState = 'release'
+      this.emit('up-refresh')
+    } else { // 滚动
+      this.currentState = 'deactivate'
       this.currentYPosition = 0
-    } else if ((this.currentYPosition - differenceInY) <= this.heightDValue) {
-      this.currentYPosition = this.heightDValue // 当前X位置
-    } else {
-      this.currentYPosition = this.currentYPosition - differenceInY // 当前X位置
     }
 
     this.changeState()
-
     this.initialTouchPos = null
+    this.currentYPosition = 0
   }
 
   // 更新状态
   changeState() {
+    this.pullDown.innerHTML = this._pullDownStateText[this.currentState]
+    this.pullUp.innerHTML = this._pullUpStateText[this.currentState]
     const transformStyle = `translate3d( 0,  ${this.currentYPosition}px, 0 )`
-    this.swipeFrontElement.style.transition = 'transform 0s'
+    // this.swipeFrontElement.style.transition = 'transform 0s'
     this.swipeFrontElement.style.msTransform = transformStyle
     this.swipeFrontElement.style.MozTransform = transformStyle
     this.swipeFrontElement.style.webkitTransform = transformStyle
@@ -239,15 +262,15 @@ export default class PullRefresh extends BaseComponent {
 
 }
 
-const getScrollEventTarget = (element) => {
-  let currentNode = element;
-  while (currentNode && currentNode.tagName !== 'HTML' &&
-  currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
-    let overflowY = document.defaultView.getComputedStyle(currentNode).overflowY;
-    if (overflowY === 'scroll' || overflowY === 'auto') {
-      return currentNode;
-    }
-    currentNode = currentNode.parentNode;
-  }
-  return window;
-}
+// const getScrollEventTarget = (element) => {
+//   let currentNode = element;
+//   while (currentNode && currentNode.tagName !== 'HTML' &&
+//   currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
+//     let overflowY = document.defaultView.getComputedStyle(currentNode).overflowY;
+//     if (overflowY === 'scroll' || overflowY === 'auto') {
+//       return currentNode;
+//     }
+//     currentNode = currentNode.parentNode;
+//   }
+//   return window;
+// }

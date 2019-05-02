@@ -3,8 +3,6 @@
         /*padding: 18px 18px 0;*/
         box-sizing: border-box;
         height: 100%;
-        display: flex;
-        flex-direction: column;
     }
     .demo-page > h4 {
         margin: 18px;
@@ -15,7 +13,7 @@
         /*height: 100%;*/
     }
     h-pull-refresh{
-        flex: 1;
+        height: 400px;
     }
     h-pull-refresh li {
         text-align: center;
@@ -25,24 +23,43 @@
 </style>
 
 <section class="demo-page">
-    <h4>基本使用</h4>
-    <h-pull-refresh>
-        <ul>
-        </ul>
-    </h-pull-refresh>
+    <app-block title="上拉加载、下拉刷新">
+        <h-pull-refresh>
+            <ul>
+            </ul>
+        </h-pull-refresh>
+    </app-block>
 </section>
 
-<script type="module">
+<script>
+    var pullRefresh = document.querySelector('h-pull-refresh')
+    var ul = pullRefresh.querySelector('ul')
+    var list = new Array(30).toString().split(',').map((item, index) => index )
 
-    const pullRefresh = document.querySelector('h-pull-refresh')
-    const ul = pullRefresh.querySelector('ul')
-    const list = new Array(30).toString().split(',').map((item, index) => index )
+    ul.innerHTML = list.map(item => `<li>${item}</li>`).join('')
 
-    list.forEach((item) => {
-      const li = document.createElement('li')
-      li.innerText = item
-      ul.appendChild(li)
+    // 下拉刷新
+    pullRefresh.addEventListener('down-refresh', (ev) => {
+      setTimeout(() => {
+        list = new Array(15).toString().split(',').map((item, index) => index )
+        ul.innerHTML = list.map(item => `<li>${item}</li>`).join('')
+        pullRefresh.state = 'finish'
+      }, 1500)
     })
 
+    // 上拉加载
+    pullRefresh.addEventListener('up-refresh', (ev) => {
+      if (list.length > 40) {
+        pullRefresh.state = 'noData'
+        return
+      }
+      setTimeout(() => {
+        new Array(10).toString().split(',').forEach( (item, index) => {
+          list.push(list.length)
+        })
+        ul.innerHTML = list.map(item => `<li>${item}</li>`).join('')
+        pullRefresh.state = 'finish'
+      }, 2500)
+    })
 
 </script>

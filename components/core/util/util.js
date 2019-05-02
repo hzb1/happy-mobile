@@ -66,6 +66,16 @@ const getEventXY = (ev) => {
   return point
 }
 
+/**
+ * 获取requestAnimationFrame
+ */
+const requestAnimFrame = (() => window.requestAnimationFrame
+  || window.webkitRequestAnimationFrame
+  || window.mozRequestAnimationFrame
+  || function (callback) {
+    window.setTimeout(callback, 1000 / 60)
+  })()
+
 export {
   isStatusValid,
   If,
@@ -74,4 +84,5 @@ export {
   Html,
   propToObj,
   getEventXY,
+  requestAnimFrame,
 }

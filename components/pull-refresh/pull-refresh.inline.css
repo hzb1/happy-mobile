@@ -2,15 +2,17 @@
 :host {
     display: block;
     overflow: auto;
-    /*overflow-x: scroll;*/
+    overflow-y: scroll;
+    /*touch-action: none;*/
+    /*-ms-touch-action: none;*/
 }
 
 .h-pull-refresh-root {
     /*height: 100%;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*overflow-x: scroll;*/
-    touch-action: none;
-    -ms-touch-action: none;
+    /*touch-action: none;*/
+    /*-ms-touch-action: none;*/
 }
 
 .h-pull-refresh-root .h-pull-refresh{
@@ -18,3 +20,14 @@
     width: 100%;
     height: auto;
 }
+
+.h-pull-refresh-root .h-pull-up,
+.h-pull-refresh-root .h-pull-down{
+    color: grey;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+

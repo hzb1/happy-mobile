@@ -34,6 +34,12 @@ module.exports = {
       },
     ],
   },
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 100,
+    poll: 100,
+    ignored: /node_modules/,
+  },
   devServer: {
     contentBase: '../../',
     host: '0.0.0.0',

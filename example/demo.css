@@ -28,12 +28,27 @@ main{
     /*background-color: var(--h-theme-background);*/
 }
 
+app-block{
+    margin: 12px auto 18px;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 12px;
+}
+app-block .app-block-title{
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+app-block .app-block-wrap{
+}
+app-block .app-block-wrap h-button {
+    /*margin: 3px 0;*/
+    margin-bottom: 6px;
+}
+
 .app-header {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 4;
 }
 
 .app-header {
@@ -45,6 +60,7 @@ main{
     justify-content: center;
     align-items: center;
     background-color: rgba(255,255,255,.75);
+    position: relative;
     /*color: #333;*/
     color: var(--h-theme-primary);
     /*box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);*/
@@ -81,26 +97,24 @@ main{
     border: none;
 }
 
-.list-box {
-    padding-top: 54px;
+.app-main {
     box-sizing: border-box;
     width: 100%;
-    /*overflow-y: scroll;*/
     overflow-x: hidden;
 }
 
-.list-box,
+.app-main,
 .route-view{
-    height: 100%;
+    /*height: 100%;*/
 }
 
 
-.list-box .component {
+.app-main .component {
 
 }
 
 
-.list-box .component h3 {
+.app-main .component h3 {
     font-size: 12px;
     font-weight: normal;
     height: 28px;

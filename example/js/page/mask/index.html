@@ -1,8 +1,4 @@
 <style>
-    .demo-page{
-        padding: 18px 18px 80px;
-        box-sizing: border-box;
-    }
     .my-mask-slot{
         width: 100%;
         height: 100%;
@@ -13,34 +9,35 @@
 </style>
 
 <section class="demo-page">
-    <h4>最简单的mask</h4>
-    <h-mask id="mask1" style="display: none">
-        <div class="my-mask-slot">
-            <h-button inline onclick="hide1()" style="margin-top: 20px">hide</h-button>
-        </div>
-    </h-mask>
-    <h-button inline shadow onclick="show1()">show</h-button>
+    <app-block title="基本使用">
+        <h-mask id="mask1" style="display: none">
+            <div class="my-mask-slot">
+                <h-button inline onclick="hide1()" style="margin-top: 20px">hide</h-button>
+            </div>
+        </h-mask>
+        <h-button inline shadow onclick="show1()">show</h-button>
+    </app-block>
+
+    <app-block title="动画-fade">
+        <h-mask id="fadeDownMask" style="display: none">
+            <div class="my-mask-slot fadeDown">
+                <h-button inline onclick="fadeDownHide()">fadeDown Hide</h-button>
+            </div>
+        </h-mask>
+        <h-button inline shadow onclick="fadeDownShow()">fadeDown</h-button>
+    </app-block>
 
 
-    <h4>动画</h4>
-    <h6>fadeDown</h6>
-    <h-mask id="fadeDownMask" style="display: none">
-        <div class="my-mask-slot fadeDown">
-            <h-button inline onclick="fadeDownHide()">fadeDown Hide</h-button>
-        </div>
-    </h-mask>
-    <h-button inline shadow onclick="fadeDownShow()">fadeDown</h-button>
-
-
-    <h6>slide</h6>
-    <h-mask id="mask2" style="display: none">
-        <div class="my-mask-slot">
-            <h-button inline onclick="slideHide()" style="margin-top: 20px">hide</h-button>
-        </div>
-    </h-mask>
-    <h-button inline shadow onclick="slideShow('slideUp')">slideUp</h-button>
-    <h-button inline shadow onclick="slideShow('slideDown')">slideDown</h-button>
-    <h-button inline shadow onclick="slideShow('slideRight')">slideRight</h-button>
+    <app-block title="动画-slide">
+        <h-mask id="mask2" style="display: none">
+            <div class="my-mask-slot">
+                <h-button inline onclick="slideHide()" style="margin-top: 20px">hide</h-button>
+            </div>
+        </h-mask>
+        <h-button inline shadow onclick="slideShow('slideUp')">slideUp</h-button>
+        <h-button inline shadow onclick="slideShow('slideDown')">slideDown</h-button>
+        <h-button inline shadow onclick="slideShow('slideRight')">slideRight</h-button>
+    </app-block>
 </section>
 
 <script>

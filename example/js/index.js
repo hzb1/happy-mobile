@@ -3,7 +3,7 @@ import '../demo.css'
 import '../../dist/happy-mobile.css'
 import happy from '../../dist/happy-mobile.js'
 import route from './route/index.js'
-import './components/app-table'
+import './components'
 
 window.happy = happy
 // import store from './store/index.js'

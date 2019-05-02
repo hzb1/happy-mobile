@@ -166,7 +166,7 @@ class AppTable extends HTMLElement {
   }
 
   connectedCallback() {
-    this.setAttribute('data', this.data)
+    this.setAttribute('data', JSON.stringify(this.data))
     this.firstLoad = true
   }
 

@@ -1,40 +1,41 @@
-
 <style>
-    .demo-page{
-        padding: 18px 18px 80px;
-        box-sizing: border-box;
-    }
-    h-button{
+
+    h-button {
         margin-bottom: 6px;
     }
 </style>
 
 <section class="demo-page">
-    <h4>最简单的toast</h4>
-    <!--<h-button inline onclick="show1(0)">show</h-button>-->
-    <h-button inline onclick="show1()">show Toase</h-button>
-    <h-button inline onclick="show1(1000)">show Toase</h-button>
-    <h-button inline onclick="hide1(4000)">5s后隐藏</h-button>
+    <app-block title="基本使用">
+        <h-button inline onclick="show1()">show Toase</h-button>
+    </app-block>
+    <app-block title="设置时间">
+        <h-button inline onclick="show1(1000)">1s后隐藏</h-button>
+        <h-button inline onclick="hide1(4000)">4s后隐藏</h-button>
+    </app-block>
     <!--<h-button inline onclick="loading1()">loading</h-button>-->
-    <h-button inline onclick="loading2()">loading2</h-button>
+
+    <app-block title="loading">
+        <h-button inline onclick="loading2()">loading</h-button>
+    </app-block>
 </section>
 
 <!--<script src="../../../../dist/happy-mobile.js"></script>-->
 <script>
-    var Toast = window.happy.Toast
-    var show1 = function (time) {
-      Toast.show('嗨 toase', time)
-    }
-    var hide1 = function (time) {
-      var hide = Toast.show('setTimeout 控制hide', 0)
-      setTimeout(hide, time)
-    }
-    var loading1 = function () {
-      var hide = Toast.loading('loading...')
-      // setTimeout(hide, 3000)
-    }
-    var loading2 = function () {
-      var hide = Toast.loading('loading...')
-      setTimeout(hide, 3000)
-    }
+  var Toast = window.happy.Toast
+  var show1 = function (time) {
+    Toast.show('嗨 toase', time)
+  }
+  var hide1 = function (time) {
+    var hide = Toast.show('setTimeout 控制hide', 0)
+    setTimeout(hide, time)
+  }
+  var loading1 = function () {
+    var hide = Toast.loading('loading...')
+    // setTimeout(hide, 3000)
+  }
+  var loading2 = function () {
+    var hide = Toast.loading('loading...')
+    setTimeout(hide, 3000)
+  }
 </script>
