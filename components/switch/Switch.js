@@ -45,7 +45,7 @@ export default class Switch extends BaseComponent{
       this.firstLoad = true
     }
     this.initAttribute()
-    console.log(this.value)
+    // console.log(this.value)
   }
 
   initMethod() {
@@ -59,7 +59,7 @@ export default class Switch extends BaseComponent{
           fakeInput.style.display = 'none';
           form.appendChild(fakeInput);
           // fakeButton.remove();
-          console.log('form', form)
+          // console.log('form', form)
         }
     }
   }

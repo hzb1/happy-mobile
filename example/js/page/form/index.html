@@ -3,6 +3,11 @@
     .form-item {
         font-size: 22px;
     }
+    .form-content{
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+    }
 </style>
 
 <h4 class="title">Form</h4>
@@ -10,13 +15,10 @@
 <div class="form-content">
     <form id="myForm" name="myForm" h-form class="my-form">
         <div class="form-item">
-            <h-icon type="check"></h-icon>
             <!-- //用户名正则，3到6位（字母，数字，下划线，减号） -->
-            <input type="text" name="name" required
-                    min="3" max="6" placeholder="请输入用户名（3到6位（字母，数字，下划线，减号）" />
+            <input type="text" name="name" required min="3" max="6" placeholder="请输入用户名（3到6位（字母，数字，下划线，减号）" />
         </div>
         <div class="form-item">
-            <h-icon type="check"></h-icon>
             <input h-input type="password" name="password1" required value="password" placeholder="请输入密码" />
         </div>
         <div class="form-item">
@@ -24,10 +26,10 @@
             <h-checkbox name="checkbox1"></h-checkbox>
             <h-checkbox name="checkbox2"></h-checkbox>
         </div>
-        <div class="form-item">
-            <p>slider</p>
-            <h-slider name="slider"></h-slider>
-        </div>
+        <!--<div class="form-item">-->
+            <!--<p>slider</p>-->
+            <!--<h-slider name="slider"></h-slider>-->
+        <!--</div>-->
         <div class="form-item">
             <p>开关</p>
             <h-switch name="switch"></h-switch>
@@ -46,71 +48,71 @@
     </form>
 </div>
 
-<div class="form" style="padding-bottom: 70px">
+<!--<div class="form" style="padding-bottom: 70px">-->
 
-    <p>input type</p>
-    <div class="form-ls">
-        text <input h-input type="text"/>
-    </div>
-    <div class="form-ls">
-        url <input type="url"/>
-    </div>
-    <div class="form-ls">
-        tel <input type="tel"/>
-    </div>
-    <div class="form-ls">
-        email <input type="email"/>
-    </div>
-    <div class="form-ls">
-        search <input type="search"/>
-    </div>
-    <div class="form-ls">
-        number <input type="number"/>
-    </div>
-    <div class="form-ls">
-        checkbox <input type="checkbox" checked>
-    </div>
-    <div class="form-ls">
-        radio <input type="radio"> <input type="radio">
-    </div>
-    <div class="form-ls">
-        range <input type="range"/>
-    </div>
-    <div class="form-ls">
-        datetime-local <input type="datetime-local"/>用于输入日期和时间值，提供的时区为本地时区。
-    </div>
-    <div class="form-ls">
-        date <input type="date"/>用于输入日期和时间值，不提供时区。
-    </div>
-    <div class="form-ls">
-        time <input type="time"/>用于只输入时间，不提供时区。
-    </div>
-    <div class="form-ls">
-        week <input type="week"/>用于只输入星期，不提供时区。
-    </div>
-    <div class="form-ls">
-        month <input type="month"/>用于只输入月份，不提供时区。
-    </div>
-    <div class="form-ls">
-        color <input type="color"/>用于选取颜色。
-    </div>
-    <div class="form-ls">
-        file <input type="file"/>用于选取文件。
-    </div>
-    <div class="form-ls">
-        image <input type="image"/>图片提交按钮。
-    </div>
+    <!--<p>input type</p>-->
+    <!--<div class="form-ls">-->
+        <!--text <input h-input type="text"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--url <input type="url"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--tel <input type="tel"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--email <input type="email"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--search <input type="search"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--number <input type="number"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--checkbox <input type="checkbox" checked>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--radio <input type="radio"> <input type="radio">-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--range <input type="range"/>-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--datetime-local <input type="datetime-local"/>用于输入日期和时间值，提供的时区为本地时区。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--date <input type="date"/>用于输入日期和时间值，不提供时区。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--time <input type="time"/>用于只输入时间，不提供时区。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--week <input type="week"/>用于只输入星期，不提供时区。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--month <input type="month"/>用于只输入月份，不提供时区。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--color <input type="color"/>用于选取颜色。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--file <input type="file"/>用于选取文件。-->
+    <!--</div>-->
+    <!--<div class="form-ls">-->
+        <!--image <input type="image"/>图片提交按钮。-->
+    <!--</div>-->
 
-    <p>datalist</p>
-    <label for="frmFavChocolate">datalist</label>
-    <input type="text" name="fav-choc" id="frmFavChocolate" list="chocType">
-    <datalist id="chocType">
-        <option value="white">
-        <option value="milk">
-        <option value="dark">
-    </datalist>
+    <!--<p>datalist</p>-->
+    <!--<label for="frmFavChocolate">datalist</label>-->
+    <!--<input type="text" name="fav-choc" id="frmFavChocolate" list="chocType">-->
+    <!--<datalist id="chocType">-->
+        <!--<option value="white">-->
+        <!--<option value="milk">-->
+        <!--<option value="dark">-->
+    <!--</datalist>-->
 
-</div>
+<!--</div>-->
 
 <!--<script>-->
     <!--var login = function () {-->

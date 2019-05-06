@@ -2,6 +2,26 @@
 
 const html = require('./index.html')
 
+
+class HappyForm {
+  constructor(form, validators) {
+    console.log(form.elements, 'form');
+    [...form.elements].forEach((item) => {
+      console.log(item.value)
+    })
+
+    Object.keys(validators).forEach((item) => {
+      // console.log(, 'form')
+      form[item].addEventListener('input', (ev) => {
+        const el = ev.target
+        console.log(ev.target.value, el.checkValidity(), el.validity)
+      })
+      console.log(validators[item], 'item')
+    })
+  }
+}
+
+
 export default class Form extends HTMLElement {
   static get tagName() {
     return 'app-form'
@@ -12,6 +32,15 @@ export default class Form extends HTMLElement {
 
     const myFrom = this.querySelector('#myForm')
     myFrom.addEventListener('submit', this.login, false)
+
+    this.validators = {
+      name: {
+        type: 'input',
+        required: true,
+      },
+    }
+
+    this.f = new HappyForm(myFrom, this.validators)
   }
 
   login(ev) {
@@ -36,7 +65,7 @@ export default class Form extends HTMLElement {
         method: 'post',
         body,
       }
-      fetch('https://easy-mock.com/mock/5c6cf7008d04876a33c074fb/api/login', option).then(response => response.json()).then((res) => {
+      fetch('https://easy-mock.com/mock/5c6cf7008d04876a33c074fb/api/api/user/login', option).then(response => response.json()).then((res) => {
         if (res.code === 0) {
           const { Toast } = window.happy
           Toast.show(res.msg) // 登录成功
