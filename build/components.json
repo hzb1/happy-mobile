@@ -1,14 +1,4 @@
 {
   "button": "./components/button/index.js",
-  "icon": "./components/icon/index.js",
-  "icon-font": "./components/icon/iconfont/index.js",
-  "img": "./components/img/index.js",
-  "swipe-action": "./components/swipe-action/index.js",
-  "mask": "./components/mask/index.js",
-  "carousel": "./components/carousel/index.js",
-  "app-bar": "./components/app-bar/index.js",
-  "toast": "./components/toast/index.js",
-  "switch": "./components/switch/index.js",
-  "checkbox": "./components/checkbox/index.js",
-  "picker": "./components/picker/index.js"
+  "icon": "./components/icon/index.js"
 }

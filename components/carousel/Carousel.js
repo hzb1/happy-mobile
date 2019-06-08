@@ -1,4 +1,4 @@
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 
 const requestAnimFrame = (() => window.requestAnimationFrame
   || window.webkitRequestAnimationFrame
@@ -7,9 +7,11 @@ const requestAnimFrame = (() => window.requestAnimationFrame
     window.setTimeout(callback, 1000 / 60)
   })()
 
-@Component({
+const style = require('./carousel.inline.css');
+
+@MetaData({
   tag: 'h-carousel',
-  prop: [
+  props: [
     {
       name: 'value', // 当前显示的索引
       type: Number,
@@ -55,9 +57,8 @@ const requestAnimFrame = (() => window.requestAnimationFrame
       default: true,
     },
   ],
-  styleUrl: require('./carousel.inline.css'),
 })
-export default class Carousel extends BaseComponent {
+export default class Carousel extends Component {
 
   static get observedAttributes() {
     return ['dots', 'value']
@@ -78,7 +79,7 @@ export default class Carousel extends BaseComponent {
 
   render() {
     return `
-      <style>${this.$style()}</style>
+      <style>${style()}</style>
       <div class="h-carousel-root">
           <div class="carousel-content" id="carousel-content">
             <slot id="slot-content"></slot>
@@ -249,13 +250,9 @@ export default class Carousel extends BaseComponent {
   initMethod() {
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
-    switch (attrName) {
-      case 'value':
-        this.run(oldVal, newVal)
-    }
+  @Watch('value')
+  _valueWatch(attrName, oldVal, newVal) {
+    this.run(oldVal, newVal)
   }
 
   // 从DOM中移除时调用

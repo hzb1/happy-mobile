@@ -1,239 +1,1 @@
-import { BaseComponent, Component, Prop} from '../core'
-import styleMap from './styleMap'
-import { fadeIn, fadeOut } from '../core/animation'
-const { styleColor, styleSize, styleShadow, styleDisabled, styleInline } = styleMap
-
-@Component({
-  tag: 'h-button',
-  prop: [
-    {
-      name: 'color',
-      type: String,
-      default: 'primary',
-    },
-    {
-      name: 'loading',
-      type: Boolean,
-      default: false,
-    },
-    {
-      name: 'size',
-      type: String,
-      default: 'medium',
-    },
-    {
-      name: 'outline', // 外边框
-      type: Boolean,
-      has: true,
-      default: false,
-    },
-    // {
-    //   name: 'disabled',
-    //   type: Boolean,
-    //   has: true,
-    // },
-    {
-      name: 'shadow',
-      type: Boolean,
-      has: true,
-      default: false,
-    },
-    {
-      name: 'inline',
-      type: Boolean,
-      has: true,
-      default: false,
-    },
-    {
-      name: 'type',
-      type: String,
-      default: 'button',
-    },
-  ],
-  styleUrl: require('./button.inline.css'),
-})
-export default class Button extends BaseComponent {
-
-  static get observedAttributes() {
-    return [ 'color', 'size', 'raised', 'icon', 'loading', 'shadow', 'disabled', 'inline']
-  }
-
-  get disabled(){
-    return this.hasAttribute('disabled')
-  }
-
-  set disabled(value){
-    if (value) {
-      this.setAttribute('disabled', value)
-    } else {
-      this.removeAttribute('disabled')
-    }
-  }
-
-  constructor() {
-    super();
-    this.root = this.shadowRoot.querySelector('button')
-  }
-
-  render(){
-    return `
-        <style>${this.$style()}</style>
-        <button class="${this.$tag}" type=${this.type} >
-            <slot></slot>
-        </button>
-    `
-  }
-
-  init() {
-    this.firstLoad = false
-    this.isLoading = false
-
-  }
-
-  connectedCallback() {
-    if (!this.firstLoad){
-      this.initMethod()
-      this.initClass()
-      this.firstLoad = true
-    }
-    this.initAttribute()
-  }
-
-  initClass(){
-    [ ...styleColor.get(this.color),
-      ...styleSize.get(this.size),
-      ...styleShadow.get(this.shadow),
-      ...styleDisabled.get(this.disabled),
-      ...styleInline.get(this.inline),
-      'h-button',
-    ].forEach((cla) => {
-      this.classList.add(cla)
-    })
-  }
-
-  initAttribute(){
-    // this._upgradeProperty('disabled')
-    this.setAttribute('shadow', this.shadow)
-    this.setAttribute('type', this.type)
-    // this.setAttribute('inline', this.inline)
-    // this.setAttribute('outline', this.outline)
-    // this.setAttribute('disabled', this.disabled)
-    // if (this.loading) this.showLoading()
-    // this.setAttribute('loading', this.loading)
-  }
-
-  initMethod(){
-
-    const hideLoading = function () {
-      const button = this.shadowRoot.querySelector('button')
-      const buttonIcon = button.querySelector('h-icon')
-      if (buttonIcon) {
-        fadeOut(buttonIcon).then(() => {
-          if (buttonIcon.parentNode) buttonIcon.parentNode.removeChild(buttonIcon)
-        })
-        this.isLoading = false
-        this.disabled = false
-      }
-    }
-    this.hideLoading = hideLoading
-    this.showLoading = () => {
-      if (this.isLoading) {
-        return null
-      }
-      const Icon = customElements.get('h-icon');
-      const i = new Icon()
-      const button = this.shadowRoot.querySelector('button')
-      button.insertBefore(i, button.childNodes[0])
-      i.type = 'loading'
-      i.classList.add('h-icon--loading')
-      fadeIn(i).then()
-      this.isLoading = true
-      this.disabled = true
-      return hideLoading
-    }
-
-    if (this.type === 'submit' || this.type === 'reset') {
-      this.addEventListener('click', function (ev) {
-        const form = this.closest('form');
-        if (form) {
-          ev.preventDefault();
-          const fakeButton = document.createElement('button');
-          fakeButton.type = this.type;
-          fakeButton.style.display = 'none';
-          form.appendChild(fakeButton);
-          fakeButton.click();
-          // form.removeChild(fakeButton)
-          fakeButton.remove();
-        }
-      }, false)
-
-    }
-  }
-
-  _upgradeProperty(prop) {
-    if (this.hasOwnProperty(prop)) {
-      let value = this[prop];
-      delete this[prop];
-      this[prop] = value;
-    }
-  }
-
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return;
-    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
-    switch (attrName) {
-      case 'color':
-        styleColor.get(oldVal).forEach((item) => {
-          this.classList.remove(item)
-        })
-        styleColor.get(this.color).forEach((item) => {
-          this.classList.add(item)
-        })
-        return;
-      case 'size':
-        styleSize.get(oldVal).forEach((item) => {
-          this.classList.remove(item)
-        })
-        styleSize.get(newVal).forEach((item) => {
-          this.classList.add(item)
-        })
-        return;
-      case 'loading':
-        if (this.loading) {
-          this.showLoading()
-        } else {
-          this.hideLoading()
-        }
-        return;
-      case 'disabled':
-        if (this.disabled) {
-          this.classList.add(styleDisabled.get(true))
-        } else {
-          this.classList.remove(styleDisabled.get(true))
-        }
-        return;
-      case 'shadow':
-        if (this.shadow) {
-          this.classList.add(styleShadow.get(true))
-        } else {
-          this.classList.remove(styleShadow.get(true))
-        }
-        return;
-      case 'inline':
-        this.classList.toggle(styleInline.get(true))
-        return;
-    }
-    // this.classList = [
-    //   ...this.classList,
-    //   ...classType.get(this.type),
-    //   ...classSize.get(this.size),
-    //   'h-button',
-    // ].join(' ')
-  }
-
-  // 从DOM中移除时调用
-  disconnectedCallback() {
-    // console.log('插入到DOM', this)
-  }
-
-}
+import {  styleColor,  styleSize,  styleShadow,  styleDisabled,  styleInline,  styleOutline,} from './styleMap'import { fadeIn, fadeOut } from '../core/animation'import Component from '../core/component'import { MetaData, Watch } from '../core/decorator'const styleUrl = require('./button.inline.css')@MetaData({  tag: 'h-button',  props: [    {      name: 'color',      type: String,      default: 'primary',    },    {      name: 'loading',      type: Boolean,      has: true,      default: false,    },    {      name: 'size',      type: String,      default: 'medium', // medium small large    },    {      name: 'outline', // 外边框      type: Boolean,      has: true,      default: false,    },    {      name: 'shadow',      type: Boolean,      has: true,      default: false,    },    {      name: 'inline',      type: Boolean,      has: true,      default: false,    },    {      name: 'type',      type: String,      default: 'button',    },  ],})export default class Button extends Component {  static get observedAttributes() {    return ['color', 'size', 'raised', 'icon', 'loading', 'shadow', 'disabled', 'inline']  }  get disabled() {    return this.hasAttribute('disabled')  }  set disabled(value) {    if (value) {      this.setAttribute('disabled', value)    } else {      this.removeAttribute('disabled')    }  }  constructor() {    super()    this.root = this.shadowRoot.querySelector('button')  }  render() {    return `        <style>${styleUrl()}</style>        <button class="${this.$tag}" type=${this.type} >            <slot></slot>        </button>    `  }  connectedCallback() {    this._initEventListener()    this._initStyle()  }  _initStyle() {    [...styleColor.get(this.color),      ...styleSize.get(this.size),      ...styleShadow.get(this.shadow),      ...styleDisabled.get(this.disabled),      ...styleInline.get(this.inline),      ...styleOutline.get(this.outline),      'h-button',    ].forEach((cla) => {      this.classList.add(cla)    })  }  _initEventListener() {    if (this.type === 'submit' || this.type === 'reset') {      this.addEventListener('click', function (ev) {        const form = this.closest('form')        if (form) {          ev.preventDefault()          const fakeButton = document.createElement('button')          fakeButton.type = this.type          fakeButton.style.display = 'none'          form.appendChild(fakeButton)          fakeButton.click()          // form.removeChild(fakeButton)          fakeButton.remove()        }      }, false)    }  }  hideLoading() {    const button = this.shadowRoot.querySelector('button')    const buttonIcon = button.querySelector('h-icon')    if (buttonIcon) {      fadeOut(buttonIcon)      .then(() => {        if (buttonIcon.parentNode) buttonIcon.parentNode.removeChild(buttonIcon)      })      this.isLoading = false      this.disabled = false    }  }  showLoading() {    if (this.isLoading) {      return null    }    const Icon = customElements.get('h-icon')    if (!Icon) {      console.error(`[happy-mobil]: h-button组件依赖于h-icon组件，需先导入h-icon组件`)    }    const i = new Icon()    i.type = 'loading'    const button = this.shadowRoot.querySelector('button')    button.insertBefore(i, button.childNodes[0])    i.classList.add('h-icon--loading')    fadeIn(i)    .then()    this.isLoading = true    this.disabled = true    return this.hideLoading.bind(this);  }  @Watch('color')  _colorWatch(attrName, oldVal, newVal) {    if (styleColor.get(oldVal)) {      styleColor.get(oldVal).forEach((item) => this.classList.remove(item))    }    if (styleColor.get(newVal)) {      styleColor.get(newVal).forEach((item) => this.classList.add(item))    }  }  @Watch('size')  _sizeWatch(attrName, oldVal, newVal) {    if (styleSize.get(oldVal)) {      styleSize.get(oldVal)      .forEach((item) => this.classList.remove(item))    }    if (styleSize.get(newVal)) {      styleSize.get(newVal)      .forEach((item) => this.classList.add(item))    }  }  @Watch('loading')  _loadingWatch(attrName, oldVal, newVal) {    this.loading ? this.showLoading() : this.hideLoading()  }  @Watch('disabled')  _disabledWatch(attrName, oldVal, newVal) {    this.classList.toggle(styleDisabled.get(true), this.disabled)  }  @Watch('shadow')  _shadowWatch(attrName, oldVal, newVal) {    this.classList.toggle(styleShadow.get(true), this.shadow)  }  @Watch('inline')  _inlineWatch(attrName, oldVal, newVal) {    this.classList.toggle(styleInline.get(true), this.inline)  }  // 从DOM中移除时调用  disconnectedCallback() {    // console.log('插入到DOM', this)  }}

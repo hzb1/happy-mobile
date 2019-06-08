@@ -1,5 +1,5 @@
 
-import { BaseComponent, Component } from '../core'
+import { Component, Component } from '../core'
 import * as animation from '../core/animation/index'
 
 // 文档 https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/tooltip-documentation.md
@@ -22,7 +22,7 @@ import * as animation from '../core/animation/index'
   },
   styleUrl: require('./select.inline.css'),
 })
-export default class Select extends BaseComponent {
+export default class Select extends Component {
   static get observedAttributes() {
     return ['placement', 'arrowSelector']
   }

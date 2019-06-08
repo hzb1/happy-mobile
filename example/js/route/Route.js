@@ -33,6 +33,7 @@ export default class Route {
         newView = document.createElement(tagName)
         this.keepAlive.set(this.routes.get(path), newView)
       }
+      // console.log(hasTag, 'hasTag', newView)
       this.routeView.appendChild(newView)
 
       if (this.view) {

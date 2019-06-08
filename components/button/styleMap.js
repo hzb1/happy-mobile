@@ -1,11 +1,11 @@
 
 const styleColor = new Map([
-  // ['null', ['h-button--primary']],
+  [null, ['h-button--primary']],
   ['primary', ['h-button--primary']],
-  ['secondary', ['h-button--secondary']],
-  ['success', ['h-button--success']],
-  ['warn', ['h-button--warn']],
-  ['error', ['h-button--error']],
+  ['white', ['h-button--white']],
+  ['green', ['h-button--green']],
+  ['yellow', ['h-button--yellow']],
+  ['red', ['h-button--red']],
 ])
 
 const styleSize = new Map([
@@ -30,10 +30,16 @@ const styleInline = new Map([
   [false, []],
 ])
 
-export default {
+const styleOutline = new Map([
+  [true, ['h-button--outline']],
+  [false, []],
+])
+
+export {
   styleColor,
   styleSize,
   styleShadow,
   styleDisabled,
   styleInline,
+  styleOutline,
 }

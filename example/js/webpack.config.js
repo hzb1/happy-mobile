@@ -26,6 +26,20 @@ module.exports = {
         },
       },
       {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+          {
+            loader: 'markdown-loader',
+            options: {
+              /* your options here */
+            },
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader', // 将 JS 字符串生成为 style 节点

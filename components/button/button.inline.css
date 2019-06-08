@@ -1,32 +1,203 @@
 
 :host{
-    /*margin: 4px;*/
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    text-transform: none;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: width 150ms linear;
 }
+
+/*用于1px边框*/
+:host::before{
+    content: '';
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/*用于背景动画*/
+:host::after{
+     content: '';
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 200%;
+     height: 200%;
+     transform-origin: 0 0;
+     transform: scale(.5);
+     opacity: 0;
+     border-radius: inherit;
+     pointer-events: none;
+     z-index: 2;
+     transition: opacity 150ms linear, background-color 150ms ease-in-out;
+     background-color: white;
+ }
+
+/*hover、active*/
+:host(:hover):after {
+    background-color: rgba(255,255,255, .75);
+    opacity: 0.2;
+}
+:host(:active):after {
+    transition-duration: 150ms;
+    background-color: rgba(0,0,0, 1);
+    opacity: 0.2;
+}
+
+/*边框*/
+:host(.h-button--outline){
+    background-color: white;
+}
+:host(.h-button--outline:hover):after{
+    opacity: 0.1;
+}
+:host(.h-button--outline:active):after{
+    transition-duration: 75ms;
+    opacity: 0.2;
+}
+
+/**
+    颜色: primary、white、green、yellow、red
+ */
+:host(.h-button--primary){ color: white; background-color: var(--h-theme-primary, #1f78ff);}
+:host(.h-button--white){
+    color: var(--h-theme-text-87, rgba(0,0,0,.87));
+    background-color: var(--h-theme-white, #ffffff);
+}
+:host(.h-button--white):before{
+    border: 1px solid var(--h-theme-border, #eeeeee)
+}
+:host(.h-button--white:hover):after{
+    background-color: var(--h-theme-text-38, rgba(0, 0, 0, 0.38));
+    opacity: 0.1;
+}
+:host(.h-button--white:active):after{
+    transition-duration: 75ms;
+    background-color: rgba(0,0,0, 1);
+    opacity: 0.1;
+}
+:host(.h-button--green){ color: white; background-color: var(--h-theme-green, #26bf2c);}
+:host(.h-button--yellow){ color: white; background-color: var(--h-theme-yellow, #fbc02d);}
+:host(.h-button--red){ color: white; background-color: var(--h-theme-red, #e53935);}
+
+/**
+  outline
+ */
+:host(.h-button--primary.h-button--outline){ color: var(--h-theme-primary, #1f78ff); background-color: white }
+:host(.h-button--primary.h-button--outline):before{ border: 1px solid var(--h-theme-primary, #1f78ff) }
+:host(.h-button--primary.h-button--outline):after{ background-color: var(--h-theme-primary, #1f78ff) }
+
+:host(.h-button--white.h-button--outline){ color: var(--h-theme-text-87, rgba(0, 0, 0, .87)) }
+:host(.h-button--white.h-button--outline):before{ border: 1px solid var(--h-theme-border, #eeeeee) }
+:host(.h-button--white.h-button--outline):after{ background-color: var(--h-theme-white, #ffffff) }
+:host(.h-button--white.h-button--outline:active):after{
+    transition-duration: 75ms;
+    background-color: rgba(0,0,0, 1);
+    opacity: 0.1;
+}
+
+:host(.h-button--green.h-button--outline){ color: var(--h-theme-green, #26bf2c); background-color: white }
+:host(.h-button--green.h-button--outline):before{ border: 1px solid var(--h-theme-green, #26bf2c) }
+:host(.h-button--green.h-button--outline):after{ background-color: var(--h-theme-green, #26bf2c) }
+
+:host(.h-button--red.h-button--outline){ color: var(--h-theme-red, #e53935); background-color: white }
+:host(.h-button--red.h-button--outline):before{ border: 1px solid var(--h-theme-red, #e53935) }
+:host(.h-button--red.h-button--outline):after{ background-color: var(--h-theme-red, #e53935) }
+
+/**
+  inline
+ */
+:host(.h-button--inline){
+    display: inline-flex;
+    width: auto;
+}
+
+/*
+  大小: small、medium、large
+ */
+:host(.h-button--small) {
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+}
+:host(.h-button--medium) {
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+}
+:host(.h-button--large) {
+    height: 52px;
+    line-height: 52px;
+    font-size: 22px;
+}
+:host(.h-button--small) .h-button {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+:host(.h-button--medium) .h-button {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+:host(.h-button--large) .h-button {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/**
+  阴影
+ */
+:host(.h-button--shadow){
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+:host(.h-button--shadow:hover),
+:host(.h-button--shadow:active),
+:host(.h-button--shadow:focus){
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+/**
+  禁用
+ */
+:host(.h-button--disabled){
+    cursor: default;
+    pointer-events: none;
+}
+:host(.h-button--disabled):after {
+    opacity: .5;
+    background-color: #eee;
+}
+
 
 .h-button {
     all: inherit;
-    /*display: inherit;*/
-    /*justify-content: inherit;*/
-    /*align-items: inherit;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*line-height: inherit;*/
     margin: 0;
     padding: 0;
     box-shadow: none;
     border: none;
     background-color: transparent;
-    /*text-align: inherit;*/
-    /*text-transform: inherit;*/
-    /*background-color: initial;*/
-    /*background-image: inherit;*/
-    /*font-size: inherit;*/
-    /*color: inherit;*/
-    /*cursor: inherit;*/
-}
-
-.h-button h-icon{
-
 }
 
 .h-button .h-icon--loading{

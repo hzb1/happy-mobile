@@ -1,5 +1,5 @@
 import transition from './transition'
-import 'web-animations-js'
+// import 'web-animations-js'
 /**
  * 动画函数
  * @param name 动画名称

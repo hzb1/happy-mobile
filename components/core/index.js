@@ -1,11 +1,8 @@
-import BaseComponent from './base-component'
-import Component from './web-component'
-import { If } from './util/util'
-import { Prop } from './decorator'
+import Component from './component'
+import { Watch, MetaData } from './decorator'
 
 export {
+  MetaData,
+  Watch,
   Component,
-  BaseComponent,
-  If,
-  Prop,
 }

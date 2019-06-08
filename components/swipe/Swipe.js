@@ -1,7 +1,7 @@
 // Swipe
 
 
-import { BaseComponent, Component } from '../core'
+import { Component, Component } from '../core'
 
 const requestAnimFrame = (() => window.requestAnimationFrame
   || window.webkitRequestAnimationFrame
@@ -36,7 +36,7 @@ const requestAnimFrame = (() => window.requestAnimationFrame
   ],
   styleUrl: require('./swipe.inline.css'),
 })
-export default class Slider extends BaseComponent {
+export default class Slider extends Component {
   static get observedAttributes() {
     return ['value']
   }

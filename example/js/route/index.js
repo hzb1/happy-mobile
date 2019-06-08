@@ -21,6 +21,8 @@ const checkbox = () =>  import(/* webpackChunkName: "checkbox" */'./../page/chec
 const picker = () =>  import(/* webpackChunkName: "picker" */'../page/picker/index.js')
 const pullRefresh = () =>  import(/* webpackChunkName: "picker" */'../page/pull-refresh/index.js')
 
+const searchBar = () =>  import(/* webpackChunkName: "app-search-bar" */'../page/search-bar/index.js')
+
 const routes = new Map([
   [ '', { path: '#home', component: home }],
   [ '#home', { path: '#home', component: home }],
@@ -46,6 +48,9 @@ const routes = new Map([
   [ '#popover', { path: '#popover', component: popover }],
   [ '#accordion', { path: '#accordion', component: accordion }],
   [ '#pull-refresh', { path: '#pull-refresh', component: pullRefresh }],
+
+  [ '#search-bar', { path: '#search-bar', component: searchBar }],
+
   [ '404', { path: '#home', component: home }],
   [ '*', { path: '#home', component: home }],
 ])

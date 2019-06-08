@@ -1,11 +1,11 @@
-import { BaseComponent, Component } from '../core'
+import { Component, Component } from '../core'
 
 @Component({
   tag: 'h-carousel-item',
   prop: [],
   styleUrl: require('./carousel-item.inline.css'),
 })
-export default class CarouselItem extends BaseComponent {
+export default class CarouselItem extends Component {
 
   static get observedAttributes() {
     return ['content', 'mask']

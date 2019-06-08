@@ -1,8 +1,5 @@
 
 import Carousel from './Carousel'
-import CarouselItem from './CarouselItem'
+// import CarouselItem from './CarouselItem'
 
-export {
-  CarouselItem,
-  Carousel,
-}
+export default Carousel

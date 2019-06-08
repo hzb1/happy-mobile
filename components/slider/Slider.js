@@ -1,5 +1,5 @@
 
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 import * as animation from '../core/animation/index'
 
 const getPercent = (num, total) => {
@@ -15,9 +15,10 @@ const requestAnimFrame = (() => window.requestAnimationFrame
     window.setTimeout(callback, 1000 / 60)
   })()
 
-@Component({
+const style = require('./slider.inline.css')
+@MetaData({
   tag: 'h-slider',
-  prop: [
+  props: [
     {
       name: 'value',
       type: Number,
@@ -34,9 +35,8 @@ const requestAnimFrame = (() => window.requestAnimationFrame
       default: 100,
     },
   ],
-  styleUrl: require('./slider.inline.css'),
 })
-export default class Slider extends BaseComponent {
+export default class Slider extends Component {
   static get observedAttributes() {
     return ['value']
   }
@@ -52,7 +52,7 @@ export default class Slider extends BaseComponent {
 
   render() {
     return `
-        <style>${this.$style()}</style>
+        <style>${style()}</style>
         <div class="h-slider-root" >
             <div class="h-slider">
                 <div class="h-slider-inline">
@@ -206,12 +206,9 @@ export default class Slider extends BaseComponent {
     this.setAttribute('value', this.value)
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    switch (attrName) {
-      case 'value':
-        this._watchValue()
-    }
+  @Watch('value')
+  _valueWatch(attrName, oldVal, newVal) {
+    this._watchValue()
   }
 
   disconnectedCallback() {

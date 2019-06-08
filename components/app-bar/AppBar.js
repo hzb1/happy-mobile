@@ -1,4 +1,4 @@
-import BaseComponent from '../core/base-component'
+import Component from '../core/base-component'
 import Component from '../core/web-component'
 import { fadeInDown, fadeOutDown, slideInDown, slideOutDown } from '../core/animation'
 
@@ -13,7 +13,7 @@ import { fadeInDown, fadeOutDown, slideInDown, slideOutDown } from '../core/anim
   ],
   styleUrl: require('./app-bar.inline.css'),
 })
-export default class AppBar extends BaseComponent {
+export default class AppBar extends Component {
   constructor() {
     super()
     this.root = this.shadowRoot.querySelector('.h-app-bar-root')

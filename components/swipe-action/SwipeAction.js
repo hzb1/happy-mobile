@@ -1,9 +1,10 @@
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 import SwipeRevealItem from '../core/Swipe'
 
-@Component({
+const style = require('./swipe-action.inline.css')
+@MetaData({
   tag: 'h-swipe-action',
-  prop: [
+  props: [
     {
       name: 'content',
       type: String,
@@ -15,41 +16,14 @@ import SwipeRevealItem from '../core/Swipe'
       default: 'text',
     },
   ],
-  template(data) {
-    return `
-      <div class="h-swipe-action-root">
-          <!--<div class="swipe-element">-->
-              <div class="swipe-front">
-                <div class="swipe-left" id="swipe-left">
-                  <slot id="slot-left" name="left"></slot>
-                </div>
-                <div class="swipe-default" id="swipe-default">
-                    <slot id="slot-default"></slot>
-                </div>
-                <div class="swipe-right" id="swipe-right">
-                  <slot id="slot-right" name="right"></slot>
-                </div>
-              </div>
-          <!--</div>-->
-      </div>
-    `
-  },
-  styleUrl: require('./swipe-action.inline.css'),
 })
-export default class SwipeAction extends BaseComponent {
+export default class SwipeAction extends Component {
   static get observedAttributes() {
     return ['content', 'mask']
   }
 
   constructor() {
     super()
-    this.attachShadow({ mode: 'open' })
-    const template = document.createElement('template')
-    template.innerHTML = `
-      <style>${this.$style()}</style>
-      ${this.$template(this)}
-    `
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.root = this.shadowRoot.querySelector('.h-swipe-action-root')
     const swipeFront = this.shadowRoot.querySelector('.swipe-front')
 
@@ -75,39 +49,33 @@ export default class SwipeAction extends BaseComponent {
     })
   }
 
-  init() {
-    if (!this.firstLoad) {
-      this.initMethod()
-      this.initClass()
-      this.firstLoad = true
-    }
-    this.initAttribute()
+  render() {
+    return `
+        <style>${style()}</style>
+        <div class="h-swipe-action-root">
+            <!--<div class="swipe-element">-->
+                <div class="swipe-front">
+                  <div class="swipe-left" id="swipe-left">
+                    <slot id="slot-left" name="left"></slot>
+                  </div>
+                  <div class="swipe-default" id="swipe-default">
+                      <slot id="slot-default"></slot>
+                  </div>
+                  <div class="swipe-right" id="swipe-right">
+                    <slot id="slot-right" name="right"></slot>
+                  </div>
+                </div>
+            <!--</div>-->
+        </div>
+    `
   }
 
   connectedCallback() {
-    this.init()
   }
 
-  initClass() {
-    ['h-toast'].forEach((cla) => {
-      this.classList.add(cla)
-    })
-  }
-
-  initAttribute() {
-    // this.setAttribute('content', this.content)
-  }
-
-  initMethod() {
-  }
-
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    // console.log(attrName, 'oldVal:', oldVal, 'newVal:',newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
-    switch (attrName) {
-      case 'content':
-        this.root.querySelector('.h-toast-content').innerHTML = newVal
-    }
+  @Watch('content')
+  _contentWatch(attrName, oldVal, newVal) {
+    this.root.querySelector('.h-toast-content').innerHTML = newVal
   }
 
   // 从DOM中移除时调用

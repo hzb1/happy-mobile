@@ -1,3 +1,5 @@
+import list from '../../config'
+
 const html = require('./home.html')
 
 export default class Home extends HTMLElement {
@@ -8,106 +10,7 @@ export default class Home extends HTMLElement {
   constructor() {
     super()
 
-    this.list = [
-      {
-        name: '基础',
-        children: [
-          {
-            name: '按钮 Button',
-            link: '#button',
-          },
-          {
-            name: '图标 Icon',
-            link: '#icon',
-          },
-          {
-            name: '遮罩 Mask',
-            link: '#mask',
-          },
-        ],
-      },
-      {
-        name: '数据展示',
-        children: [
-          {
-            name: '滑动操作 SwipeAction',
-            link: '#swipe-action',
-          },
-          {
-            name: '轮播 Carousel',
-            link: '#carousel',
-          },
-          // {
-          //   name: '手风琴 Accordion',
-          //   link: '#accordion',
-          // },
-          {
-            name: '图片懒加载 Img',
-            link: '#img',
-          },
-        ],
-      },
-      {
-        name: '反馈',
-        children: [
-          {
-            name: '轻提示 Toast',
-            link: '#toast',
-          },
-          // {
-          //   name: '气泡 Popover',
-          //   link: '#popover',
-          // },
-        ],
-      },
-      {
-        name: '表单',
-        children: [
-          {
-            name: '表单 Form',
-            link: '#form',
-          },
-          // {
-          //   name: '选择器 Select',
-          //   link: '#select',
-          // },
-          {
-            name: '开关 Switch',
-            link: '#switch',
-          },
-          {
-            name: '滑块 Slider',
-            link: '#slider',
-          },
-          {
-            name: '复选框 Checkbox',
-            link: '#checkbox',
-          },
-          {
-            name: '选择器 Picker',
-            link: '#picker',
-          },
-        ],
-      },
-      {
-        name: '拉动',
-        children: [
-          {
-            name: '拉动刷新 PullRefresh',
-            link: '#pull-refresh',
-          },
-        ],
-      },
-      // {
-      //   name: '布局',
-      //   children: [
-      //     {
-      //       name: 'AppBar',
-      //       link: '#app-bar',
-      //     },
-      //   ],
-      // },
-    ]
+    this.list = list
   }
 
   connectedCallback() {

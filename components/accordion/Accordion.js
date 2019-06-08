@@ -1,4 +1,4 @@
-import BaseComponent from '../core/base-component'
+import Component from '../core/base-component'
 import Component from '../core/web-component'
 
 @Component({
@@ -13,7 +13,7 @@ import Component from '../core/web-component'
 
   styleUrl: require('./accordion.inline.css'),
 })
-export default class Accordion extends BaseComponent {
+export default class Accordion extends Component {
   static get observedAttributes() {
     return ['value']
   }

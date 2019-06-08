@@ -1,17 +1,18 @@
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 import * as animation from '../core/animation/index'
 import { transitionMap } from '../core/animation/transition'
 
-@Component({
+const style = require('./mask.inline.css');
+@MetaData({
   tag: 'h-mask',
-  prop: [
+  props: [
     {
-      name: 'view',
+      name: 'value',
       type: Boolean,
       default: true,
     },
     {
-      name: 'bc',
+      name: 'backgroundColor',
       type: String,
       default: 'rgba(0,0,0, 0.35)',
     },
@@ -26,30 +27,24 @@ import { transitionMap } from '../core/animation/transition'
       default: '', // fade
     },
   ],
-  template(data) {
-    return `
-        <div class="h-mask-root" style="background-color: ${data.bc}">
-            <slot id="slot-default"></slot>
-        </div>
-    `
-  },
-  styleUrl: require('./mask.inline.css'),
 })
-export default class Mask extends BaseComponent {
+export default class Mask extends Component {
   static get observedAttributes() {
-    return ['bc', 'view']
+    return ['backgroundColor', 'value']
   }
 
   constructor() {
     super()
-    this.attachShadow({ mode: 'open' })
-    const template = document.createElement('template')
-    template.innerHTML = `
-      <style>${this.$style()}</style>
-      ${this.$template(this)}
-    `
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.root = this.shadowRoot.querySelector('.h-mask-root')
+  }
+
+  render() {
+    return `
+        <style>${style()}</style>
+        <div class="h-mask-root" style="background-color: ${this.bc}">
+            <slot id="slot-default"></slot>
+        </div>
+    `
   }
 
   show(name) {
@@ -87,7 +82,6 @@ export default class Mask extends BaseComponent {
   }
 
   init() {
-    this.initAttribute()
     this.root.addEventListener('click', () => {
       this.emit('backdrop', this)
     }, false)
@@ -95,36 +89,22 @@ export default class Mask extends BaseComponent {
 
   connectedCallback() {
     this.init()
-    // if (this.view) this.show()
+    // if (this.value) this.show()
   }
 
   initAttribute() {
-    this.setAttribute('bc', this.bc)
-    this.setAttribute('view', this.view)
+    this.setAttribute('backgroundColor', this.backgroundColor)
+    this.setAttribute('value', this.value)
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    switch (attrName) {
-      // case 'show':
-      //   if (this.show) {
-      //     console.log(this.show, 'this')
-      //     this.show()
-      //   } else {
-      //     this.hide()
-      //   }
-      //   return;
-      case 'bc':
-        this.root.style.backgroundColor = this.bc
-        return
-      case 'view':
-        if (this.view) {
-          this.show()
-        } else {
-          this.hide()
-        }
-        return
-    }
+  @Watch('backgroundColor')
+  _backgroundColorWatch(attrName, oldVal, newVal) {
+    this.root.style.backgroundColor = this.bc
+  }
+
+  @Watch('value')
+  _valueWatch(attrName, oldVal, newVal) {
+    this.value ? this.show() : this.hide()
   }
 
   disconnectedCallback() {

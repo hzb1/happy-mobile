@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="../../../../dist/happy-mobile.css">
+<style>
+</style>
+
+<section class="demo-page search-bar-demo-page">
+    <app-block title="基本使用">
+        <h-search-bar placeholder="请输入关键字..."></h-search-bar>
+    </app-block>
+</section>
+
+<script>
+    var searchBarPage = document.querySelector('.search-bar-demo-page')
+    var searchBar = searchBarPage.querySelector('h-search-bar')
+    var Toast = window.happy.Toast
+
+    searchBar.addEventListener('h-input', (ev) => {
+      if (ev.detail) Toast.show(`input: ${ev.detail}`)
+    })
+    searchBar.addEventListener('search', (ev) => {
+      if (ev.detail) Toast.show(`search: ${ev.detail}`)
+    })
+</script>

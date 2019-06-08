@@ -51,9 +51,6 @@
     pointer-events: none;
     overflow: hidden;
     z-index: 1;
-    //border-width: 1px;
-    //border-style: solid;
-    //border-color: var(--h-theme-border, #eee);
   }
 
   // 动画
@@ -122,15 +119,15 @@
   }
 }
 
-.h-button--secondary{
+.h-button--white{
   color: var(--h-theme-text-87, rgba(0,0,0,.87));
-  background-color: var(--h-theme-secondary, #ffffff);
+  background-color: var(--h-theme-white, #ffffff);
   &:before{ border: 1px solid var(--h-theme-border, #eeeeee) };
   &[outline]{
     color: var(--h-theme-text-87, rgba(0, 0, 0, .87));
     &:before{ border: 1px solid var(--h-theme-border, #eeeeee) };
     &:after{
-      background-color: var(--h-theme-secondary, #ffffff);
+      background-color: var(--h-theme-white, #ffffff);
     }
     &:active{
       &:after{
@@ -157,15 +154,15 @@
   }
 }
 
-.h-button--success{
+.h-button--green{
   color: var(--h-theme-on-primary, white);
-  background-color: var(--h-theme-success, #26bf2c);
+  background-color: var(--h-theme-green, #26bf2c);
 
   &[outline]{
-    color: var(--h-theme-success, #26bf2c);
-    &:before{ border: 1px solid var(--h-theme-success, #26bf2c) };
+    color: var(--h-theme-green, #26bf2c);
+    &:before{ border: 1px solid var(--h-theme-green, #26bf2c) };
     &:after{
-      background-color: var(--h-theme-success, #26bf2c);
+      background-color: var(--h-theme-green, #26bf2c);
     }
   }
 }
@@ -206,19 +203,11 @@
   font-size: 12px;
   padding-left: 10px;
   padding-right: 10px;
-
-  h-icon{
-    //margin-right: 4px;
-  }
 }
 .h-button--medium {
   height: 44px;
   line-height: 44px;
   font-size: 16px;
-
-  h-icon{
-    //margin-right: 6px;
-  }
 }
 .h-button--large {
   height: 52px;
@@ -226,19 +215,12 @@
   font-size: 22px;
   padding-left: 16px;
   padding-right: 16px;
-
-  h-icon{
-    //margin-right: 8px;
-  }
 }
 
 /**
   禁用
  */
 .h-button--disabled{
-  //background-color: rgba(0, 0, 0, 0.12);
-  //color: rgba(0, 0, 0, 0.37);
-  //opacity: .4;
   cursor: default;
   pointer-events: none;
   &::after{

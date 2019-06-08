@@ -1,8 +1,8 @@
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 
-@Component({
-  tag: 'h-img',
-  prop: [
+@MetaData({
+  tag: 'h-lazy-img',
+  props: [
     {
       name: 'src',
       type: String,
@@ -19,13 +19,8 @@ import { BaseComponent, Component } from '../core'
       default: 0,
     },
   ],
-  template(data) {
-    return `
-       
-    `
-  },
 })
-export default class Img extends BaseComponent {
+export default class LazyImg extends Component {
 
   static get observedAttributes() {
     return ['src']
@@ -33,18 +28,16 @@ export default class Img extends BaseComponent {
 
   constructor() {
     super()
-    // this.attachShadow({ mode: 'open' })
-    // const template = document.createElement('template')
-    // template.innerHTML = `
-    //
-    // `
-    // this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.root = this.shadowRoot.querySelector('.h-img-root')
   }
 
   render() {
     return `
       <style>
+        :host{
+            display: block;
+            width: 100%;
+        }
         .h-img-root{
             display: block;
             width: 100%;
@@ -58,7 +51,27 @@ export default class Img extends BaseComponent {
     `
   }
 
-  load() {
+  connectedCallback() {
+    this.init()
+  }
+
+  init() {
+    const options = {
+      // root: this.closest('h-carousel') ? this.closest('h-carousel') : null,
+      // rootMargin: '0px',
+      // threshold: 1
+      threshold: this.threshold
+    }
+    this.io = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        this.setSrc()
+        this.removeIO()
+      }
+    }, options)
+    this.io.observe(this)
+  }
+
+  setSrc() {
     this.root.src = this.src
   }
 
@@ -69,45 +82,9 @@ export default class Img extends BaseComponent {
     }
   }
 
-  init() {
-
-    const options = {
-      // root: this.closest('h-carousel') ? this.closest('h-carousel') : null,
-      // rootMargin: '0px',
-      threshold: this.threshold
-    }
-    this.io = new IntersectionObserver((entries, observer) => {
-      if (entries[0].isIntersecting) {
-        this.load()
-        this.removeIO()
-      }
-    }, options)
-    this.io.observe(this)
-    this.firstLoad = true
-    this.initAttribute()
-  }
-
-  connectedCallback() {
+  @Watch('src')
+  _srcWatch(attrName, oldVal, newVal) {
     this.init()
-  }
-
-  initAttribute() {
-    if (this.src) {
-      // this.setAttribute('src', this.src)
-    }
-  }
-
-  initMethod() {
-  }
-
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    console.log(attrName, 'oldVal:', oldVal, 'newVal:', newVal, '属性改变时调用', typeof newVal, 'attrName', this[attrName])
-    switch (attrName) {
-      case 'src':
-        this.init()
-        break
-    }
   }
 
   // 从DOM中移除时调用

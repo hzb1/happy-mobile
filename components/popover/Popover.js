@@ -1,7 +1,7 @@
 
 import Popovers from 'popper.js'
 import Tooltip from 'tooltip.js'
-import { BaseComponent, Component } from '../core'
+import { Component, Component } from '../core'
 import * as animation from '../core/animation/index'
 
 // 文档 https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/tooltip-documentation.md
@@ -79,7 +79,7 @@ import * as animation from '../core/animation/index'
   },
   styleUrl: require('./popover.inline.css'),
 })
-export default class Popover extends BaseComponent {
+export default class Popover extends Component {
   static get observedAttributes() {
     return ['placement', 'arrowSelector', 'innerSelector', 'delay', 'html', 'template', 'title', 'trigger', 'closeOnClickOutside', 'boundariesElement', 'offset', 'popperOptions']
   }

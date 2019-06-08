@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HAPPY-MOBILE</title>
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, happy-mobile, HAPPY-MOBILE, 组件, 原生js组件库, WebComponents">
+    <meta name="description" content="happy-mobile 一套原生JS组件库，基于WebComponents。">
+    <link rel="stylesheet" href="../../dist/happy-mobile.css">
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">-->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>-->
+</head>
+<body>
+
+<div class="app-wrap">
+    <header class="app-header">
+        <a class="logo">
+            <h1>HAPPY-MOBILE</h1>
+        </a>
+
+        <div class="theme">
+            <input id="theme-input" type="color"/>
+        </div>
+
+    </header>
+    <main class="app-main">
+        <nav class="app-nav">
+            <div class="app-nav-item">
+                <h3>开发指南</h3>
+                <ul>
+                    <li>
+                        <a href="#intro">介绍</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="app-nav-item">
+                <h3>组件</h3>
+                <div class="component-container" id="component-container">
+
+                </div>
+            </div>
+        </nav>
+        <div class="app-container" id="app-container">
+            <component-container></component-container>
+        </div>
+        <div class="app-iframe">
+            <iframe src="http://0.0.0.0:7777/" frameborder="0" ></iframe>
+        </div>
+    </main>
+</div>
+
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>

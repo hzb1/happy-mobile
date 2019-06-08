@@ -6,11 +6,19 @@
         box-sizing: border-box;
         background-color: white;
     }
+    .demo-mask-page{
+
+    }
+
+    .demo-mask-page #mask1{
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
-<section class="demo-page">
+<section class="demo-mask-page">
     <app-block title="基本使用">
-        <h-mask id="mask1" style="display: none">
+        <h-mask id="mask1">
             <div class="my-mask-slot">
                 <h-button inline onclick="hide1()" style="margin-top: 20px">hide</h-button>
             </div>
@@ -43,8 +51,8 @@
 <script>
     // 最简单的mask
     var mask1 = document.querySelector('app-mask').querySelector('#mask1')
-    var show1 = function (animation) {
-      mask1.show(animation)
+    var show1 = function () {
+      mask1.show()
     }
     var hide1 = function () {
       mask1.hide()

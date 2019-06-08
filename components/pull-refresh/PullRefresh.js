@@ -1,14 +1,15 @@
 // PullRefresh 上拉刷新 上拉加载
 
 
-import { BaseComponent, Component } from '../core'
+import { Component, MetaData, Watch } from '../core'
 import { getEventXY, requestAnimFrame } from '../core/util/util'
 
 
 // 事件 down-refresh
-@Component({
+const style = require('./pull-refresh.inline.css')
+@MetaData({
   tag: 'h-pull-refresh',
-  prop: [
+  props: [
     {
       name: 'state', // 状态
       type: String,
@@ -30,9 +31,8 @@ import { getEventXY, requestAnimFrame } from '../core/util/util'
       default: 25,
     },
   ],
-  styleUrl: require('./pull-refresh.inline.css'),
 })
-export default class PullRefresh extends BaseComponent {
+export default class PullRefresh extends Component {
   static get observedAttributes() {
     return ['state']
   }
@@ -74,7 +74,7 @@ export default class PullRefresh extends BaseComponent {
 
   render() {
     return `
-        <style>${this.$style()}</style>
+        <style>${style()}</style>
         <div class="h-pull-refresh-root" >
             <div class="h-pull-down"></div>
             <div class="h-pull-refresh">
@@ -88,11 +88,6 @@ export default class PullRefresh extends BaseComponent {
   get heightDValue() {
     const pullBox = this.root.querySelector('.h-pull-refresh')
     return this.getBoundingClientRect().height - pullBox.getBoundingClientRect().height
-  }
-
-  _watchState() {
-    this.currentState = this.state
-    this.changeState()
   }
 
   init() {
@@ -123,12 +118,10 @@ export default class PullRefresh extends BaseComponent {
     this.setAttribute('distanceToRefresh', this.distanceToRefresh)
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    if (!this.firstLoad) return
-    switch (attrName) {
-      case 'state':
-        this._watchState()
-    }
+  @Watch('state')
+  _stateWatch(attrName, oldVal, newVal) {
+    this.currentState = this.state
+    this.changeState()
   }
 
   disconnectedCallback() {

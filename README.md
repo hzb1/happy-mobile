@@ -1,6 +1,6 @@
 
 # [happy-mobile-ui](https://github.com/hzb1/happy-mobile)
-一套原生JS组件库
+一套原生JS组件库，基于WebComponents
 - [Demo](https://hzb1.github.io/happy-mobile/example/js/dist)
 
 ## 安装使用

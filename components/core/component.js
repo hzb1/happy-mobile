@@ -1,19 +1,18 @@
 /* eslint-disable no-console, class-methods-use-this */
 
-class BaseComponent extends HTMLElement {
+// Component
+class Components extends HTMLElement {
   constructor() {
     super()
+    this.itemName = 'happy-mobile'
+
+    // if (!this.attributeWatchMap) this.attributeWatchMap = new Map()
 
     if (typeof this.render === 'function') {
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = `${this.render()}`
     }
   }
-
-  // 渲染
-  // render() {
-  //
-  // }
 
   // 注册
   static register(name = this.prototype.$tag) {
@@ -26,6 +25,14 @@ class BaseComponent extends HTMLElement {
     } catch (e) {
       throw e
     }
+  }
+
+  // @Watch
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    // if (!this.firstLoad) return
+    if (!this.attributeWatchMap.has(attrName)) return
+    const fun = this.attributeWatchMap.get(attrName)
+    fun.call(this, attrName, oldVal, newVal)
   }
 
   /**
@@ -68,13 +75,13 @@ class BaseComponent extends HTMLElement {
     this.removeEventListener(evNmae, handler)
   }
 
-  wran(message = '') {
-    console.warn(`[happy-mobile]: ${message}`)
+  consoleWran(message = '') {
+    console.warn(`[${this.itemName}]: ${message}`)
   }
 
-  error(message = '') {
-    console.error(`[happy-mobile]: ${message}`)
+  consoleError(message = '') {
+    console.error(`[${this.itemName}]: ${message}`)
   }
 }
 
-export default BaseComponent
+export default Components

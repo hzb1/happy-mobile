@@ -1,13 +1,13 @@
-import BaseComponent from '../core/base-component'
-import Component from '../core/web-component'
 
-@Component({
+import { MetaData, Watch, Component } from '../core'
+
+const style = require('./switch.inline.css')
+@MetaData({
   tag: 'h-switch',
-  prop: [
+  props: [
     {
       name: 'value',
       type: Boolean,
-      has: true,
       default: false,
     },
     {
@@ -16,9 +16,8 @@ import Component from '../core/web-component'
       default: '',
     },
   ],
-  styleUrl: require('./switch.inline.css'),
 })
-export default class Switch extends BaseComponent{
+export default class Switch extends Component{
   static get observedAttributes() {
     return ['value']
   }
@@ -30,7 +29,7 @@ export default class Switch extends BaseComponent{
 
   render() {
     return `
-        <style>${this.$style()}</style>
+        <style>${style()}</style>
         <div id="h-switch" class="h-switch ${this.value ? 'checked' : ''}">
             <div class="h-switch-box"></div>
         </div>
@@ -38,12 +37,9 @@ export default class Switch extends BaseComponent{
   }
 
   connectedCallback() {
-    if (!this.firstLoad){
-      this.initMethod()
-      // this.initClass()
-      this._listener()
-      this.firstLoad = true
-    }
+
+    this.initMethod()
+    this._listener()
     this.initAttribute()
     // console.log(this.value)
   }
@@ -71,22 +67,12 @@ export default class Switch extends BaseComponent{
 
   _listener() {
     const switchBox = this.root.querySelector('.h-switch-box')
-    switchBox.addEventListener('click', () => {
-      this.value = !this.value
-    })
+    switchBox.addEventListener('click', () => this.value = !this.value)
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    // console.log(oldVal, 'data 变化', newVal)
-    if (!this.firstLoad) return
-    switch (attrName) {
-      case 'value':
-        this._watchValue()
-    }
-  }
-
-  _watchValue() {
-    this.root.classList.toggle('checked')
+  @Watch('value')
+  _valueWatch(attrName, oldVal, newVal) {
+    this.root.classList.toggle('checked', this.value)
     this.emit('change', this.value)
     if (this.name) {
       const form = this.closest('form');

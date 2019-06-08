@@ -1,49 +1,51 @@
 
 // import 'core-js'
-import 'core-js/stable'
+// import 'core-js/stable'
 // import 'core-js-pure/stable'
 import { version } from '../package'
 import './theme.scss'
-import './form/form.scss'
+// import './form/form.scss'
 
 import Button from './button'
 import Icon from './icon'
-import Img from './img'
+import LazyImg from './lazy-img'
 import Toast from './toast'
-import Popover from './popover'
+// import Popover from './popover'
 import SwipeAction from './swipe-action'
-import Swipe from './swipe'
-import { Carousel, CarouselItem } from './carousel/index'
+// import Swipe from './swipe'
+import Carousel from './carousel'
 import Mask from './mask'
-import AppBar from './app-bar'
-import Accordion from './accordion'
+// import AppBar from './app-bar'
+// import Accordion from './accordion'
 import Picker from './picker'
 import Switch from './switch'
 import Slider from './slider'
 import Checkbox from './checkbox'
-import Select from './select'
+// import Select from './select'
 import PullRefresh from './pull-refresh'
+import SearchBar from './search-bar'
 
 const happy = {
   version,
   Button,
   Icon,
-  Img,
+  LazyImg,
   Toast,
-  Popover,
+  // Popover,
   Mask,
   SwipeAction,
   Carousel,
-  CarouselItem,
-  AppBar,
+  // CarouselItem,
+  // AppBar,
   Picker,
-  Accordion,
+  // Accordion,
   Switch,
   Slider,
   Checkbox,
-  Select,
-  Swipe,
+  // Select,
+  // Swipe,
   PullRefresh,
+  SearchBar,
 }
 
 if (typeof window !== 'undefined' || !window.happy) {

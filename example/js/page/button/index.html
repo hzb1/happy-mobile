@@ -1,23 +1,19 @@
-<div class="code-css">
+<div class="demo-css">
     <!--<link rel="stylesheet" href="../../../../dist/button/button.css">-->
-    <style>
-
-
-
-    </style>
 </div>
 
 <!--html 开始-->
-<section class="demo-page">
+<section class="demo-html">
     <app-block title="基本使用">
-        <h-button id="h-btn1">组件 Button</h-button>
+        <h-button id="h-btn1">Button</h-button>
     </app-block>
 
     <app-block title="颜色 Color">
         <h-button color="primary">primary</h-button>
-        <h-button color="secondary">secondary</h-button>
-        <h-button color="success">success</h-button>
-        <h-button color="error">error</h-button>
+        <h-button color="white">white</h-button>
+        <h-button color="green">green</h-button>
+        <h-button color="yellow">yellow</h-button>
+        <h-button color="red">red</h-button>
     </app-block>
 
     <app-block title="内联 Inline">
@@ -25,18 +21,15 @@
     </app-block>
 
     <app-block title="阴影 Shadow">
-        <h-button shadow id="btn2" inline>shadow</h-button>
-        <h-button shadow color="secondary" inline>shadow</h-button>
-        <h-button shadow color="success" inline>shadow</h-button>
-        <h-button shadow color="warn" inline>shadow</h-button>
-        <h-button shadow color="error" inline>shadow</h-button>
+        <h-button shadow>shadow</h-button>
     </app-block>
 
     <app-block title="边框 Outline">
         <h-button outline inline>outline</h-button>
-        <h-button outline color="secondary" inline>outline</h-button>
-        <h-button outline color="warn" inline>outline</h-button>
-        <h-button outline color="error" inline>outline</h-button>
+        <h-button outline color="white" inline>outline</h-button>
+        <h-button outline color="green" inline>outline</h-button>
+        <!--<h-button outline color="yellow" inline>outline</h-button>-->
+        <h-button outline color="red" inline>outline</h-button>
     </app-block>
 
     <app-block title="大小 Size">
@@ -47,14 +40,15 @@
 
     <app-block title="禁用 Disabled">
         <h-button disabled inline id="btn3">禁用</h-button>
-        <h-button disabled color="secondary" inline>secondary</h-button>
-        <h-button disabled color="success" inline>success</h-button>
-        <h-button disabled color="warn" inline>warn</h-button>
-        <h-button disabled color="error" inline>error</h-button>
+        <h-button disabled color="white" inline>white</h-button>
+        <h-button disabled color="green" inline>green</h-button>
+        <!--<h-button disabled color="yellow" inline>yellow</h-button>-->
+        <h-button disabled color="red" inline>red</h-button>
     </app-block>
 
     <app-block title="加载 Loading">
-        <h-button id="h-btn4" class="my-class">Loading</h-button>
+        <h-button loading >Loading</h-button>
+        <h-button id="h-loading" class="my-class">Loading</h-button>
     </app-block>
 
     <app-block title="图标按钮">
@@ -63,15 +57,15 @@
                 margin-left: 4px;
             }
         </style>
-        <h-button size="small" color="secondary" inline>
+        <h-button size="small" color="white" inline>
             <h-icon type="check-circle"></h-icon>
             <span>Icon</span>
         </h-button>
-        <h-button size="medium" color="warn" inline>
+        <h-button size="medium" color="yellow" inline>
             <h-icon type="check-circle"></h-icon>
             <span>Icon</span>
         </h-button>
-        <h-button size="large" color="error" inline>
+        <h-button size="large" color="red" inline>
             <h-icon type="check-circle"></h-icon>
             <span>Icon</span>
         </h-button>
@@ -108,14 +102,3 @@
     </app-block>
 </section>
 <!--html 结束-->
-
-<script>
-  var btn1 = document.querySelector('#h-btn1')
-  var btn4 = document.querySelector('#h-btn4')
-    btn4.addEventListener('click', function () {
-      this.loading = true
-      setTimeout(function () {
-        btn4.loading = false
-      }, 1000)
-    }, false)
-</script>

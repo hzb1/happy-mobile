@@ -21,6 +21,8 @@
   ],
   "scripts": {
     "dev": "npm run dev-example && npm run build:main-dev",
+    "start:docs": "cd docs && npm run start",
+    "build:docs": "cd docs && npm run build",
     "build": "npm run clean && npm run build:main && npm run build:common && npm run build:c",
     "build:main-dev": "webpack --mode development",
     "build:main": "webpack --mode production",
