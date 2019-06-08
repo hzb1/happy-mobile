@@ -1,5 +1,6 @@
 
 import navConfig from '../../../example/js/config'
+import { iframeBaseUrl } from '../../config'
 
 const appIframe = document.querySelector('.app-iframe')
 const iframe = appIframe.querySelector('iframe')
@@ -27,7 +28,7 @@ class Route {
       this.routeView.path = this.routes.get(path).path
 
       // 修改iframe状态
-      iframe.src = `http://0.0.0.0:7777/${path}`
+      iframe.src = `${iframeBaseUrl}/${path}`
 
       // 修改nav状态
       const cList = component.querySelectorAll('a.list')
