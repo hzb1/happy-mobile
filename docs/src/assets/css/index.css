@@ -45,7 +45,7 @@ html,body {
     height: 100%;
     flex-shrink: 0;
     background-color: white;
-    padding: 25px 0 100px;
+    padding: 10px 0 100px;
     position: fixed;
     top: 50px;
     left: 0;
@@ -61,10 +61,10 @@ html,body {
     display: block;
     color: #333;
     font-size: 18px;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 25px;
     line-height: 24px;
-    -webkit-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: color .3s;
+    transition: color .3s;
 }
 
 .app-nav .app-nav-item a,
@@ -73,10 +73,10 @@ html,body {
     display: block;
     color: #444;
     font-size: 14px;
-    padding: 8px 10px 8px 30px;
+    padding: 5px 10px 5px 25px;
     line-height: 22px;
-    -webkit-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: color .3s;
+    transition: color .3s;
 }
 
 .app-nav .app-nav-item h6{

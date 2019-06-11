@@ -11,6 +11,10 @@
     z-index: 999;
 }
 
+.h-picker-popup-mask{
+    background-color: rgba(0, 0, 0, .55);
+}
+
 .h-picker-popup, .h-picker-popup-mask, .h-picker-popup-wrap {
     position: fixed;
     bottom: 0;

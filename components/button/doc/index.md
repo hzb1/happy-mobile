@@ -1,4 +1,4 @@
-### 注册组件
+### 注册
 ```javascript
 import 'happy-mobile/dist/button/button'
 ```
@@ -8,7 +8,7 @@ import 'happy-mobile/dist/button/button'
 ```
 
 ### 颜色 Color
-支持`primary`、`white`、`green`、`error` 默认为`primary`
+支持`primary`、`white`、`green`、`yellow` `error` 默认为`primary`
 ```html
 <h-button color="primary">primary</h-button>
 <h-button color="white">white</h-button>
@@ -40,6 +40,7 @@ import 'happy-mobile/dist/button/button'
 <h-button size="large" shadow inline>大 large</h-button>
 ```
 ### 禁用 Disabled
+ disabled为true时，用户无法click
 ```html
 <h-button disabled inline>禁用</h-button>
 <h-button disabled color="white" inline>white</h-button>
@@ -47,6 +48,7 @@ import 'happy-mobile/dist/button/button'
 <h-button disabled color="error" inline>error</h-button>
 ```
 ### 加载 Loading
+Loading时，disabled为true
 ```html
 <h-button loading>Loading</h-button>
 <h-button id="h-loading">Loading</h-button>
@@ -60,10 +62,31 @@ loadingButton.addEventListener('click', () => {
 })
 ```
 
+### 图标按钮
+需要使用搭配[h-icon](#icon)使用
+```html
+<!-- css -->
+<style> h-button > h-icon+span{ margin-left: 4px; } </style>
+
+<!-- html -->
+<h-button size="small" color="white" inline>
+    <h-icon type="check-circle"></h-icon>
+    <span>Icon</span>
+</h-button>
+<h-button size="medium" color="yellow" inline>
+    <h-icon type="check-circle"></h-icon>
+    <span>Icon</span>
+</h-button>
+<h-button size="large" color="red" inline>
+    <h-icon type="check-circle"></h-icon>
+    <span>Icon</span>
+</h-button>
+```
+
 ### 属性 attribute
 属性名 | 类型 | 默认值 | 说明
 ----|-----|------|------
-color | string | `primary` | 按钮颜色，可选值为`primary` `white` `green` `error`
+color | string | `primary` | 按钮颜色，可选值为`primary` `white` `green` `yellow` `error`
 size | string | `medium` | 按钮大小，可选值为`medium` `small` `large`
 loading | boolean | `false` | 加载状态
 outline | boolean | `false` | 镂空button

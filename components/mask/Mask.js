@@ -35,13 +35,15 @@ export default class Mask extends Component {
 
   constructor() {
     super()
+    console.log('backgroundColor1', this.backgroundColor)
     this.root = this.shadowRoot.querySelector('.h-mask-root')
+
   }
 
   render() {
     return `
         <style>${style()}</style>
-        <div class="h-mask-root" style="background-color: ${this.bc}">
+        <div class="h-mask-root" style="background-color: ${this.backgroundColor}">
             <slot id="slot-default"></slot>
         </div>
     `

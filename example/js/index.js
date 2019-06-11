@@ -8,7 +8,7 @@ import route from './route/index.js'
 import './components'
 
 // console.log('Button', Button)
-// window.happy = happy
+window.happy = happy
 // import store from './store/index.js'
 
 const { hash } = window.location

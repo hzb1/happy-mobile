@@ -4,18 +4,7 @@ import SwipeRevealItem from '../core/Swipe'
 const style = require('./swipe-action.inline.css')
 @MetaData({
   tag: 'h-swipe-action',
-  props: [
-    {
-      name: 'content',
-      type: String,
-      default: '',
-    },
-    {
-      name: 'type',
-      type: String,
-      default: 'text',
-    },
-  ],
+  props: [],
 })
 export default class SwipeAction extends Component {
   static get observedAttributes() {

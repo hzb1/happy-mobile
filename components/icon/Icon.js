@@ -1,6 +1,5 @@
 import { Component, MetaData, Watch } from '../core'
 import icons from '../core/icon'
-import { styleColor } from '../button/styleMap'
 
 const requests = new Map()
 const svgSprite = contents => `

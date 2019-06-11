@@ -38,7 +38,7 @@ const routes = new Map([
   [ '#slider', { path: '#slider', component: slider }],
   [ '#checkbox', { path: '#checkbox', component: checkbox }],
   [ '#picker', { path: '#picker', component: picker }],
-  [ '#img', { path: '#form', component: img }],
+  [ '#lazy-img', { path: '#form', component: img }],
 
   [ '#mask', { path: '#mask', component: mask }],
   [ '#carousel', { path: '#carousel', component: carousel }],

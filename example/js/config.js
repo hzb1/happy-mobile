@@ -37,9 +37,9 @@ export default [
       //   link: '#accordion',
       // },
       {
-        name: '图片懒加载 Img',
-        link: '#img',
-        view: 'img',
+        name: '图片懒加载 LazyImg',
+        link: '#lazy-img',
+        view: 'lazy-img',
       },
     ],
   },
@@ -60,11 +60,11 @@ export default [
   {
     name: '表单',
     children: [
-      {
-        name: '表单 Form',
-        link: '#form',
-        view: 'form',
-      },
+      // {
+      //   name: '表单 Form',
+      //   link: '#form',
+      //   view: 'form',
+      // },
       // {
       //   name: '选择器 Select',
       //   link: '#select',

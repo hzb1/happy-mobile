@@ -17,10 +17,58 @@ const _c = '../../../components'
 
 const introPage = () => import('../pages/intro/index.md')
 const buttonPage = () => import('../../../components/button/doc/index.md')
+const iconPage = () => import('../../../components/icon/doc/index.md')
+const maskPage = () => import('../../../components/mask/doc/index.md')
+const swipeActionPage = () => import('../../../components/swipe-action/doc/index.md')
+const carouselPage = () => import('../../../components/carousel/doc/index.md')
+const lazyImgPage = () => import('../../../components/lazy-img/doc/index.md')
+const toastPage = () => import('../../../components/toast/doc/index.md')
+const switchPage = () => import('../../../components/switch/doc/index.md')
+const sliderPage = () => import('../../../components/slider/doc/index.md')
+const checkboxPage = () => import('../../../components/checkbox/doc/index.md')
+const pickerPage = () => import('../../../components/picker/doc/index.md')
+const pullRefreshPage = () => import('../../../components/pull-refresh/doc/index.md')
+const searchBarPage = () => import('../../../components/search-bar/doc/index.md')
 
-// const PrismJs = () => import(/* webpackChunkName: "prismmyjs" */ '../../plugin/prism')
 
 class ComponentContainer extends HTMLElement {
+
+  getPage() {
+    const path = this.path
+    switch (path) {
+      case '#intro':
+        return introPage
+      case '#button':
+        return buttonPage
+      case '#icon':
+        return iconPage
+      case '#mask':
+        return maskPage
+      case '#swipe-action':
+        return swipeActionPage
+      case '#carousel':
+        return carouselPage
+      case '#lazy-img':
+        return lazyImgPage
+      case '#toast':
+        return toastPage
+      case '#switch':
+        return switchPage
+      case '#slider':
+        return sliderPage
+      case '#checkbox':
+        return checkboxPage
+      case '#picker':
+        return pickerPage
+      case '#pull-refresh':
+        return pullRefreshPage
+      case '#search-bar':
+        return searchBarPage
+      default:
+        console.error('404了')
+        return introPage
+    }
+  }
 
   static get observedAttributes() {
     return ['path']
@@ -46,19 +94,6 @@ class ComponentContainer extends HTMLElement {
         this.render()
         break
       default:
-    }
-  }
-
-  getPage() {
-    const path = this.path
-    switch (path) {
-      case '#intro':
-        return introPage
-      case '#button':
-        return buttonPage
-      default:
-        console.error('404了')
-        return introPage
     }
   }
 
@@ -95,17 +130,18 @@ class ComponentContainer extends HTMLElement {
                 text-align: left;
                 font-size: 15px;
                 font-weight: 500;
-                margin: 1.6em 0 .6em;
+                margin: 1.6em 0 .4em;
             }
             .demo-code-container > p{
                 font-size: 13px;
                 color: #666;
-                margin-bottom: .8em;
+                /*margin-bottom: .4em;*/
             }
             .demo-code-container a{
                 font-size: inherit;
                 color: var(--h-theme-primary);
-                margin-bottom: .8em;
+                text-decoration: underline;
+                margin: 0 .2em;
             }
             .demo-code-container ul{
                 border-radius: 4px;
@@ -175,14 +211,16 @@ class ComponentContainer extends HTMLElement {
                  /*text-transform: capitalize;*/
                  /*color: #990055;*/
             }
+            .demo-code-container > p code, 
             .demo-code-container > table code {
                     display: inline-block;
-                    background-color: #eeeeee;
+                    background-color: #f5f5f5;
                     padding: 0 .5em;
-                    font-size: 14px;
+                    /*font-size: 14px;*/
                     line-height: 1.4em;
                     border-radius: 4px;
-                    margin: .2em .2em .2em;
+                    color: #ff5722;
+                    /*margin: .2em .2em .2em;*/
             }
             .demo-code-container .hljs-section, .hljs-name{
                 color: var(--h-theme-primary);

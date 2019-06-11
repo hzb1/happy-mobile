@@ -1,9 +1,9 @@
-import Component from '../core/base-component'
 import Component from '../core/web-component'
+import { MetaData } from '../core'
 
-@Component({
+@MetaData({
   tag: 'h-accordion',
-  prop: [
+  props: [
     {
       name: 'value',
       type: Boolean,

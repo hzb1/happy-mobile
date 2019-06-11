@@ -2,7 +2,6 @@
     .my-swipe-action{
         width: 100%;
         height: 50px;
-        /*background-color: #eeeeee;*/
         color: white;
         padding: 0 12px;
         box-sizing: border-box;
@@ -36,20 +35,19 @@
                     <p>左右滑动</p>
                 </div>
             </h-swipe-action>
-            <h-swipe-action class="my-swipe-action">
-                <div class="content">
-                    <p>slot right</p>
-                    <h-icon type="right"></h-icon>
-                </div>
-                <div slot="right" class="slot-right">
-                    <span>编辑</span>
-                </div>
-            </h-swipe-action>
-
-            <h-swipe>
-                <div style="width: 100%; height: 100px; background-color: #6853d8; margin-top: 20px"></div>
-            </h-swipe>
         </div>
+    </app-block>
+
+    <app-block title="自定义 slot">
+        <h-swipe-action class="my-swipe-action">
+            <div class="content">
+                <p>slot right</p>
+                <h-icon type="right"></h-icon>
+            </div>
+            <div slot="right" class="slot-right">
+                <span>编辑</span>
+            </div>
+        </h-swipe-action>
     </app-block>
 
 </section>
