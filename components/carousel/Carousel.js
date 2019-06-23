@@ -125,9 +125,9 @@ export default class Carousel extends Component {
       // display: flex;
       item.style.display = 'inline-block'
       // flex-wrap: nowrap;
-      item.style.position = 'absolute'
-      item.style.top = '0'
-      item.style.left = `${index * item.offsetWidth}px`
+      // item.style.position = 'absolute'
+      // item.style.top = '0'
+      // item.style.left = `${index * item.offsetWidth}px`
       width += item.offsetWidth
     })
 

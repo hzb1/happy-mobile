@@ -3,13 +3,22 @@ import hljs from 'highlight.js'
 // import hljs from 'highlight.js/lib/highlight';
 // import 'highlight.js/styles/idea.css';
 // import 'highlight.js/styles/xcode.css';
+// import 'highlight.js/styles/a11y-light.css'
 // import 'highlight.js/styles/github.css'
 // import 'highlight.js/styles/atelier-cave-dark.css'
-import 'highlight.js/styles/github-gist.css'
+// import 'highlight.js/styles/github-gist.css'
+// import 'highlight.js/styles/darkula.css'
 // import javascript from 'highlight.js/lib/languages/javascript';
 // import html from 'highlight.js/lib/languages/vbscript-html';
 // hljs.registerLanguage('javascript', javascript);
 // hljs.registerLanguage('html', html);
+
+const lightStyle = () => import('highlight.js/styles/github.css')
+const darkStyle = () => import('highlight.js/styles/darkula.css')
+
+// const hljsStyle = () => {
+//   return import('highlight.js/styles/darkula.css')
+// }
 
 const _c = '../../../components'
 
@@ -18,6 +27,7 @@ const _c = '../../../components'
 const introPage = () => import('../pages/intro/index.md')
 const buttonPage = () => import('../../../components/button/doc/index.md')
 const iconPage = () => import('../../../components/icon/doc/index.md')
+const cellPage = () => import('../../../components/cell/doc/index.md')
 const maskPage = () => import('../../../components/mask/doc/index.md')
 const swipeActionPage = () => import('../../../components/swipe-action/doc/index.md')
 const carouselPage = () => import('../../../components/carousel/doc/index.md')
@@ -42,6 +52,8 @@ class ComponentContainer extends HTMLElement {
         return buttonPage
       case '#icon':
         return iconPage
+      case '#cell':
+        return cellPage
       case '#mask':
         return maskPage
       case '#swipe-action':
@@ -85,7 +97,14 @@ class ComponentContainer extends HTMLElement {
   connectedCallback() {
     const { hash } = window.location
     this.path = hash
-    // this.render()
+
+    const d = new Date()
+    const h = d.getHours()
+    if (h > 18 || h < 6) {
+      darkStyle()
+    } else {
+      lightStyle()
+    }
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
@@ -156,7 +175,7 @@ class ComponentContainer extends HTMLElement {
                 line-height: 1.5em;
             }
             .demo-code-container .hljs {
-                background: #f5f5f5;
+                /*background: #f5f5f5;*/
             }
             .demo-code-container > pre > code{
                 border-radius: 4px;
@@ -214,7 +233,7 @@ class ComponentContainer extends HTMLElement {
             .demo-code-container > p code, 
             .demo-code-container > table code {
                     display: inline-block;
-                    background-color: #f5f5f5;
+                    /*background-color: #f5f5f5;*/
                     padding: 0 .5em;
                     /*font-size: 14px;*/
                     line-height: 1.4em;
@@ -222,8 +241,10 @@ class ComponentContainer extends HTMLElement {
                     color: #ff5722;
                     /*margin: .2em .2em .2em;*/
             }
+            
+            
             .demo-code-container .hljs-section, .hljs-name{
-                color: var(--h-theme-primary);
+                /*color: var(--h-theme-primary);*/
             }
           </style>
           <div class="demo-code-container">

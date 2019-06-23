@@ -4,6 +4,7 @@ const home = () => import(/* webpackChunkName: "home" */ './../page/home/home.js
 const button = () => import(/* webpackChunkName: "button" */ '../page/button/index.js')
 const icon = () =>  import(/* webpackChunkName: "icon" */'./../page/icon/index.js')
 const mask = () =>  import(/* webpackChunkName: "mask" */'./../page/mask/index.js')
+const cell = () =>  import(/* webpackChunkName: "cell" */'./../page/cell/index.js')
 
 const img = () =>  import(/* webpackChunkName: "img" */'./../page/img/index.js')
 const swipeAction = () =>  import(/* webpackChunkName: "swipe-action" */'./../page/swipe-action/index.js')
@@ -30,6 +31,7 @@ const routes = new Map([
   // 基础
   [ '#button', { path: '#button', component: button }],
   [ '#icon', { path: '#icon', component: icon }],
+  [ '#cell', { path: '#cell', component: cell }],
 
   // 表单
   [ '#form', { path: '#form', component: form }],

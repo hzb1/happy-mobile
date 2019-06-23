@@ -9,16 +9,24 @@
         /*height: 100%;*/
         /*display: block;*/
     /*}*/
+    h-lazy-img{
+        flex-shrink: 0;
+    }
 </style>
 
 <!--html 开始-->
 <section>
     <app-block title="基本使用">
         <h-carousel class="my-carousel" style="height: 31vw; width: 100%">
-            <h-lazy-img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg" threshold="0.1"></h-lazy-img>
-            <h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" threshold="0.1"></h-lazy-img>
-            <h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" threshold="0.1"></h-lazy-img>
+            <h-lazy-img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg"></h-lazy-img>
+            <h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg"></h-lazy-img>
+            <h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"></h-lazy-img>
         </h-carousel>
+        <!--<div style="width: 100%; height: 100px; display: flex; flex-wrap: nowrap; overflow: hidden">-->
+            <!--<h-lazy-img src="https://img.alicdn.com/simba/img/TB1PcrTNiLaK1RjSZFxSuumPFXa.jpg_q50.jpg"></h-lazy-img>-->
+            <!--<h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg"></h-lazy-img>-->
+            <!--<h-lazy-img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"></h-lazy-img>-->
+        <!--</div>-->
         <style>
             .my-carousel h1 {
                 width: 100%;

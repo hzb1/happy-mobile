@@ -13,6 +13,7 @@ const MetaData = ({
   // 把props绑定到属性上 单向绑定
   props.forEach(({ name, type = String, has = false }) => {
     const prop = propObj[name]
+    // console.log(Target.prototype)
     Object.defineProperty(Target.prototype, name, {
       get() {
         const val = this.getAttribute(name)

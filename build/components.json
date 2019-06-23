@@ -2,5 +2,6 @@
   "button": "./components/button/index.js",
   "icon": "./components/icon/index.js",
   "swipe-action": "./components/swipe-action/index.js",
+  "cell": "./components/cell/index.js",
   "carousel": "./components/carousel/index.js"
 }

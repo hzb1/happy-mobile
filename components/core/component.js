@@ -5,9 +5,6 @@ class Components extends HTMLElement {
   constructor() {
     super()
     this.itemName = 'happy-mobile'
-
-    // if (!this.attributeWatchMap) this.attributeWatchMap = new Map()
-
     if (typeof this.render === 'function') {
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = `${this.render()}`
@@ -30,6 +27,7 @@ class Components extends HTMLElement {
   // @Watch
   attributeChangedCallback(attrName, oldVal, newVal) {
     // if (!this.firstLoad) return
+    if (!this.attributeWatchMap) return
     if (!this.attributeWatchMap.has(attrName)) return
     const fun = this.attributeWatchMap.get(attrName)
     fun.call(this, attrName, oldVal, newVal)

@@ -8,6 +8,8 @@ import './theme.scss'
 
 import Button from './button'
 import Icon from './icon'
+import Cell from './cell'
+import CellGroup from './cell-group'
 import LazyImg from './lazy-img'
 import Toast from './toast'
 // import Popover from './popover'
@@ -17,6 +19,7 @@ import Carousel from './carousel'
 import Mask from './mask'
 // import AppBar from './app-bar'
 // import Accordion from './accordion'
+import Form from './form'
 import Picker from './picker'
 import Switch from './switch'
 import Slider from './slider'
@@ -29,6 +32,8 @@ const happy = {
   version,
   Button,
   Icon,
+  Cell,
+  CellGroup,
   LazyImg,
   Toast,
   // Popover,
@@ -37,6 +42,7 @@ const happy = {
   Carousel,
   // CarouselItem,
   // AppBar,
+  Form,
   Picker,
   // Accordion,
   Switch,

@@ -17,6 +17,11 @@ export default [
         link: '#mask',
         view: 'mask',
       },
+      {
+        name: '单元格 Cell',
+        link: '#cell',
+        view: 'cell',
+      },
     ],
   },
   {
@@ -60,11 +65,11 @@ export default [
   {
     name: '表单',
     children: [
-      // {
-      //   name: '表单 Form',
-      //   link: '#form',
-      //   view: 'form',
-      // },
+      {
+        name: '表单 Form',
+        link: '#form',
+        view: 'form',
+      },
       // {
       //   name: '选择器 Select',
       //   link: '#select',

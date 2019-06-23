@@ -16,7 +16,7 @@ import { Component, MetaData, Watch } from '../core'
     {
       name: 'threshold',
       type: Number,
-      default: 0,
+      default: .5,
     },
   ],
 })
@@ -37,6 +37,7 @@ export default class LazyImg extends Component {
         :host{
             display: block;
             width: 100%;
+            flex-shrink: 0;
         }
         .h-img-root{
             display: block;
@@ -57,12 +58,13 @@ export default class LazyImg extends Component {
 
   init() {
     const options = {
-      // root: this.closest('h-carousel') ? this.closest('h-carousel') : null,
-      // rootMargin: '0px',
-      // threshold: 1
-      threshold: this.threshold
+      root: null,
+      // rootMargin: '320px',
+      threshold: 0
     }
+    // console.log(options, 'init', this)
     this.io = new IntersectionObserver((entries, observer) => {
+      console.log(entries[0], this)
       if (entries[0].isIntersecting) {
         this.setSrc()
         this.removeIO()
@@ -84,11 +86,12 @@ export default class LazyImg extends Component {
 
   @Watch('src')
   _srcWatch(attrName, oldVal, newVal) {
-    this.init()
+    // this.init()
   }
 
   // 从DOM中移除时调用
   disconnectedCallback() {
+    console.log('disconnectedCallback')
     this.removeIO()
   }
 

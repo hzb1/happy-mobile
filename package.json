@@ -30,9 +30,17 @@
     "build:common": "webpack --config build/webpack.common.js",
     "build:example/js": "cd example/js/ && npm run build",
     "clean": "rimraf dist",
-    "dev-example": "cd example/js/ && npm run start"
+    "dev-example": "cd example/js/ && npm run start",
+    "test": "jest"
   },
   "author": "",
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-decorators": "^7.2.3",
@@ -40,6 +48,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-stage-2": "^7.0.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.0-beta.0",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",
@@ -53,6 +62,8 @@
     "happy-mobile": "^0.0.21",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "posthtml": "^0.11.3",

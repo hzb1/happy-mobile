@@ -1,0 +1,63 @@
+<style>
+    .cell-demo{
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        padding: 12px 0;
+    }
+    .cell-demo h-cell{
+        margin: 4px 0;
+    }
+    .cell-demo h-cell-group h-cell{
+        margin: 0;
+    }
+</style>
+
+<section class="demo-html cell-demo">
+    <app-block title="基本使用">
+        <h-cell name="名称" value="hi"></h-cell>
+    </app-block>
+
+    <app-block title="Slot">
+        <h-cell>
+            <div slot="name" style="display: flex; align-items: center;">
+                <h-icon type="plus"></h-icon>
+                <p style="margin-left: 5px">自定义name</p>
+            </div>
+        </h-cell>
+        <h-cell name="自定义value" >
+            <div slot="value" style="display: flex; align-items: center">
+                <h-icon type="right"></h-icon>
+            </div>
+        </h-cell>
+    </app-block>
+
+    <!--<p>CellGroup</p>-->
+    <app-block title="单位格组 CellGroup">
+        <h-cell-group>
+            <h-cell name="名称" >
+                <h-icon type="right"></h-icon>
+            </h-cell>
+            <h-cell name="名称" >
+                <h-icon type="right"></h-icon>
+            </h-cell>
+        </h-cell-group>
+        <h-cell-group name="单位格组name">
+            <h-cell name="名称" >
+                <h-icon type="right"></h-icon>
+            </h-cell>
+            <h-cell name="名称" >
+                <h-icon type="right"></h-icon>
+            </h-cell>
+            <h-cell name="名称" >
+                <h-icon type="right"></h-icon>
+            </h-cell>
+        </h-cell-group>
+    </app-block>
+
+    <app-block title="大小 Size">
+        <h-cell name="小号 small" size="small"></h-cell>
+        <h-cell name="中号 medium" size="medium"></h-cell>
+        <h-cell name="大号 large" size="large"></h-cell>
+    </app-block>
+</section>

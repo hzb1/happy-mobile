@@ -1,0 +1,97 @@
+
+:host{
+    display: block;
+    width: 100%;
+}
+
+.h-form-item{
+    width: 100%;
+    background-color: #fff;
+    color: #333333;
+    position: relative;
+    font-size: 14px;
+    transition: color .3s;
+}
+
+.h-form-item::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #eeeeee;
+    transition: background-color .3s, height .3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scale(1, .5);
+}
+
+.h-form-item-wrap{
+    padding: 4px 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 48px;
+}
+
+.h-form-item-label{
+}
+
+.h-form-item-input{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .3s;
+}
+
+.h-form-item-input input{
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: block;
+    border: 0;
+    padding: 0 .5em;
+    box-sizing: border-box;
+    font-size: inherit;
+    color: inherit;
+    transition: color .3s;
+    background-color: transparent;
+}
+
+.h-form-item-input input:focus {
+    outline: -webkit-focus-ring-color auto 0;
+}
+
+.submit-box{
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.submit-box h-button{
+    margin-bottom: 14px;
+}
+
+
+/*校验*/
+
+/*.h-form-item.invalid,*/
+/*.h-form-item.invalid input{*/
+    /*color: var(--h-theme-yellow, #fbc02d);*/
+/*}*/
+.h-form-item.invalid::after {
+    height: 2px;
+    background-color: var(--h-theme-yellow, #fbc02d);
+}
+
+
+/*.h-form-item.valid,*/
+/*.h-form-item.valid input{*/
+    /*color: var(--h-theme-green, #26bf2c);*/
+/*}*/
+.h-form-item.valid::after {
+    height: 2px;
+    background-color: var(--h-theme-green, #26bf2c);
+}

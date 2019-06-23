@@ -1,0 +1,63 @@
+
+:host{
+    display: block;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #333;
+}
+
+:host(.h-cell-group-item) .h-cell-line:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    transform: scale(1, .5);
+    background-color: #eee;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.h-cell{
+    padding: 0 14px;
+    /*font-size: 14px;*/
+    /*line-height: 24px;*/
+}
+
+.h-cell-line{
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.h-cell h3{
+    font-size: inherit;
+    margin: 0;
+    font-weight: normal;
+}
+
+.right-slot-box{
+    display: flex;
+    align-items: center;
+    color: #999;
+}
+
+.h-cell-medium{
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.h-cell-small{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.h-cell-large{
+    font-size: 16px;
+    line-height: 28px;
+}
